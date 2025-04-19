@@ -76,41 +76,52 @@
       overflow: hidden;
     }
 
-    .resume-wrapper {
+    .flowchart {
+      max-width: 900px;
+      width: 100%;
+      margin-top: 4rem;
+    }
+
+    .node {
       background: #1e1e1e;
       border-radius: 10px;
-      overflow: hidden;
-      width: 100%;
-      max-width: 1000px;
-    }
-
-    .resume-header {
-      display: flex;
-      padding: 0.4rem 1rem;
-      background-color: #2b2b2b;
-      align-items: center;
-    }
-
-    .resume-content {
       padding: 1rem;
+      margin: 2rem auto;
+      position: relative;
+      width: 80%;
+      text-align: left;
+      border: 1px solid #2c2c2c;
+    }
+
+    .node .title {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
+    .node .meta {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .node .desc {
+      margin-top: 0.5rem;
       font-size: 0.95rem;
     }
 
-    .job-box {
-      background: #121212;
-      border-left: 3px solid #00ffd1;
-      padding: 1rem;
-      margin-bottom: 1rem;
+    .check {
+      color: #00ff88;
+      margin-right: 0.5rem;
+    }
+    .loading {
+      color: #ffcc00;
+      margin-right: 0.5rem;
     }
 
-    .job-title {
-      font-weight: bold;
-      font-size: 1rem;
-    }
-
-    .job-meta {
-      color: #888;
-      font-size: 0.85rem;
+    .line {
+      width: 2px;
+      background: #444;
+      height: 30px;
+      margin: 0 auto;
     }
   </style>
 </head>
@@ -133,36 +144,39 @@
       <div id="terminal"></div>
     </div>
 
-    <div class="resume-wrapper">
-      <div class="resume-header">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
+    <div class="flowchart">
+      <div class="node">
+        <span class="check">✔</span><span class="title">Highland High School</span>
+        <div class="meta">2016 – 2020</div>
+        <div class="desc">Excelled in computer technology programs.</div>
       </div>
-      <div class="resume-content">
-        <div class="job-box">
-          <div class="job-title">B.S. Cybersecurity & Criminal Justice</div>
-          <div class="job-meta">Indiana Tech | 2024 - Present</div>
-          <p>Dual major with focus on digital forensics, ethical hacking, and federal law enforcement pathways.</p>
-        </div>
+      <div class="line"></div>
 
-        <div class="job-box">
-          <div class="job-title">Windows Lead — Cyber Warriors</div>
-          <div class="job-meta">Indiana Tech | 2024 - Present</div>
-          <p>Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</p>
-        </div>
+      <div class="node">
+        <span class="loading">⏳</span><span class="title">Senior Cook & Host</span>
+        <div class="meta">Tomato Bar | 2022 – Present</div>
+        <div class="desc">Manages staff, training, and customer service in a high-volume restaurant setting.</div>
+      </div>
+      <div class="line"></div>
 
-        <div class="job-box">
-          <div class="job-title">Offensive Security Specialist</div>
-          <div class="job-meta">Freelance / Labs | 2023 - Present</div>
-          <p>Skilled in enumeration, privilege escalation, scripting, and adversarial emulation. Proficient with Kali Linux and Metasploit.</p>
-        </div>
+      <div class="node">
+        <span class="loading">⏳</span><span class="title">B.S. Cybersecurity & Criminal Justice</span>
+        <div class="meta">Indiana Tech | 2024 – Present</div>
+        <div class="desc">Dual major with focus on digital forensics, ethical hacking, and federal law enforcement pathways.</div>
+      </div>
+      <div class="line"></div>
 
-        <div class="job-box">
-          <div class="job-title">Technical Support & Infrastructure</div>
-          <div class="job-meta">Indiana Tech IT Dept | 2023 - Present</div>
-          <p>Supports system configuration, Windows Server, AD/LDAP, and internal infrastructure hardening.</p>
-        </div>
+      <div class="node">
+        <span class="loading">⏳</span><span class="title">Windows Lead — Cyber Warriors</span>
+        <div class="meta">Indiana Tech | 2024 – Present</div>
+        <div class="desc">Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</div>
+      </div>
+      <div class="line"></div>
+
+      <div class="node">
+        <span class="loading">⏳</span><span class="title">Offensive Security Specialist</span>
+        <div class="meta">Freelance / Labs | 2023 – Present</div>
+        <div class="desc">Skilled in enumeration, privilege escalation, scripting, and adversarial emulation. Proficient with Kali Linux and Metasploit.</div>
       </div>
     </div>
   </div>
@@ -197,7 +211,6 @@
             window.open('https://github.com/mt292', '_blank');
             break;
           default:
-            term.write("\n$ ");
             term.writeln("Unknown command: " + command);
         }
         command = '';
