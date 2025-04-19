@@ -75,11 +75,6 @@
       height: 300px;
       background-color: #000000;
     }
-
-    a {
-      color: #00ffd1;
-      text-decoration: none;
-    }
   </style>
 </head>
 <body>
@@ -104,12 +99,45 @@
 
   <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.min.js"></script>
   <script>
-    const term = new Terminal();
+    const term = new Terminal({ cursorBlink: true });
     term.open(document.getElementById('terminal'));
-    term.writeln("Welcome to Martin's terminal 👨‍💻\n");
-    term.writeln("$ resume -> <a href='resume.html' target='_blank'>Open Resume</a>");
-    term.writeln("$ linkedin -> <a href='https://linkedin.com/in/martin-topp' target='_blank'>linkedin.com/in/martin-topp</a>");
-    term.writeln("$ github -> <a href='https://github.com/mt292' target='_blank'>github.com/mt292</a>");
+    term.writeln("Welcome to Martin's terminal");
+    term.writeln("Type a command to begin:");
+    term.writeln(" - resume");
+    term.writeln(" - linkedin");
+    term.writeln(" - github");
+    term.write("\n$ ");
+
+    let command = '';
+    term.onKey(e => {
+      const char = e.key;
+
+      if (char === '\r') { // Enter key
+        switch (command.trim()) {
+          case 'resume':
+            window.open('resume.html', '_blank');
+            break;
+          case 'linkedin':
+            window.open('https://linkedin.com/in/martin-topp', '_blank');
+            break;
+          case 'github':
+            window.open('https://github.com/mt292', '_blank');
+            break;
+          default:
+            term.writeln("\nUnknown command: " + command);
+        }
+        command = '';
+        term.write("\n$ ");
+      } else if (char === '\u007f') { // Backspace
+        if (command.length > 0) {
+          command = command.slice(0, -1);
+          term.write('\b \b');
+        }
+      } else {
+        command += char;
+        term.write(char);
+      }
+    });
   </script>
 </body>
 </html>
