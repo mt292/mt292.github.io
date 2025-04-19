@@ -24,33 +24,26 @@
 
     .container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       padding: 2rem;
       gap: 2rem;
     }
 
-    .photo {
-      flex: 0 0 auto;
-      text-align: center;
-      padding: 1rem;
-    }
-
     .photo img {
       border-radius: 1rem;
-      width: 250px;
+      width: 100%;
+      max-width: 250px;
       height: auto;
       box-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
     }
 
     .terminal-wrapper {
-      flex: 0 0 auto;
-      width: 600px;
+      width: 100%;
+      max-width: 600px;
       background: #1e1e1e;
       border-radius: 10px;
       overflow: hidden;
-      margin: 1rem auto;
     }
 
     .terminal-header {
@@ -79,11 +72,10 @@
     }
 
     .resume-wrapper {
-      flex: 1 1 100%;
       background: #1e1e1e;
       border-radius: 10px;
       overflow: hidden;
-      margin: 1rem auto;
+      width: 100%;
       max-width: 1000px;
     }
 
@@ -135,9 +127,7 @@
       </div>
       <div id="terminal"></div>
     </div>
-  </div>
 
-  <div class="container">
     <div class="resume-wrapper">
       <div class="resume-header">
         <div class="dot red"></div>
@@ -190,7 +180,7 @@
     term.onKey(e => {
       const char = e.key;
 
-      if (char === '\r') { // Enter key
+      if (char === '\r') {
         switch (command.trim()) {
           case 'resume':
             window.open('resume.html', '_blank');
@@ -206,7 +196,7 @@
         }
         command = '';
         term.prompt();
-      } else if (char === '\u007f') { // Backspace
+      } else if (char === '\u007f') {
         if (command.length > 0) {
           command = command.slice(0, -1);
           term.write('\b \b');
