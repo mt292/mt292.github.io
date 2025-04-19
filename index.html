@@ -1,7 +1,115 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martin Topp | Cybersecurity Portfolio</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Courier New', Courier, monospace;
+      background-color: #0f0f0f;
+      color: #e5e5e5;
+    }
+
+    header {
+      padding: 1rem 2rem;
+      background-color: #161616;
+      font-size: 1.8rem;
+      font-weight: bold;
+      border-bottom: 2px solid #2c2c2c;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .photo {
+      flex: 1 1 300px;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .photo img {
+      border-radius: 1rem;
+      width: 250px;
+      height: auto;
+      box-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
+    }
+
+    .terminal-wrapper {
+      flex: 1 1 400px;
+      background: #1e1e1e;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 1rem;
+      max-width: 600px;
+    }
+
+    .terminal-header {
+      display: flex;
+      padding: 0.4rem 1rem;
+      background-color: #2b2b2b;
+      align-items: center;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+    }
+
+    .dot.red { background-color: #ff5f56; }
+    .dot.yellow { background-color: #ffbd2e; }
+    .dot.green { background-color: #27c93f; }
+
+    #terminal {
+      padding: 1rem;
+      height: 300px;
+      background-color: #000000;
+    }
+
+    a {
+      color: #00ffd1;
+      text-decoration: none;
+    }
+  </style>
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <header>
+    Martin Topp — Cybersecurity & Offensive Security Specialist
+  </header>
+
+  <div class="container">
+    <div class="photo">
+      <img src="photo.jpg" alt="Martin Topp">
+    </div>
+
+    <div class="terminal-wrapper">
+      <div class="terminal-header">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <div id="terminal"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.min.js"></script>
+  <script>
+    const term = new Terminal();
+    term.open(document.getElementById('terminal'));
+    term.writeln("Welcome to Martin's terminal 👨‍💻\n");
+    term.writeln("$ resume -> <a href='resume.html' target='_blank'>Open Resume</a>");
+    term.writeln("$ linkedin -> <a href='https://linkedin.com/in/martin-topp' target='_blank'>linkedin.com/in/martin-topp</a>");
+    term.writeln("$ github -> <a href='https://github.com/mt292' target='_blank'>github.com/mt292</a>");
+  </script>
 </body>
 </html>
