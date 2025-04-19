@@ -43,7 +43,7 @@
       box-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
     }
 
-    .terminal-wrapper {
+    .terminal-wrapper, .resume-wrapper {
       flex: 1 1 400px;
       background: #1e1e1e;
       border-radius: 10px;
@@ -52,7 +52,7 @@
       max-width: 600px;
     }
 
-    .terminal-header {
+    .terminal-header, .resume-header {
       display: flex;
       padding: 0.4rem 1rem;
       background-color: #2b2b2b;
@@ -75,6 +75,28 @@
       height: 300px;
       background-color: #000000;
     }
+
+    .resume-content {
+      padding: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .job-box {
+      background: #121212;
+      border-left: 3px solid #00ffd1;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .job-title {
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .job-meta {
+      color: #888;
+      font-size: 0.85rem;
+    }
   </style>
 </head>
 <body>
@@ -94,6 +116,41 @@
         <div class="dot green"></div>
       </div>
       <div id="terminal"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="resume-wrapper">
+      <div class="resume-header">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <div class="resume-content">
+        <div class="job-box">
+          <div class="job-title">🎓 B.S. Cybersecurity & Criminal Justice</div>
+          <div class="job-meta">Indiana Tech | 2024 - Present</div>
+          <p>Dual major with focus on digital forensics, ethical hacking, and federal law enforcement pathways.</p>
+        </div>
+
+        <div class="job-box">
+          <div class="job-title">🛡️ Windows Lead — Cyber Warriors</div>
+          <div class="job-meta">Indiana Tech | 2024 - Present</div>
+          <p>Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</p>
+        </div>
+
+        <div class="job-box">
+          <div class="job-title">🧠 Offensive Security Specialist</div>
+          <div class="job-meta">Freelance / Labs | 2023 - Present</div>
+          <p>Skilled in enumeration, privilege escalation, scripting, and adversarial emulation. Proficient with Kali Linux and Metasploit.</p>
+        </div>
+
+        <div class="job-box">
+          <div class="job-title">🔒 Technical Support & Infrastructure</div>
+          <div class="job-meta">Indiana Tech IT Dept | 2023 - Present</div>
+          <p>Supports system configuration, Windows Server, AD/LDAP, and internal infrastructure hardening.</p>
+        </div>
+      </div>
     </div>
   </div>
 
