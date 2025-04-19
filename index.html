@@ -84,7 +84,7 @@
 
   <div class="container">
     <div class="photo">
-      <img src="e4cb3690-00f4-4b42-b1fd-a0a7bf485462.png" alt="Martin Topp">
+      <img src="headshot.png" alt="Martin Topp">
     </div>
 
     <div class="terminal-wrapper">
@@ -101,7 +101,7 @@
   <script>
     const term = new Terminal({ cursorBlink: true });
     term.open(document.getElementById('terminal'));
-    term.writeln("Welcome to Martin's terminal 👨‍💻");
+    term.writeln("Welcome to Martin's terminal");
     term.writeln("Type a command to begin:");
     term.writeln(" - resume");
     term.writeln(" - linkedin");
@@ -119,15 +119,19 @@
         switch (command.trim()) {
           case 'resume':
             window.open('resume.html', '_blank');
+            term.write("\n$ ");
             break;
           case 'linkedin':
             window.open('https://linkedin.com/in/martin-topp', '_blank');
+            term.write("\n$ ");
             break;
           case 'github':
             window.open('https://github.com/mt292', '_blank');
+            term.write("\n$ ");
             break;
           default:
             term.writeln("Unknown command: " + command);
+            term.write("\n$ ");
         }
         command = '';
         term.prompt();
