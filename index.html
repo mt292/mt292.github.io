@@ -11,6 +11,7 @@
       font-family: 'Courier New', Courier, monospace;
       background-color: #0f0f0f;
       color: #e5e5e5;
+      text-align: center;
     }
 
     header {
@@ -19,7 +20,6 @@
       font-size: 1.8rem;
       font-weight: bold;
       border-bottom: 2px solid #2c2c2c;
-      text-align: center;
     }
 
     .container {
@@ -28,12 +28,7 @@
       justify-content: center;
       align-items: center;
       padding: 2rem;
-    }
-
-    .photo {
-      flex: 1 1 300px;
-      text-align: center;
-      padding: 1rem;
+      gap: 2rem;
     }
 
     .photo img {
@@ -43,16 +38,15 @@
       box-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
     }
 
-    .terminal-wrapper, .resume-wrapper {
-      flex: 1 1 400px;
+    .terminal-wrapper, .resume-wrapper, .graph-wrapper {
       background: #1e1e1e;
       border-radius: 10px;
       overflow: hidden;
-      margin: 1rem;
-      max-width: 600px;
+      margin: 2rem auto;
+      max-width: 1000px;
     }
 
-    .terminal-header, .resume-header {
+    .terminal-header, .resume-header, .graph-header {
       display: flex;
       padding: 0.4rem 1rem;
       background-color: #2b2b2b;
@@ -74,28 +68,31 @@
       padding: 1rem;
       height: 300px;
       background-color: #000000;
+      text-align: left;
     }
 
     .resume-content {
       padding: 1rem;
       font-size: 0.95rem;
+      display: none;
     }
 
-    .job-box {
-      background: #121212;
-      border-left: 3px solid #00ffd1;
-      padding: 1rem;
-      margin-bottom: 1rem;
+    .graph-wrapper svg {
+      width: 100%;
+      height: auto;
+      background-color: white;
     }
 
-    .job-title {
-      font-weight: bold;
-      font-size: 1rem;
+    .node {
+      fill: #000;
+      stroke: #fff;
+      stroke-width: 1px;
     }
 
-    .job-meta {
-      color: #888;
-      font-size: 0.85rem;
+    .label {
+      fill: white;
+      font-size: 0.8rem;
+      text-anchor: middle;
     }
   </style>
 </head>
@@ -119,39 +116,37 @@
     </div>
   </div>
 
-  <div class="container">
-    <div class="resume-wrapper">
-      <div class="resume-header">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
-      </div>
-      <div class="resume-content">
-        <div class="job-box">
-          <div class="job-title">🎓 B.S. Cybersecurity & Criminal Justice</div>
-          <div class="job-meta">Indiana Tech | 2024 - Present</div>
-          <p>Dual major with focus on digital forensics, ethical hacking, and federal law enforcement pathways.</p>
-        </div>
-
-        <div class="job-box">
-          <div class="job-title">🛡️ Windows Lead — Cyber Warriors</div>
-          <div class="job-meta">Indiana Tech | 2024 - Present</div>
-          <p>Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</p>
-        </div>
-
-        <div class="job-box">
-          <div class="job-title">🧠 Offensive Security Specialist</div>
-          <div class="job-meta">Freelance / Labs | 2023 - Present</div>
-          <p>Skilled in enumeration, privilege escalation, scripting, and adversarial emulation. Proficient with Kali Linux and Metasploit.</p>
-        </div>
-
-        <div class="job-box">
-          <div class="job-title">🔒 Technical Support & Infrastructure</div>
-          <div class="job-meta">Indiana Tech IT Dept | 2023 - Present</div>
-          <p>Supports system configuration, Windows Server, AD/LDAP, and internal infrastructure hardening.</p>
-        </div>
-      </div>
+  <div class="graph-wrapper">
+    <div class="graph-header">
+      <div class="dot red"></div>
+      <div class="dot yellow"></div>
+      <div class="dot green"></div>
     </div>
+    <svg viewBox="0 0 1000 600">
+      <rect x="50" y="250" width="180" height="60" class="node" rx="8"></rect>
+      <text x="140" y="285" class="label">Highland Highschool</text>
+
+      <rect x="300" y="170" width="180" height="60" class="node" rx="8"></rect>
+      <text x="390" y="205" class="label">Tomato Bar</text>
+
+      <rect x="300" y="250" width="180" height="60" class="node" rx="8"></rect>
+      <text x="390" y="285" class="label">Indiana Tech</text>
+
+      <rect x="550" y="120" width="180" height="60" class="node" rx="8"></rect>
+      <text x="640" y="155" class="label">Windows Lead</text>
+
+      <rect x="550" y="220" width="180" height="60" class="node" rx="8"></rect>
+      <text x="640" y="255" class="label">Offensive Security</text>
+
+      <rect x="550" y="320" width="180" height="60" class="node" rx="8"></rect>
+      <text x="640" y="355" class="label">IT Dept</text>
+
+      <line x1="230" y1="280" x2="300" y2="200" stroke="black" stroke-width="2" />
+      <line x1="230" y1="280" x2="300" y2="280" stroke="black" stroke-width="2" />
+      <line x1="480" y1="200" x2="550" y2="150" stroke="black" stroke-width="2" />
+      <line x1="480" y1="280" x2="550" y2="250" stroke="black" stroke-width="2" />
+      <line x1="480" y1="280" x2="550" y2="350" stroke="black" stroke-width="2" />
+    </svg>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.min.js"></script>
@@ -175,7 +170,8 @@
       if (char === '\r') { // Enter key
         switch (command.trim()) {
           case 'resume':
-            window.open('resume.html', '_blank');
+            document.querySelector('.resume-content').style.display = 'block';
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
             break;
           case 'linkedin':
             window.open('https://linkedin.com/in/martin-topp', '_blank');
