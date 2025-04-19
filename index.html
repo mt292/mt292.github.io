@@ -80,18 +80,22 @@
     .graph-wrapper svg {
       width: 100%;
       height: auto;
-      background-color: white;
+      background-color: #1e1e1e;
     }
 
     .node {
-      fill: #000;
-      stroke: #fff;
-      stroke-width: 1px;
+      fill: #1e1e1e;
+      stroke: #00ffd1;
+      stroke-width: 2px;
+      rx: 10;
+      ry: 10;
     }
 
     .label {
-      fill: white;
-      font-size: 0.8rem;
+      fill: #e5e5e5;
+      font-size: 0.85rem;
+      font-weight: bold;
+      font-family: 'Courier New', Courier, monospace;
       text-anchor: middle;
     }
   </style>
@@ -123,29 +127,31 @@
       <div class="dot green"></div>
     </div>
     <svg viewBox="0 0 1000 600">
-      <rect x="50" y="250" width="180" height="60" class="node" rx="8"></rect>
+      <!-- Flowchart Nodes -->
+      <rect x="50" y="250" width="180" height="60" class="node"/>
       <text x="140" y="285" class="label">Highland Highschool</text>
 
-      <rect x="300" y="170" width="180" height="60" class="node" rx="8"></rect>
+      <rect x="300" y="170" width="180" height="60" class="node"/>
       <text x="390" y="205" class="label">Tomato Bar</text>
 
-      <rect x="300" y="250" width="180" height="60" class="node" rx="8"></rect>
-      <text x="390" y="285" class="label">Indiana Tech</text>
+      <rect x="300" y="270" width="180" height="60" class="node"/>
+      <text x="390" y="305" class="label">Indiana Tech</text>
 
-      <rect x="550" y="120" width="180" height="60" class="node" rx="8"></rect>
+      <rect x="550" y="120" width="180" height="60" class="node"/>
       <text x="640" y="155" class="label">Windows Lead</text>
 
-      <rect x="550" y="220" width="180" height="60" class="node" rx="8"></rect>
+      <rect x="550" y="220" width="180" height="60" class="node"/>
       <text x="640" y="255" class="label">Offensive Security</text>
 
-      <rect x="550" y="320" width="180" height="60" class="node" rx="8"></rect>
+      <rect x="550" y="320" width="180" height="60" class="node"/>
       <text x="640" y="355" class="label">IT Dept</text>
 
-      <line x1="230" y1="280" x2="300" y2="200" stroke="black" stroke-width="2" />
-      <line x1="230" y1="280" x2="300" y2="280" stroke="black" stroke-width="2" />
-      <line x1="480" y1="200" x2="550" y2="150" stroke="black" stroke-width="2" />
-      <line x1="480" y1="280" x2="550" y2="250" stroke="black" stroke-width="2" />
-      <line x1="480" y1="280" x2="550" y2="350" stroke="black" stroke-width="2" />
+      <!-- Curved Lines with Bezier paths -->
+      <path d="M230,280 C250,250 270,200 300,200" stroke="#00ffd1" stroke-width="2" fill="none" />
+      <path d="M230,280 C250,280 270,280 300,280" stroke="#00ffd1" stroke-width="2" fill="none" />
+      <path d="M480,200 C510,180 530,160 550,150" stroke="#00ffd1" stroke-width="2" fill="none" />
+      <path d="M480,300 C510,280 530,260 550,250" stroke="#00ffd1" stroke-width="2" fill="none" />
+      <path d="M480,300 C510,320 530,340 550,350" stroke="#00ffd1" stroke-width="2" fill="none" />
     </svg>
   </div>
 
