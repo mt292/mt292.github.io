@@ -119,19 +119,15 @@
         switch (command.trim()) {
           case 'resume':
             window.open('resume.html', '_blank');
-            term.write("\n$ ");
             break;
           case 'linkedin':
             window.open('https://linkedin.com/in/martin-topp', '_blank');
-            term.write("\n$ ");
             break;
           case 'github':
             window.open('https://github.com/mt292', '_blank');
-            term.write("\n$ ");
             break;
           default:
             term.writeln("Unknown command: " + command);
-            term.write("\n$ ");
         }
         command = '';
         term.prompt();
