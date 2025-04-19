@@ -73,7 +73,7 @@
       height: 300px;
       background-color: #000000;
       text-align: left;
-      overflow-x: auto;
+      overflow: hidden;
     }
 
     .resume-wrapper {
@@ -188,7 +188,7 @@
       if (char === '\r') {
         switch (command.trim()) {
           case 'resume':
-            window.open('resume.html', '_blank');
+            window.open('resume-page.html', '_blank');
             break;
           case 'linkedin':
             window.open('https://linkedin.com/in/martin-topp', '_blank');
