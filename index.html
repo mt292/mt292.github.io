@@ -197,6 +197,7 @@
             window.open('https://github.com/mt292', '_blank');
             break;
           default:
+            term.write("\n$ ");
             term.writeln("Unknown command: " + command);
         }
         command = '';
