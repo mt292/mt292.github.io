@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Martin Topp | Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css">
   <style>
@@ -12,7 +12,6 @@
       font-family: 'Courier New', Courier, monospace;
       background: linear-gradient(160deg, #040d36 0%, #0a1a3d 100%);
       color: #e5e5e5;
-      text-align: center;
       width: 100%;
       overflow-x: hidden;
     }
@@ -22,6 +21,7 @@
       background-color: #161616;
       font-size: 1.8rem;
       font-weight: bold;
+      text-align: center;
       border-bottom: 2px solid #2c2c2c;
     }
 
@@ -30,7 +30,6 @@
       flex-direction: column;
       align-items: center;
       padding: 2rem 1rem;
-      gap: 2rem;
       width: 100%;
     }
 
@@ -48,6 +47,7 @@
       background: #1e1e1e;
       border-radius: 10px;
       overflow: hidden;
+      margin-top: 2rem;
     }
 
     .terminal-header {
@@ -76,52 +76,69 @@
       overflow: hidden;
     }
 
-    .flowchart {
+    .graph {
+      margin: 4rem auto;
       max-width: 900px;
-      width: 100%;
-      margin-top: 4rem;
+      padding: 0 1rem;
     }
 
-    .node {
+    .graph-box {
       background: #1e1e1e;
-      border-radius: 10px;
-      padding: 1rem;
-      margin: 2rem auto;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border: 1px solid #333;
+      display: inline-block;
       position: relative;
-      width: 80%;
-      text-align: left;
-      border: 1px solid #2c2c2c;
     }
 
-    .node .title {
-      font-weight: bold;
-      font-size: 1.1rem;
+    .graph-box.complete::before,
+    .graph-box.in-progress::before {
+      content: '\2713';
+      font-size: 1rem;
+      color: #00ff88;
+      background: #1e1e1e;
+      border-radius: 50%;
+      border: 2px solid #00ff88;
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      text-align: center;
+      line-height: 16px;
+      margin-right: 8px;
     }
 
-    .node .meta {
+    .graph-box.in-progress::before {
+      content: '\231B';
+      border-color: #ffcc00;
+      color: #ffcc00;
+    }
+
+    .graph-line {
+      width: 2px;
+      background: #444;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .branch-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .graph-desc {
+      margin-top: 0.5rem;
       color: #aaa;
       font-size: 0.9rem;
     }
 
-    .node .desc {
-      margin-top: 0.5rem;
-      font-size: 0.95rem;
-    }
-
-    .check {
-      color: #00ff88;
-      margin-right: 0.5rem;
-    }
-    .loading {
-      color: #ffcc00;
-      margin-right: 0.5rem;
-    }
-
-    .line {
-      width: 2px;
-      background: #444;
-      height: 30px;
-      margin: 0 auto;
+    .graph-role {
+      font-weight: bold;
+      font-size: 1rem;
+      margin-top: 0.2rem;
     }
   </style>
 </head>
@@ -144,39 +161,38 @@
       <div id="terminal"></div>
     </div>
 
-    <div class="flowchart">
-      <div class="node">
-        <span class="check">✔</span><span class="title">Highland High School</span>
-        <div class="meta">2016 – 2020</div>
-        <div class="desc">Excelled in computer technology programs.</div>
+    <div class="graph">
+      <div class="graph-box complete">
+        Highland High School
+        <div class="graph-desc">2016 – 2020</div>
+        <div class="graph-desc">Excelled in computer technology programs.</div>
       </div>
-      <div class="line"></div>
 
-      <div class="node">
-        <span class="loading">⏳</span><span class="title">Senior Cook & Host</span>
-        <div class="meta">Tomato Bar | 2022 – Present</div>
-        <div class="desc">Manages staff, training, and customer service in a high-volume restaurant setting.</div>
-      </div>
-      <div class="line"></div>
+      <div class="branch-container">
+        <div class="graph-box in-progress">
+          Senior Cook & Host
+          <div class="graph-desc">Tomato Bar | 2022 – Present</div>
+          <div class="graph-desc">Manages staff, training, and customer service in a high-volume restaurant setting.</div>
+        </div>
 
-      <div class="node">
-        <span class="loading">⏳</span><span class="title">B.S. Cybersecurity & Criminal Justice</span>
-        <div class="meta">Indiana Tech | 2024 – Present</div>
-        <div class="desc">Dual major with focus on digital forensics, ethical hacking, and federal law enforcement pathways.</div>
-      </div>
-      <div class="line"></div>
+        <div class="graph-box in-progress">
+          B.S. Cybersecurity & Criminal Justice
+          <div class="graph-desc">Indiana Tech | 2024 – Present</div>
+          <div class="graph-desc">Dual major with focus on digital forensics, ethical hacking, and federal law enforcement pathways.</div>
 
-      <div class="node">
-        <span class="loading">⏳</span><span class="title">Windows Lead — Cyber Warriors</span>
-        <div class="meta">Indiana Tech | 2024 – Present</div>
-        <div class="desc">Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</div>
-      </div>
-      <div class="line"></div>
-
-      <div class="node">
-        <span class="loading">⏳</span><span class="title">Offensive Security Specialist</span>
-        <div class="meta">Freelance / Labs | 2023 – Present</div>
-        <div class="desc">Skilled in enumeration, privilege escalation, scripting, and adversarial emulation. Proficient with Kali Linux and Metasploit.</div>
+          <div class="branch-container">
+            <div class="graph-box in-progress">
+              Windows Lead — Cyber Warriors
+              <div class="graph-desc">Indiana Tech | 2024 – Present</div>
+              <div class="graph-desc">Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</div>
+            </div>
+            <div class="graph-box in-progress">
+              Offensive Security Specialist
+              <div class="graph-desc">Freelance / Labs | 2023 – Present</div>
+              <div class="graph-desc">Skilled in enumeration, privilege escalation, scripting, and adversarial emulation.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -192,7 +208,7 @@
     term.writeln(" - github");
     term.prompt = () => {
       term.write("\n$ ");
-    }
+    };
     term.prompt();
 
     let command = '';
