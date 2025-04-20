@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Martin Topp | Cybersecurity Portfolio</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css">
+  <script src="https://cdn.jsdelivr.net/npm/leader-line@1.0.7/leader-line.min.js"></script>
   <style>
     html, body {
       margin: 0;
@@ -42,15 +43,13 @@
     }
 
     .terminal-wrapper {
+      width: 100%;
+      max-width: 600px;
       background: #1e1e1e;
       border-radius: 10px;
-      width: 90%;
-      max-width: 700px;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
       overflow: hidden;
+      margin-top: 2rem;
     }
-
-    
 
     .terminal-header {
       display: flex;
@@ -81,32 +80,23 @@
     .graph {
       margin: 4rem auto;
       max-width: 1000px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .graph-row {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: grid;
       gap: 2rem;
       position: relative;
+      place-items: center;
     }
 
-    .graph-box {
+    .node {
       background: #0e1116;
       border-radius: 10px;
       padding: 1rem 1.5rem;
-      min-width: 280px;
-      max-width: 320px;
+      width: 300px;
       border: 1px solid #333;
       text-align: left;
       position: relative;
     }
 
-    .graph-box .status {
+    .node .status {
       position: absolute;
       left: -20px;
       top: 20px;
@@ -116,9 +106,8 @@
       background: #00ff88;
     }
 
-    .graph-box.in-progress .status {
+    .node.in-progress .status {
       background: #ffcc00;
-      box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.2);
       animation: pulse 1.5s infinite;
     }
 
@@ -128,13 +117,13 @@
       100% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
     }
 
-    .graph-role {
+    .role {
       font-weight: bold;
       font-size: 1rem;
       margin-bottom: 0.2rem;
     }
 
-    .graph-desc {
+    .desc {
       font-size: 0.9rem;
       color: #bbb;
     }
@@ -158,48 +147,38 @@
       </div>
       <div id="terminal"></div>
     </div>
+  </div>
 
-    <div class="graph">
-      <div class="graph-row">
-        <div class="graph-box">
-          <div class="status"></div>
-          <div class="graph-role">Highland High School</div>
-          <div class="graph-desc">2016 – 2020</div>
-          <div class="graph-desc">Excelled in computer technology programs.</div>
-        </div>
-      </div>
-
-      <div class="graph-row">
-        <div class="graph-box in-progress">
-          <div class="status"></div>
-          <div class="graph-role">Senior Cook & Host</div>
-          <div class="graph-desc">Tomato Bar | 2022 – Present</div>
-          <div class="graph-desc">Manages staff, training, and customer service in a high-volume restaurant setting.</div>
-        </div>
-
-        <div class="graph-box in-progress">
-          <div class="status"></div>
-          <div class="graph-role">B.S. Cybersecurity & Criminal Justice</div>
-          <div class="graph-desc">Indiana Tech | 2024 – Present</div>
-          <div class="graph-desc">Dual major with focus on digital forensics, ethical hacking, and federal law enforcement pathways.</div>
-        </div>
-      </div>
-
-      <div class="graph-row">
-        <div class="graph-box in-progress">
-          <div class="status"></div>
-          <div class="graph-role">Windows Lead — Cyber Warriors</div>
-          <div class="graph-desc">Indiana Tech | 2024 – Present</div>
-          <div class="graph-desc">Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</div>
-        </div>
-
-        <div class="graph-box in-progress">
-          <div class="status"></div>
-          <div class="graph-role">Offensive Security Specialist</div>
-          <div class="graph-desc">Freelance / Labs | 2023 – Present</div>
-          <div class="graph-desc">Skilled in enumeration, privilege escalation, scripting, and adversarial emulation.</div>
-        </div>
-      </div>
+  <div class="graph">
+    <div id="node-windows" class="node in-progress"><div class="status"></div>
+      <div class="role">Windows Lead — Cyber Warriors</div>
+      <div class="desc">Indiana Tech | 2024 – Present</div>
+      <div class="desc">Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</div>
+    </div>
+    <div id="node-it" class="node in-progress"><div class="status"></div>
+      <div class="role">Technical Support & Infrastructure</div>
+      <div class="desc">Indiana Tech IT Dept | 2023 – Present</div>
+      <div class="desc">Supports system configuration, Windows Server, AD/LDAP, and internal infrastructure hardening.</div>
+    </div>
+    <div id="node-offsec" class="node in-progress"><div class="status"></div>
+      <div class="role">Offensive Security Specialist</div>
+      <div class="desc">Freelance / Labs | 2023 – Present</div>
+      <div class="desc">Skilled in enumeration, privilege escalation, scripting, and adversarial emulation.</div>
+    </div>
+    <div id="node-bs" class="node in-progress"><div class="status"></div>
+      <div class="role">B.S. Cybersecurity & Criminal Justice</div>
+      <div class="desc">Indiana Tech | 2024 – Present</div>
+      <div class="desc">Dual major with focus on digital forensics, ethical hacking, and federal law enforcement pathways.</div>
+    </div>
+    <div id="node-cook" class="node in-progress"><div class="status"></div>
+      <div class="role">Senior Cook & Host</div>
+      <div class="desc">Tomato Bar | 2022 – Present</div>
+      <div class="desc">Manages staff, training, and customer service in a high-volume restaurant setting.</div>
+    </div>
+    <div id="node-hhs" class="node"><div class="status"></div>
+      <div class="role">Highland High School</div>
+      <div class="desc">2016 – 2020</div>
+      <div class="desc">Excelled in computer technology programs.</div>
     </div>
   </div>
 
@@ -246,6 +225,15 @@
         command += char;
         term.write(char);
       }
+    });
+
+    // Leader lines for connecting boxes
+    window.addEventListener('load', () => {
+      new LeaderLine(document.getElementById('node-hhs'), document.getElementById('node-bs'), { startPlug: 'disc', endPlug: 'disc', path: 'fluid', color: '#444' });
+      new LeaderLine(document.getElementById('node-hhs'), document.getElementById('node-cook'), { startPlug: 'disc', endPlug: 'disc', path: 'fluid', color: '#444' });
+      new LeaderLine(document.getElementById('node-bs'), document.getElementById('node-windows'), { startPlug: 'disc', endPlug: 'disc', path: 'fluid', color: '#444' });
+      new LeaderLine(document.getElementById('node-bs'), document.getElementById('node-offsec'), { startPlug: 'disc', endPlug: 'disc', path: 'fluid', color: '#444' });
+      new LeaderLine(document.getElementById('node-bs'), document.getElementById('node-it'), { startPlug: 'disc', endPlug: 'disc', path: 'fluid', color: '#444' });
     });
   </script>
 </body>
