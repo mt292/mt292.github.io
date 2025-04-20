@@ -1,3 +1,4 @@
+
 body {
   background: linear-gradient(160deg, #040d36 0%, #0a1a3d 100%);
   font-family: 'Courier New', monospace;
@@ -56,9 +57,7 @@ header {
   color: white;
 }
 
-.in-progress .react-flow__node-default {
-  border-left: 4px solid #ffcc00;
-}
-.done-node .react-flow__node-default {
-  border-left: 4px solid #00ff88;
+.graph-space {
+  margin-top: 4rem;
+  height: 800px;
 }
