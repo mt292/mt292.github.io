@@ -1,240 +1,196 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Martin Topp | Cybersecurity Portfolio</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xterm/css/xterm.css">
-  <script src="https://cdn.jsdelivr.net/npm/leader-line@1.0.7/leader-line.min.js"></script>
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Courier New', Courier, monospace;
-      background: linear-gradient(160deg, #040d36 0%, #0a1a3d 100%);
-      color: #e5e5e5;
-      width: 100%;
-      overflow-x: hidden;
-    }
+<style>
+  /* Container styling */
+  #experience-flow {
+    position: relative;
+    padding: 40px 20px;
+    background: radial-gradient(circle at top left, #091236, #1d1d1d);
+    /* Optional: max-width for layout */
+    max-width: 900px;
+    margin: auto;
+  }
+  /* Layout for each level (row of nodes) */
+  #experience-flow .level {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 60px; /* space between levels */
+    flex-wrap: nowrap;   /* no wrap to preserve branching structure */
+  }
+  #experience-flow .level:last-child {
+    margin-bottom: 0;
+  }
+  /* Node card styling */
+  #experience-flow .node {
+    position: relative;
+    z-index: 1;  /* ensure nodes appear above connection lines */
+    background: #21262d;
+    border: 1px solid #30363d;
+    border-radius: 6px;
+    padding: 12px;
+    color: #c9d1d9;
+    min-width: 150px;
+  }
+  #experience-flow .node-header {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+  #experience-flow .title-org {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #e6edf3;
+  }
+  #experience-flow .title-org .org {
+    font-weight: 400;
+    color: #a0a0a0;
+  }
+  #experience-flow .dates {
+    font-size: 0.9em;
+    color: #8b949e;
+    margin-top: 2px;
+  }
+  #experience-flow .desc {
+    font-size: 0.95em;
+    line-height: 1.4;
+    color: #bdbdbd;
+  }
+  /* Status icon styling */
+  .status-icon {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+  .status-icon.completed {
+    width: 12px;
+    height: 12px;
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAxMiAxMic+CjxjaXJjbGUgY3g9JzYnIGN5PSc2JyByPSc1JyBmaWxsPScjMmVhMDQzJy8+PHBhdGggZD0nTTMuNSA2LjVMNS41IDguNUw4LjUgNC41JyBzdHJva2U9JyNmZmYnIHN0cm9rZS13aWR0aD0nMS41JyBmaWxsPSdub25lJy8+Cjwvc3ZnPg==") no-repeat center center;
+    background-size: contain;
+  }
+  .status-icon.ongoing {
+    width: 12px;
+    height: 12px;
+    border: 2px solid #daaa3f;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  @keyframes spin {
+    100% { transform: rotate(360deg); }
+  }
+</style>
 
-    header {
-      padding: 1rem;
-      background-color: #161616;
-      font-size: 1.8rem;
-      font-weight: bold;
-      text-align: center;
-      border-bottom: 2px solid #2c2c2c;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 2rem 1rem;
-      width: 100%;
-    }
-
-    .photo img {
-      border-radius: 1rem;
-      width: 100%;
-      max-width: 250px;
-      height: auto;
-      box-shadow: 0 0 20px rgba(0, 255, 200, 0.3);
-    }
-
-    .terminal-wrapper {
-      width: 100%;
-      max-width: 600px;
-      background: #1e1e1e;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 2rem;
-    }
-
-    .terminal-header {
-      display: flex;
-      padding: 0.4rem 1rem;
-      background-color: #2b2b2b;
-      align-items: center;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin-right: 0.5rem;
-    }
-
-    .dot.red { background-color: #ff5f56; }
-    .dot.yellow { background-color: #ffbd2e; }
-    .dot.green { background-color: #27c93f; }
-
-    #terminal {
-      padding: 1rem;
-      height: 300px;
-      background-color: #000000;
-      text-align: left;
-      overflow: hidden;
-    }
-
-    .graph {
-      margin: 4rem auto;
-      max-width: 1000px;
-      display: grid;
-      gap: 2rem;
-      position: relative;
-      place-items: center;
-    }
-
-    .node {
-      background: #0e1116;
-      border-radius: 10px;
-      padding: 1rem 1.5rem;
-      width: 300px;
-      border: 1px solid #333;
-      text-align: left;
-      position: relative;
-    }
-
-    .node .status {
-      position: absolute;
-      left: -20px;
-      top: 20px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #00ff88;
-    }
-
-    .node.in-progress .status {
-      background: #ffcc00;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.4); }
-      70% { box-shadow: 0 0 0 8px rgba(255, 204, 0, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
-    }
-
-    .role {
-      font-weight: bold;
-      font-size: 1rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .desc {
-      font-size: 0.9rem;
-      color: #bbb;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    Martin Topp — Cybersecurity & Criminal Justice College Student
-  </header>
-
-  <div class="container">
-    <div class="photo">
-      <img src="headshot.jpg" alt="Martin Topp">
-    </div>
-
-    <div class="terminal-wrapper">
-      <div class="terminal-header">
-        <div class="dot red"></div>
-        <div class="dot yellow"></div>
-        <div class="dot green"></div>
+<section id="experience-flow">
+  <!-- Top level: three nodes branching from B.S. -->
+  <div class="level top-level">
+    <div id="node-windows" class="node completed">
+      <div class="node-header">
+        <span class="status-icon completed"></span>
+        <div>
+          <div class="title-org"><span class="role">Windows Lead</span> — <span class="org">Cyber Warriors</span></div>
+          <div class="dates">2017 – 2018</div>
+        </div>
       </div>
-      <div id="terminal"></div>
+      <div class="desc">Led the Windows security team for the Cyber Warriors club, organizing training and competition prep.</div>
+    </div>
+    <div id="node-tech" class="node completed">
+      <div class="node-header">
+        <span class="status-icon completed"></span>
+        <div>
+          <div class="title-org"><span class="role">Technical Support & Infrastructure</span> — <span class="org">IT Department</span></div>
+          <div class="dates">2018 – 2019</div>
+        </div>
+      </div>
+      <div class="desc">Provided technical support and managed IT infrastructure, improving system uptime and user support response.</div>
+    </div>
+    <div id="node-offsec" class="node ongoing">
+      <div class="node-header">
+        <span class="status-icon ongoing"></span>
+        <div>
+          <div class="title-org"><span class="role">Offensive Security Specialist</span> — <span class="org">Data Security Solutions</span></div>
+          <div class="dates">2019 – Present</div>
+        </div>
+      </div>
+      <div class="desc">Conducting penetration tests and security assessments for clients, and developing strategies to bolster cyber defenses.</div>
     </div>
   </div>
-
-  <div class="graph">
-    <div id="node-windows" class="node in-progress"><div class="status"></div>
-      <div class="role">Windows Lead — Cyber Warriors</div>
-      <div class="desc">Indiana Tech | 2024 – Present</div>
-      <div class="desc">Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</div>
+  <!-- Middle level: two nodes branching from High School -->
+  <div class="level mid-level">
+    <div id="node-bs" class="node completed">
+      <div class="node-header">
+        <span class="status-icon completed"></span>
+        <div>
+          <div class="title-org"><span class="role">B.S. Cybersecurity & Criminal Justice</span> — <span class="org">Purdue University</span></div>
+          <div class="dates">2014 – 2018</div>
+        </div>
+      </div>
+      <div class="desc">Dual-major undergraduate degree combining technical cybersecurity skills with criminal justice foundations.</div>
     </div>
-    <div id="node-it" class="node in-progress"><div class="status"></div>
-      <div class="role">Technical Support & Infrastructure</div>
-      <div class="desc">Indiana Tech IT Dept | 2023 – Present</div>
-      <div class="desc">Supports system configuration, Windows Server, AD/LDAP, and internal infrastructure hardening.</div>
-    </div>
-    <div id="node-offsec" class="node in-progress"><div class="status"></div>
-      <div class="role">Offensive Security Specialist</div>
-      <div class="desc">Freelance / Labs | 2023 – Present</div>
-      <div class="desc">Skilled in enumeration, privilege escalation, scripting, and adversarial emulation.</div>
-    </div>
-    <div id="node-bs" class="node in-progress"><div class="status"></div>
-      <div class="role">B.S. Cybersecurity & Criminal Justice</div>
-      <div class="desc">Indiana Tech | 2024 – Present</div>
-      <div class="desc">Dual major with focus on digital forensics, ethical hacking, and federal law enforcement pathways.</div>
-    </div>
-    <div id="node-cook" class="node in-progress"><div class="status"></div>
-      <div class="role">Senior Cook & Host</div>
-      <div class="desc">Tomato Bar | 2022 – Present</div>
-      <div class="desc">Manages staff, training, and customer service in a high-volume restaurant setting.</div>
-    </div>
-    <div id="node-hhs" class="node"><div class="status"></div>
-      <div class="role">Highland High School</div>
-      <div class="desc">2016 – 2020</div>
-      <div class="desc">Excelled in computer technology programs.</div>
+    <div id="node-cook" class="node completed">
+      <div class="node-header">
+        <span class="status-icon completed"></span>
+        <div>
+          <div class="title-org"><span class="role">Senior Cook & Host</span> — <span class="org">Family Bistro</span></div>
+          <div class="dates">2015 – 2017</div>
+        </div>
+      </div>
+      <div class="desc">Managed kitchen operations and front-of-house hosting, overseeing staff and ensuring excellent guest experiences.</div>
     </div>
   </div>
+  <!-- Bottom level: base node -->
+  <div class="level bottom-level">
+    <div id="node-highschool" class="node completed">
+      <div class="node-header">
+        <span class="status-icon completed"></span>
+        <div>
+          <div class="title-org"><span class="role">Highland High School</span></div>
+          <div class="dates">2010 – 2014</div>
+        </div>
+      </div>
+      <div class="desc">High school diploma, with a focus in computer science and networking electives.</div>
+    </div>
+  </div>
+  <!-- SVG container for connection lines -->
+  <svg id="connections"></svg>
+</section>
 
-  <script src="https://cdn.jsdelivr.net/npm/xterm/lib/xterm.min.js"></script>
-  <script>
-    const term = new Terminal({ cursorBlink: true });
-    term.open(document.getElementById('terminal'));
-    term.writeln("Welcome to Martin's terminal");
-    term.writeln("Type a command to begin:");
-    term.writeln(" - resume");
-    term.writeln(" - linkedin");
-    term.writeln(" - github");
-    term.prompt = () => {
-      term.write("\n$ ");
-    };
-    term.prompt();
-
-    let command = '';
-    term.onKey(e => {
-      const char = e.key;
-
-      if (char === '\r') {
-        switch (command.trim()) {
-          case 'resume':
-            window.open('resume-page.html', '_blank');
-            break;
-          case 'linkedin':
-            window.open('https://linkedin.com/in/martin-topp', '_blank');
-            break;
-          case 'github':
-            window.open('https://github.com/mt292', '_blank');
-            break;
-          default:
-            term.writeln("Unknown command: " + command);
-        }
-        command = '';
-        term.prompt();
-      } else if (char === '\u007f') {
-        if (command.length > 0) {
-          command = command.slice(0, -1);
-          term.write('\b \b');
-        }
-      } else if (char.length === 1) {
-        command += char;
-        term.write(char);
-      }
+<script>
+  // Draw curved connections between nodes
+  function drawConnections() {
+    const container = document.getElementById('experience-flow');
+    const svg = document.getElementById('connections');
+    // Clear existing lines
+    svg.innerHTML = "";
+    const edges = [
+      { from: 'node-highschool', to: 'node-bs' },
+      { from: 'node-highschool', to: 'node-cook' },
+      { from: 'node-bs', to: 'node-windows' },
+      { from: 'node-bs', to: 'node-tech' },
+      { from: 'node-bs', to: 'node-offsec' }
+    ];
+    // Get container offset for coordinates
+    const containerRect = container.getBoundingClientRect();
+    edges.forEach(edge => {
+      const fromEl = document.getElementById(edge.from);
+      const toEl = document.getElementById(edge.to);
+      if (!fromEl || !toEl) return;
+      const fromRect = fromEl.getBoundingClientRect();
+      const toRect = toEl.getBoundingClientRect();
+      // Calculate start (top-center of from) and end (bottom-center of to)
+      const x1 = fromRect.left - containerRect.left + fromRect.width / 2;
+      const y1 = fromRect.top - containerRect.top;
+      const x2 = toRect.left - containerRect.left + toRect.width / 2;
+      const y2 = toRect.top - containerRect.top + toRect.height;
+      const midY = (y1 + y2) / 2;
+      // Create SVG path
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", `M ${x1},${y1} C ${x1},${midY} ${x2},${midY} ${x2},${y2}`);
+      path.setAttribute("stroke", "#444");
+      path.setAttribute("stroke-width", "2");
+      path.setAttribute("fill", "none");
+      svg.appendChild(path);
     });
-
-    // Leader lines for connecting boxes
-    window.addEventListener('load', () => {
-      new LeaderLine(document.getElementById('node-hhs'), document.getElementById('node-bs'), { startPlug: 'disc', endPlug: 'disc', path: 'fluid', color: '#444' });
-      new LeaderLine(document.getElementById('node-hhs'), document.getElementById('node-cook'), { startPlug: 'disc', endPlug: 'disc', path: 'fluid', color: '#444' });
-      new LeaderLine(document.getElementById('node-bs'), document.getElementById('node-windows'), { startPlug: 'disc', endPlug: 'disc', path: 'fluid', color: '#444' });
-      new LeaderLine(document.getElementById('node-bs'), document.getElementById('node-offsec'), { startPlug: 'disc', endPlug: 'disc', path: 'fluid', color: '#444' });
-      new LeaderLine(document.getElementById('node-bs'), document.getElementById('node-it'), { startPlug: 'disc', endPlug: 'disc', path: 'fluid', color: '#444' });
-    });
-  </script>
-</body>
-</html>
+  }
+  // Draw lines on load and on window resize for responsiveness
+  window.addEventListener('DOMContentLoaded', drawConnections);
+  window.addEventListener('resize', drawConnections);
+</script>
