@@ -1,0 +1,12 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(160deg, #040d36 0%, #0a1a3d 100%);
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+}
+
+#root {
+  height: 100vh;
+}
