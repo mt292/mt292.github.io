@@ -78,67 +78,63 @@
 
     .graph {
       margin: 4rem auto;
-      max-width: 900px;
-      padding: 0 1rem;
+      max-width: 1000px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
     }
 
-    .graph-box {
-      background: #1e1e1e;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      margin: 1rem 0;
-      border: 1px solid #333;
-      display: inline-block;
+    .graph-row {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
       position: relative;
     }
 
-    .graph-box.complete::before,
-    .graph-box.in-progress::before {
-      content: '\2713';
-      font-size: 1rem;
-      color: #00ff88;
-      background: #1e1e1e;
-      border-radius: 50%;
-      border: 2px solid #00ff88;
-      width: 16px;
-      height: 16px;
-      display: inline-block;
-      text-align: center;
-      line-height: 16px;
-      margin-right: 8px;
+    .graph-box {
+      background: #0e1116;
+      border-radius: 10px;
+      padding: 1rem 1.5rem;
+      min-width: 280px;
+      max-width: 320px;
+      border: 1px solid #333;
+      text-align: left;
+      position: relative;
     }
 
-    .graph-box.in-progress::before {
-      content: '\231B';
-      border-color: #ffcc00;
-      color: #ffcc00;
-    }
-
-    .graph-line {
-      width: 2px;
-      background: #444;
+    .graph-box .status {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      left: -20px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #00ff88;
     }
 
-    .branch-container {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 1rem;
+    .graph-box.in-progress .status {
+      background: #ffcc00;
+      box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.2);
+      animation: pulse 1.5s infinite;
     }
 
-    .graph-desc {
-      margin-top: 0.5rem;
-      color: #aaa;
-      font-size: 0.9rem;
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0.4); }
+      70% { box-shadow: 0 0 0 8px rgba(255, 204, 0, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(255, 204, 0, 0); }
     }
 
     .graph-role {
       font-weight: bold;
       font-size: 1rem;
-      margin-top: 0.2rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .graph-desc {
+      font-size: 0.9rem;
+      color: #bbb;
     }
   </style>
 </head>
@@ -162,36 +158,44 @@
     </div>
 
     <div class="graph">
-      <div class="graph-box complete">
-        Highland High School
-        <div class="graph-desc">2016 – 2020</div>
-        <div class="graph-desc">Excelled in computer technology programs.</div>
+      <div class="graph-row">
+        <div class="graph-box">
+          <div class="status"></div>
+          <div class="graph-role">Highland High School</div>
+          <div class="graph-desc">2016 – 2020</div>
+          <div class="graph-desc">Excelled in computer technology programs.</div>
+        </div>
       </div>
 
-      <div class="branch-container">
+      <div class="graph-row">
         <div class="graph-box in-progress">
-          Senior Cook & Host
+          <div class="status"></div>
+          <div class="graph-role">Senior Cook & Host</div>
           <div class="graph-desc">Tomato Bar | 2022 – Present</div>
           <div class="graph-desc">Manages staff, training, and customer service in a high-volume restaurant setting.</div>
         </div>
 
         <div class="graph-box in-progress">
-          B.S. Cybersecurity & Criminal Justice
+          <div class="status"></div>
+          <div class="graph-role">B.S. Cybersecurity & Criminal Justice</div>
           <div class="graph-desc">Indiana Tech | 2024 – Present</div>
           <div class="graph-desc">Dual major with focus on digital forensics, ethical hacking, and federal law enforcement pathways.</div>
+        </div>
+      </div>
 
-          <div class="branch-container">
-            <div class="graph-box in-progress">
-              Windows Lead — Cyber Warriors
-              <div class="graph-desc">Indiana Tech | 2024 – Present</div>
-              <div class="graph-desc">Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</div>
-            </div>
-            <div class="graph-box in-progress">
-              Offensive Security Specialist
-              <div class="graph-desc">Freelance / Labs | 2023 – Present</div>
-              <div class="graph-desc">Skilled in enumeration, privilege escalation, scripting, and adversarial emulation.</div>
-            </div>
-          </div>
+      <div class="graph-row">
+        <div class="graph-box in-progress">
+          <div class="status"></div>
+          <div class="graph-role">Windows Lead — Cyber Warriors</div>
+          <div class="graph-desc">Indiana Tech | 2024 – Present</div>
+          <div class="graph-desc">Lead defender and red team strategist in national competitions (e.g., CCDC, Lockdown, UBUFF).</div>
+        </div>
+
+        <div class="graph-box in-progress">
+          <div class="status"></div>
+          <div class="graph-role">Offensive Security Specialist</div>
+          <div class="graph-desc">Freelance / Labs | 2023 – Present</div>
+          <div class="graph-desc">Skilled in enumeration, privilege escalation, scripting, and adversarial emulation.</div>
         </div>
       </div>
     </div>
