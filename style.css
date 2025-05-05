@@ -1,10 +1,10 @@
 :root {
-  --dark-bg: #121c2e;
+  --dark-bg: ##161B33;
   --section-bg: #1c2948;
   --card-bg: #22305a;
   --fg: #e4e6eb;
   --muted: #8a9bb8;
-  --accent: #ff9f1c;
+  --accent: #00aaff;
   --btn-bg: #00aaff;
   --footer-bg: #0f1724;
 }
