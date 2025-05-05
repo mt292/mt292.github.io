@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Martin Topp</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="terminal.js" defer></script>
+  <!-- xterm.js styles & library -->
+  <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css" />
+  <script src="https://unpkg.com/xterm/lib/xterm.js"></script>
 </head>
 <body>
   <!-- Header -->
@@ -25,9 +27,55 @@
       <img src="headshot.jpg" alt="Martin Topp" />
     </div>
     <div class="hero-right">
-      <div id="terminal">
-        <div class="prompt">➜ <span class="user">martin</span> <em>type a command to begin…</em></div>
+      <div class="terminal-window">
+        <div class="mac-header">
+          <span class="mac-btn red"></span>
+          <span class="mac-btn yellow"></span>
+          <span class="mac-btn green"></span>
+        </div>
+        <div id="terminal"></div>
       </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const term = new Terminal({ cursorBlink: true });
+          term.open(document.getElementById('terminal'));
+          term.writeln("Welcome to Martin's terminal");
+          term.writeln('Type a command to begin:');
+          term.writeln(' - resume');
+          term.writeln(' - linkedin');
+          term.writeln(' - github');
+          term.prompt = () => term.write('\r\n$ ');
+          term.prompt();
+
+          let command = '';
+          term.onKey(e => {
+            const char = e.key;
+            if (char === '\r') {
+              switch (command.trim()) {
+                case 'resume':
+                  window.open('resume-page.html', '_blank');
+                  break;
+                case 'linkedin':
+                  window.open('https://linkedin.com/in/martin-topp', '_blank');
+                  break;
+                case 'github':
+                  window.open('https://github.com/mtopp292', '_blank');
+                  break;
+                default:
+                  term.writeln('Unknown command: ' + command);
+              }
+              command = '';
+              term.prompt();
+            } else if (char === '\u007f') {
+              command = command.slice(0, -1);
+              term.write('\b \b');
+            } else if (char.length === 1) {
+              command += char;
+              term.write(char);
+            }
+          });
+        });
+      </script>
     </div>
   </section>
 
