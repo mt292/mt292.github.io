@@ -1,30 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const terminal = document.getElementById('terminal');
+  const term = new Terminal({ cursorBlink: true });
+  term.open(document.getElementById('terminal'));
+  term.writeln("Welcome to Martin's terminal");
+  term.writeln('Type a command to begin:');
+  term.writeln(' - resume');
+  term.writeln(' - linkedin');
+  term.writeln(' - github');
+  term.prompt = () => term.write('\r\n$ ');
+  term.prompt();
 
-  terminal.addEventListener('click', () => {
-    if (terminal.querySelector('.term-input')) return;
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.classList.add('term-input');
-    input.placeholder = 'type a command...';
-    terminal.appendChild(input);
-    input.focus();
-
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
-        const cmd = input.value.trim().toLowerCase();
-        let outputText = `➜ ${cmd}: command not found`;
-        if (cmd === 'resume')    openLink('resume-page.html');
-        else if (cmd === 'about')   scrollToSection('about');
-        else if (cmd === 'linkedin') openLink('https://linkedin.com/in/martin-topp');
-        else if (cmd === 'github')   openLink('https://github.com/mtopp292');
-        const output = document.createElement('div');
-        output.textContent = outputText;
-        output.style.marginTop = '0.5rem';
-        terminal.insertBefore(output, input);
-        input.value = '';
+  let command = '';
+  term.onKey(e => {
+    const char = e.key;
+    if (char === '\r') {
+      switch (command.trim()) {
+        case 'resume':
+          openLink('resume-page.html');
+          break;
+        case 'linkedin':
+          openLink('https://linkedin.com/in/martin-topp');
+          break;
+        case 'github':
+          openLink('https://github.com/mtopp292');
+          break;
+        default:
+          term.writeln('Unknown command: ' + command);
       }
-    });
+      command = '';
+      term.prompt();
+    } else if (char === '\u007f') {
+      command = command.slice(0, -1);
+      term.write('\b \b');
+    } else if (char.length === 1) {
+      command += char;
+      term.write(char);
+    }
   });
 });
 
