@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
 :root {
   --dark-bg: #161B33;
   --section-bg: #1c2948;
@@ -18,6 +19,11 @@ body {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 
+/* Use Orbitron for headings and terminal */
+h2, h3, .logo, .btn-contact, .prompt {
+  font-family: 'Orbitron', sans-serif;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -25,13 +31,13 @@ img { max-width: 100%; display: block; }
   padding: 1rem 2rem;
   background: var(--section-bg);
 }
-.logo { font-size: 1.5rem; font-weight: bold; color: var(--accent); }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
 .nav { display: flex; gap: 1.5rem; }
 .nav a { font-size: .95rem; transition: color .2s; }
 .nav a:hover { color: var(--accent); }
-.btn-contact { background: var(--accent); padding: .6rem 1.2rem; border-radius: 4px; font-size: .9rem; color: var(--dark-bg); }
+.btn-contact { background: var(--accent); padding: .6rem 1.2rem; border-radius: 4px; font-size: .9rem; color: var(--dark-bg); font-family: 'Orbitron', sans-serif; }
 
-/* Hero: make headshot larger */
+/* Hero: larger headshot */
 .hero {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -49,18 +55,18 @@ img { max-width: 100%; display: block; }
   background: #0d1117;
   padding: 1.5rem;
   border-radius: 6px;
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'Orbitron', monospace;
   font-size: .95rem;
   box-shadow: 0 4px 12px rgba(0,0,0,0.7);
 }
-.prompt { color: var(--btn-bg); }
+.prompt { color: var(--btn-bg); font-family: 'Orbitron', monospace; }
 .prompt .user { color: var(--fg); }
 .term-input {
   width: 100%;
   background: var(--dark-bg);
   border: none;
   color: var(--fg);
-  font-family: monospace;
+  font-family: 'Orbitron', monospace;
   margin-top: .5rem;
   outline: none;
 }
@@ -78,18 +84,21 @@ img { max-width: 100%; display: block; }
   text-align: center;
 }
 .service-card img { margin-bottom: 1rem; }
-.service-card h3 { margin-bottom: .5rem; }
+.service-card h3 { margin-bottom: .5rem; font-family: 'Orbitron', sans-serif; }
 .service-card p { font-size: .9rem; color: var(--muted); margin-bottom: 1.5rem; }
-.service-card .btn { background: none; border: 1px solid var(--fg); padding: .5rem 1rem; border-radius: 4px; transition: background .2s; }
+.service-card .btn { background: none; border: 1px solid var(--fg); padding: .5rem 1rem; border-radius: 4px; transition: background .2s; font-family: 'Orbitron', sans-serif; }
 .service-card .btn:hover { background: var(--btn-bg); color: var(--dark-bg); }
 
 .about { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
 .about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.about-content h3 { margin-bottom: .5rem; color: var(--accent); }
+.about-content h3 { margin-bottom: .5rem; color: var(--accent); font-family: 'Orbitron', sans-serif; }
 .about-content p { margin-bottom: 1rem; color: var(--muted); font-size: .95rem; }
 .about-content ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-bottom: 1.5rem; }
 .about-content ul li::before { content: '•'; color: var(--accent); margin-right: .5rem; }
-.about-content .btn { background: var(--btn-bg); color: var(--dark-bg); padding: .6rem 1.2rem; border-radius: 4px; }
+.about-content .btn { background: var(--btn-bg); color: var(--dark-bg); padding: .6rem 1.2rem; border-radius: 4px; font-family: 'Orbitron', sans-serif; }
+
+/* Rest unchanged... */
+
 
 .partners .logos { display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; }
 .partners .logos img { filter: grayscale(1) opacity(.7); transition: filter .2s; width: 100px; }
