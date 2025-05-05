@@ -31,14 +31,20 @@ img { max-width: 100%; display: block; }
 .nav a:hover { color: var(--accent); }
 .btn-contact { background: var(--accent); padding: .6rem 1.2rem; border-radius: 4px; font-size: .9rem; color: var(--dark-bg); }
 
+/* Hero: make headshot larger */
 .hero {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   padding: 4rem 2rem;
   gap: 2rem;
 }
-.hero-left img { border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+.hero-left img {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  width: 100%;
+  height: auto;
+}
 .hero-right #terminal {
   background: #0d1117;
   padding: 1.5rem;
