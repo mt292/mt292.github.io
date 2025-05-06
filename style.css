@@ -89,10 +89,8 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
   max-width:1200px; margin:0 auto;
 }
 .hero-left img {
-  max-width: 80%;
-  border-radius:8px;
+  width:100%; border-radius:8px;
   box-shadow:0 4px 12px rgba(0,0,0,0.5);
-  margin: 0 auto;
 }
 
 /* TERMINAL */
@@ -321,14 +319,6 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 }
 @media (max-width:768px) {
   .projects-grid { grid-template-columns:1fr; }
-  .hero, .about {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .hero-left img {
-    max-width: 80%;
-    margin: 0 auto;
-  }
 }
 .project-window {
   position: relative;
@@ -500,4 +490,63 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 
 #scrollToTopBtn:hover {
   opacity: 0.8;
+}
+
+/* ===== MOBILE FIXES ===== */
+@media (max-width: 768px) {
+  /* Header fixes */
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .logo {
+    position: static;
+    transform: none;
+    margin: 0.5rem 0;
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .social-icons {
+    justify-content: center;
+    margin-bottom: 0.5rem;
+    width: 100%;
+  }
+
+  /* Hero section layout fix */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-left img {
+    max-width: 80%;
+    margin: 0 auto 1rem;
+  }
+
+  .terminal-window {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Service card stacking */
+  .services.cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card {
+    width: 90%;
+  }
+}
+
+/* General mobile polish */
+body {
+  overflow-x: hidden;
 }
