@@ -148,15 +148,44 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 
 
 
-/* STATS & FEATURES */
-.stats-features { display:flex; flex-wrap:wrap; gap:2rem; padding:4rem 2rem; }
-.stats, .features { flex:1; min-width:300px; }
-.counters { display:flex; gap:2rem; margin-top:1rem; }
-.counter h3 { color:var(--btn-bg); font-size:1.5rem; }
-.features-item {
-  display:flex; align-items:center; margin-bottom:1rem;
+/* Certifications Section */
+#certifications {
+  padding: 4rem 2rem;
+  background: #10192f;
+  text-align: center;
 }
-.features-item img { width:28px; margin-right:.75rem; }
+
+#certifications h2 {
+  color: var(--btn-bg);
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.cert-subheader {
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+
+.cert-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.cert-badge img {
+  width: 100px;
+  height: auto;
+  filter: grayscale(1) opacity(0.75);
+  transition: all 0.2s ease;
+}
+
+.cert-badge:hover img {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
 
 /* PROJECTS */
 #projects { background: var(--section-bg); }
