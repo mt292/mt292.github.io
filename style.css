@@ -106,7 +106,7 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 }
 .bullets ul li strong { display:block; margin-bottom:.25rem; }
 
-/* PARTNERS */
+/* Comps */
 .partners h2 { text-align:center; color:var(--btn-bg); margin-bottom:2rem; }
 .logos {
   display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;
@@ -116,6 +116,15 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
   transition:filter .2s; width:100px;
 }
 .logos img:hover { filter:none; opacity:1; }
+
+.logos a {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+.logos a:hover {
+  transform: scale(1.05);
+}
+
 
 /* STATS & FEATURES */
 .stats-features { display:flex; flex-wrap:wrap; gap:2rem; padding:4rem 2rem; }
