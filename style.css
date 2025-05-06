@@ -111,11 +111,20 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 .logos {
   display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;
 }
+
 .logos img {
-  filter:grayscale(1) opacity(.7);
-  transition:filter .2s; width:100px;
+  max-height: 80px;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+  filter: grayscale(1) opacity(.7);
+  transition: filter 0.2s, transform 0.2s;
 }
-.logos img:hover { filter:none; opacity:1; }
+.logos img:hover {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.05);
+}
 
 .logos a {
   display: inline-block;
