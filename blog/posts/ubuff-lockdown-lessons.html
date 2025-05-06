@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UBuff Lockdown – Full Send on AD Defense</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="social-icons">
+      <a href="https://github.com/mt292" target="_blank" title="GitHub">
+        <img src="/assets/icons/github.png" alt="GitHub">
+      </a>
+      <a href="https://linkedin.com/in/martin-topp" target="_blank" title="LinkedIn">
+        <img src="/assets/icons/linkedin.png" alt="LinkedIn">
+      </a>
+      <a href="mailto:mtopp887@gmail.com" title="Email">
+        <img src="/assets/icons/email.png" alt="Email">
+      </a>
+    </div>
+    <a href="/" class="logo">Martin Topp</a>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/#about">About</a>
+      <a href="/#services">Specialty</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#contact" class="btn-contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h1>UBuff Lockdown – Full Send on AD Defense</h1>
+    <p>This was my first time leading a team as captain, and Lockdown didn’t make it easy. Despite the chaos, we pulled off top 5 uptime, and I kept our AD services stable through some serious red team pressure.</p>
+    <p>Right off the bat, I found persistent tools like TacticalRMM and MeshAgent hiding in Program Files. Scheduled tasks—literally named “Nothing to see here”—were keeping agents alive. I deleted them all, then built block rules disguised as allowed ones so red team checks wouldn’t trigger re-uploads. Smart defense beats brute force.</p>
+    <p>Weirdest part? They mounted a fake DVD drive mid-comp with a Python script to silently reinstall MeshAgent. I caught it fast and shut it down. No one should be installing bootable drives during a comp, but here we are.</p>
+    <p>Red Team tried to wipe everything during the final inject. My AD stayed online. DNS was scoring. I still had console access. They even left a note admitting they couldn’t break it. That made my week.</p>
+    <p>Big takeaways: if it’s not scored, remove it. PowerShell can do everything. And most of all—stay calm when things break. Because they will.</p>
+  </section>
+</body>
+</html>
