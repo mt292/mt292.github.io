@@ -137,6 +137,14 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 }
 .btn:hover { opacity:.8; }
 
+.indiana-tech-logo {
+  display: block;
+  margin: 0 auto 1rem;
+  max-width: 300px;
+  height: auto;
+}
+
+
 /* ABOUT */
 .about {
   display:grid; grid-template-columns:1fr 1fr;
