@@ -30,8 +30,11 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
   justify-content: space-between;
   align-items: center;
   background: var(--section-bg);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   padding: 1rem 2rem;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .logo {
