@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css" />
   <!-- xterm.js -->
   <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css" />
-  <script src="https://unpkg.com/xterm/lib/xterm.js"></script>
+  <script src="https://unpkg.com/xterm/lib/xterm.js" defer></script>
 </head>
 <body>
   <!-- Header -->
@@ -55,10 +55,17 @@
         const char = e.key;
         if (char === '\r') {
           switch (command.trim()) {
-            case 'resume': window.open('resume-page.html','_blank'); break;
-            case 'linkedin': window.open('https://linkedin.com/in/martin-topp','_blank'); break;
-            case 'github': window.open('https://github.com/mtopp292','_blank'); break;
-            default: term.writeln('Unknown command: ' + command);
+            case 'resume':
+              window.open('resume-page.html','_blank');
+              break;
+            case 'linkedin':
+              window.open('https://linkedin.com/in/martin-topp','_blank');
+              break;
+            case 'github':
+              window.open('https://github.com/mtopp292','_blank');
+              break;
+            default:
+              term.writeln('Unknown command: ' + command);
           }
           command = '';
           term.prompt();
@@ -76,24 +83,26 @@
   <!-- Services -->
   <section id="services" class="section bg-alt">
     <h2>Indiana Institute of Technology</h2>
-    <p class="subtitle">Honors B.S. in Cybersecurity • Honors B.A.S. in Criminal Justice</p>
+    <p class="subtitle">
+      Honors B.S. in Cybersecurity • Honors B.A.S. in Criminal Justice
+    </p>
     <div class="services cards">
       <div class="service-card">
         <img src="assets/indiana-tech-shield.png" class="service-icon" alt="" />
         <h3>Criminal Justice</h3>
-        <p>Comprehensive study of legal systems, criminology theories & ethical law enforcement practices.</p>
+        <p>Comprehensive study of legal systems, criminology theories &amp; ethical enforcement practices.</p>
         <a href="#" class="btn">Read more</a>
       </div>
       <div class="service-card">
         <img src="assets/windows-logo.png" class="service-icon" alt="" />
         <h3>Windows Specialty Lead</h3>
-        <p>Lead Windows security training; manage AD, GPOs & system hardening SOPs for Cyber Warriors.</p>
+        <p>Lead Windows security training; manage AD, GPOs &amp; hardening SOPs for Cyber Warriors.</p>
         <a href="#" class="btn">Read more</a>
       </div>
       <div class="service-card">
         <img src="assets/red-team-logo.png" class="service-icon" alt="" />
         <h3>Offensive Security Specialist</h3>
-        <p>Design & execute Red Team exercises, build exploitation scripts & automate scoring.</p>
+        <p>Design &amp; execute Red Team exercises, build scripts &amp; automate scoring.</p>
         <a href="#" class="btn">Read more</a>
       </div>
     </div>
@@ -104,17 +113,19 @@
     <h2>About Me</h2>
     <div class="about">
       <div class="about-left">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7307410577578999809?collapsed=1"
-                height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+        <iframe 
+          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7307410577578999809?collapsed=1" 
+          height="565" width="504" frameborder="0" allowfullscreen title="Embedded post">
+        </iframe>
       </div>
       <div class="about-content bullets">
         <ul>
-          <li><strong>Honors B.S. Cybersecurity & B.A.S. Criminal Justice</strong> (GPA 3.9)</li>
-          <li><strong>Resident Assistant</strong> for 32 residents; hosted academic & career events</li>
-          <li><strong>Windows Specialty Lead</strong> & <strong>OffSec Specialist</strong> at Indiana Tech Cyber Warriors</li>
+          <li><strong>Honors B.S. Cybersecurity &amp; B.A.S. Criminal Justice</strong> (GPA 3.9)</li>
+          <li><strong>Resident Assistant</strong> for 32 residents; hosted academic &amp; career events</li>
+          <li><strong>Windows Specialty Lead</strong> &amp; <strong>OffSec Specialist</strong> at Indiana Tech Cyber Warriors</li>
           <li><strong>Competitions:</strong> CCDC (Top 6), NCAE (MVP), NCL, UBuff Lockdown</li>
           <li><strong>Skills:</strong> Python, Bash, AD, GPO, DNS, HTML/CSS, WordPress</li>
-          <li><strong>Aspiring:</strong> Federal law enforcement & cyber leadership</li>
+          <li><strong>Aspiring:</strong> Federal law enforcement &amp; cyber leadership</li>
         </ul>
         <a href="resume-page.html" class="btn">Download Resume</a>
       </div>
@@ -155,69 +166,71 @@
     </div>
   </section>
 
-  
   <!-- Projects -->
-<section id="projects" class="section bg-alt projects">
-  <h2>Projects</h2>
-  <p class="projects-subheader">Hover over a project to learn more</p>
-  <div class="projects-grid">
+  <section id="projects" class="section bg-alt projects">
+    <h2>Projects</h2>
+    <p class="projects-subheader">Hover over a project to learn more</p>
+    <div class="projects-grid">
 
-    <!-- Project 1: Linux Scoring Engine -->
-    <div class="project-window" data-tooltip="A scoring engine for Linux terminal challenges. Blinks red cursor indicating DOWN status.">
-      <div class="mac-header">
-        <span class="mac-btn red"></span>
-        <span class="mac-btn yellow"></span>
-        <span class="mac-btn green"></span>
-        <div class="project-label">Linux Scoring Engine</div>
-      </div>
-      <pre class="project-content">
+      <!-- Project 1 -->
+      <div class="project-window" data-tooltip="A scoring engine for Linux terminal challenges. Blinks red cursor for DOWN status.">
+        <div class="mac-header">
+          <span class="mac-btn red"></span>
+          <span class="mac-btn yellow"></span>
+          <span class="mac-btn green"></span>
+          <div class="project-label">Linux Scoring Engine</div>
+        </div>
+        <pre class="project-content">
 $ ./score-engine --start
 Scanning...
 SSH: UP
 WEB: DOWN  <-- (flashing)
 DNS: UP
 FTP: DOWN
-      </pre>
-    </div>
-
-    <!-- Project 2: Windows Lab Environment -->
-    <div class="project-window" data-tooltip="Interactive Windows lab topology for cybersecurity training.">
-      <div class="mac-header">
-        <span class="mac-btn red"></span>
-        <span class="mac-btn yellow"></span>
-        <span class="mac-btn green"></span>
-        <div class="project-label">Windows Lab Topology</div>
+        </pre>
       </div>
-      <div class="project-content">
-        <img src="assets/windows-lab-topology.png" alt="Windows Lab Topology" />
+
+      <!-- Project 2 -->
+      <div class="project-window" data-tooltip="Interactive Windows lab topology for cybersecurity training.">
+        <div class="mac-header">
+          <span class="mac-btn red"></span>
+          <span class="mac-btn yellow"></span>
+          <span class="mac-btn green"></span>
+          <div class="project-label">Windows Lab Topology</div>
+        </div>
+        <div class="project-content">
+          <img src="assets/windows-lab-topology.png" alt="Windows Lab Topology" />
+        </div>
       </div>
-    </div>
 
-    <!-- Project 3: Ol Grace School Website -->
-    <div class="project-window" data-tooltip="Live website: olgraceschool.org">
-      <div class="mac-header">
-        <span class="mac-btn red"></span>
-        <span class="mac-btn yellow"></span>
-        <span class="mac-btn green"></span>
-        <div class="project-label">Ol Grace School</div>
+      <!-- Project 3 -->
+      <div class="project-window" data-tooltip="Website development: olgraceschool.org">
+        <div class="mac-header">
+          <span class="mac-btn red"></span>
+          <span class="mac-btn yellow"></span>
+          <span class="mac-btn green"></span>
+          <div class="project-label">Ol Grace School Website Development</div>
+        </div>
+        <div class="project-content">
+          <img src="assets/olgraceschool.png" alt="Ol Grace School" />
+        </div>
       </div>
-      <iframe class="project-content iframe-content" src="https://olgraceschool.org"></iframe>
-    </div>
 
-    <!-- Project 4: Tech Cyber Warriors Website -->
-    <div class="project-window" data-tooltip="Live website: techcyberwarriors.org">
-      <div class="mac-header">
-        <span class="mac-btn red"></span>
-        <span class="mac-btn yellow"></span>
-        <span class="mac-btn green"></span>
-        <div class="project-label">Tech Cyber Warriors</div>
+      <!-- Project 4 -->
+      <div class="project-window" data-tooltip="Website development: techcyberwarriors.org">
+        <div class="mac-header">
+          <span class="mac-btn red"></span>
+          <span class="mac-btn yellow"></span>
+          <span class="mac-btn green"></span>
+          <div class="project-label">Tech Cyber Warriors Website Development</div>
+        </div>
+        <div class="project-content">
+          <img src="assets/techcyberwarriors.png" alt="Tech Cyber Warriors" />
+        </div>
       </div>
-      <iframe class="project-content iframe-content" src="https://techcyberwarriors.org"></iframe>
+
     </div>
-
-  </div>
-</section>
-
+  </section>
 
   <!-- Team -->
   <section class="team">
