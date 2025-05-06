@@ -97,7 +97,7 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
   display:grid; grid-template-columns:1fr 1fr;
   gap:2rem; align-items:center; max-width:1000px; margin:0 auto 4rem;
 }
-.about-left img { width:100%; border-radius:8px; }
+.about-left iframe { width:100%; border-radius:8px; }
 .bullets ul { list-style:none; }
 .bullets ul li {
   color:#fff; margin-bottom:1rem; font-size:1rem;
@@ -118,7 +118,6 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 /* STATS & FEATURES */
 .stats-features { display:flex; flex-wrap:wrap; gap:2rem; padding:4rem 2rem; }
 .stats, .features { flex:1; min-width:300px; }
-.stats .text h2 { color:#fff; }
 .counters { display:flex; gap:2rem; margin-top:1rem; }
 .counter h3 { color:var(--btn-bg); font-size:1.5rem; }
 .features-item {
@@ -126,34 +125,37 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 }
 .features-item img { width:28px; margin-right:.75rem; }
 
-/* PRICING */
-.pricing h2 { text-align:center; color:var(--btn-bg); margin-bottom:2rem; }
-.plans {
-  display:flex; gap:2rem; justify-content:center; flex-wrap:wrap;
+/* PROJECTS */
+#projects { background: var(--section-bg); }
+#projects h2 { text-align:center; color:var(--btn-bg); font-size:2rem; margin-bottom:2rem; }
+.projects-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:2rem; max-width:1200px; margin:0 auto 4rem;
 }
-.plan {
-  background:var(--card-bg); padding:2rem;
-  border-radius:8px; width:260px; text-align:center;
+.project-window {
+  background: var(--dark-bg);
+  border-radius:8px; overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,0.75);
+  position:relative; transition:transform .2s;
 }
-.plan .price { font-size:2rem; margin:1rem 0; color:#fff; }
-.plan ul { list-style:none; margin-bottom:1.5rem; text-align:left; }
-.plan ul li::before { content:'✔'; color:var(--btn-bg); margin-right:.5rem; }
-.plan h3 { color:var(--btn-bg); margin-bottom:.5rem; }
-
-/* TEAM */
-.team { padding:4rem 2rem; }
-.team h2 { text-align:center; color:var(--btn-bg); margin-bottom:2rem; }
-.team-grid {
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:1.5rem;
+.project-window:hover { transform: translateY(-4px); }
+.project-window .mac-header {
+  display:flex; align-items:center; padding:8px; background:#2a3145; position:relative;
 }
-.member {
-  background:var(--card-bg); padding:1.5rem;
-  border-radius:8px; text-align:center;
+.project-label {
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%); color:var(--fg);
+  font-size:.9rem; pointer-events:none;
 }
-.member img { border-radius:50%; width:80px; margin-bottom:1rem; }
-.role { color:var(--muted); margin-bottom:.75rem; }
-.socials a { margin:0 .25rem; color:var(--muted); }
+.project-content {
+  padding:1rem; background:#000; color:var(--fg);
+  font-family:'Source Code Pro',monospace; min-height:200px;
+}
+.project-content.placeholder {
+  display:flex; align-items:center; justify-content:center;
+  color:var(--muted); font-size:1rem;
+}
 
 /* CONTACT */
 .contact { background:var(--section-bg); padding:4rem 2rem; text-align:center; }
@@ -161,14 +163,10 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
   display:grid; grid-template-columns:1fr 1fr; gap:1rem;
   max-width:600px; margin:0 auto;
 }
-.contact form label {
-  display:block; color:var(--fg); text-align:left;
-}
-.contact form input,
-.contact form textarea {
+.contact form label { display:block; color:var(--fg); text-align:left; }
+.contact form input, .contact form textarea {
   width:100%; padding:.75rem; border:none;
-  border-radius:4px; background:var(--card-bg);
-  color:var(--fg);
+  border-radius:4px; background:var(--card-bg); color:var(--fg);
 }
 .contact form textarea { grid-column:1/-1; height:120px; }
 .contact form .btn { grid-column:1/-1; margin-top:1rem; }
@@ -185,8 +183,6 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 .footer ul li a:hover { color:var(--btn-bg); }
 .newsletter input {
   width:100%; margin-bottom:1rem; padding:.75rem;
-  border:none; border-radius:4px; background:var(--card-bg);
-  color:var(--fg);
+  border:none; border-radius:4px; background:var(--card-bg); color:var(--fg);
 }
 .newsletter .btn { width:100%; }
-
