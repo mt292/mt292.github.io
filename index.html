@@ -9,6 +9,7 @@
   <!-- xterm.js -->
   <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css" />
   <script src="https://unpkg.com/xterm/lib/xterm.js" defer></script>
+  <script src="cert-modals.js"></script>
 </head>
 <body>
   <!-- Header -->
@@ -252,43 +253,52 @@
     </div>
   </section>
 
-<!-- Certifications Section -->
-<section id="certifications">
+<!-- Certifications -->
+<section id="certifications" class="section bg-alt certs">
   <h2>Certifications & Badges</h2>
-  <p class="cert-subheader">Click a badge to learn more</p>
+  <p class="projects-subheader">Click a badge to learn more</p>
+
   <div class="cert-grid">
-
-    <!-- Badge: NCAE Competitor -->
-    <div class="cert-badge" onclick="openModal('modal-ncae')">
-      <img src="assets/certs/ncae-badge.png" alt="NCAE Badge">
-    </div>
-
-    <!-- Badge: Most Improved Teammate -->
-    <div class="cert-badge" onclick="openModal('modal-team')">
-      <img src="assets/certs/teamwork-badge.png" alt="Teamwork Badge">
-    </div>
-
-    <!-- Badge: Adobe Photoshop -->
-    <div class="cert-badge" onclick="openModal('modal-photoshop')">
-      <img src="assets/certs/photoshop.png" alt="Adobe Photoshop">
-    </div>
-
-    <!-- Badge: NSCS -->
-    <div class="cert-badge" onclick="openModal('modal-nscs')">
-      <img src="assets/certs/nscs.png" alt="NSCS Badge">
-    </div>
-
-    <!-- Badge: ServSafe -->
-    <div class="cert-badge" onclick="openModal('modal-servsafe')">
-      <img src="assets/certs/servsafe.png" alt="ServSafe Badge">
-    </div>
-
-    <!-- Badge: TRUST Drone Pilot -->
-    <div class="cert-badge" onclick="openModal('modal-trust')">
-      <img src="assets/certs/trust-drone.png" alt="TRUST Drone Pilot">
-    </div>
-
+    <img src="assets/certs/trust.png" alt="TRUST Drone" onclick="openModal('modal-trust')" />
+    <img src="assets/certs/ncae-competitor.png" alt="NCAE Competitor" onclick="openModal('modal-ncae1')" />
+    <img src="assets/certs/ncae-team.png" alt="Most Improved Teammate" onclick="openModal('modal-ncae2')" />
+    <img src="assets/certs/photoshop.png" alt="Photoshop CS 2" onclick="openModal('modal-ps')" />
+    <img src="assets/certs/nscs.png" alt="NSCS" onclick="openModal('modal-nscs')" />
+    <img src="assets/certs/servsafe.png" alt="ServSafe" onclick="openModal('modal-servsafe')" />
   </div>
+
+  <!-- MODALS -->
+
+  <div id="modal-trust" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-trust')">&times;</span>
+      <h3>TRUST Certified Drone Pilot</h3>
+      <p>FAA-approved training for recreational drone operators.</p>
+      <a href="https://www.faa.gov/uas/recreational_flyers/knowledge_test_updates" target="_blank" class="btn">Learn More</a>
+    </div>
+  </div>
+
+  <div id="modal-ncae1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-ncae1')">&times;</span>
+      <h3>NCAE Cyber Games 2025 Competitor</h3>
+      <p>Issued: Mar 2025</p>
+      <p>Credential ID: 67ca1d02193b202b45e8554f</p>
+    </div>
+  </div>
+
+  <div id="modal-ncae2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-ncae2')">&times;</span>
+      <h3>NCAE Cyber Games – Most Improved Teammate</h3>
+      <p>Issued: Mar 2025</p>
+      <p>Credential ID: 67ca1dfcc266e0303850ed38</p>
+    </div>
+  </div>
+
+  <div id="modal-ps" class="modal">
+    <div class="modal-content
+
 
   <!-- MODALS -->
   <div id="modal-ncae" class="modal">
