@@ -253,33 +253,97 @@
   </section>
 
 <!-- Certifications Section -->
-<section class="section bg-darker" id="certifications">
+<section id="certifications">
   <h2>Certifications & Badges</h2>
-  <p class="cert-subheader">Click or hover on a badge to learn more</p>
+  <p class="cert-subheader">Click a badge to learn more</p>
   <div class="cert-grid">
 
-    <!-- 2025 NCAE Competitor -->
-    <a href="https://canvas.badgr.com/public/assertions/67ca1d02193b202b45e8554f" target="_blank" class="cert-badge" title="NCAE 2025 Competitor - Issued by Canvas Credentials (Badgr)">
-      <img src="assets/certs/ncae-2025.png" alt="NCAE 2025 Competitor">
-    </a>
+    <!-- Badge: NCAE Competitor -->
+    <div class="cert-badge" onclick="openModal('modal-ncae')">
+      <img src="assets/certs/ncae-badge.png" alt="NCAE Badge">
+    </div>
 
-    <!-- Most Improved Teammate -->
-    <a href="https://canvas.badgr.com/public/assertions/67ca1dfcc266e0303850ed38" target="_blank" class="cert-badge" title="Most Improved Teammate - Issued by Canvas Credentials (Badgr)">
-      <img src="assets/certs/ncae-mit.png" alt="Most Improved Teammate">
-    </a>
+    <!-- Badge: Most Improved Teammate -->
+    <div class="cert-badge" onclick="openModal('modal-team')">
+      <img src="assets/certs/teamwork-badge.png" alt="Teamwork Badge">
+    </div>
 
-    <!-- Adobe Photoshop CS2 -->
-    <a href="#" class="cert-badge" title="Adobe Photoshop CS2 - EDUCBA, Issued Nov 2024">
+    <!-- Badge: Adobe Photoshop -->
+    <div class="cert-badge" onclick="openModal('modal-photoshop')">
       <img src="assets/certs/photoshop.png" alt="Adobe Photoshop">
-    </a>
+    </div>
 
-    <!-- NSCS -->
-    <a href="#" class="cert-badge" title="NSCS Member - The National Society of Collegiate Scholars, Issued Nov 2024">
-      <img src="assets/certs/nscs.png" alt="NSCS">
-    </a>
+    <!-- Badge: NSCS -->
+    <div class="cert-badge" onclick="openModal('modal-nscs')">
+      <img src="assets/certs/nscs.png" alt="NSCS Badge">
+    </div>
+
+    <!-- Badge: ServSafe -->
+    <div class="cert-badge" onclick="openModal('modal-servsafe')">
+      <img src="assets/certs/servsafe.png" alt="ServSafe Badge">
+    </div>
+
+    <!-- Badge: TRUST Drone Pilot -->
+    <div class="cert-badge" onclick="openModal('modal-trust')">
+      <img src="assets/certs/trust-drone.png" alt="TRUST Drone Pilot">
+    </div>
 
   </div>
+
+  <!-- MODALS -->
+  <div id="modal-ncae" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-ncae')">&times;</span>
+      <h3>NCAE Cyber Games Competitor (2025)</h3>
+      <p>Awarded for successful participation in the NCAE Cyber Games, showcasing hands-on defensive and offensive cyber skills.</p>
+      <a href="https://badgr.com/public/assertions/67ca1d02193b202b45e8554f" target="_blank" class="btn">View Credential</a>
+    </div>
+  </div>
+
+  <div id="modal-team" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-team')">&times;</span>
+      <h3>Most Improved Teammate (2025)</h3>
+      <p>Recognized for leadership and technical improvement in team-based cyber competitions.</p>
+      <a href="https://badgr.com/public/assertions/67ca1dfcc266e0303850ed38" target="_blank" class="btn">View Credential</a>
+    </div>
+  </div>
+
+  <div id="modal-photoshop" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-photoshop')">&times;</span>
+      <h3>Adobe Photoshop CS 2 (2024)</h3>
+      <p>Certification by EDUCBA validating proficiency in Adobe Photoshop. Includes photo manipulation, design, and layout skills.</p>
+    </div>
+  </div>
+
+  <div id="modal-nscs" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-nscs')">&times;</span>
+      <h3>NSCS Member</h3>
+      <p>Inducted into The National Society of Collegiate Scholars (NSCS) for academic excellence and leadership.</p>
+    </div>
+  </div>
+
+  <div id="modal-servsafe" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-servsafe')">&times;</span>
+      <h3>ServSafe Food Handler (2022)</h3>
+      <p>Certified by the National Restaurant Association in food safety, kitchen hygiene, and culinary back-of-house operations.</p>
+    </div>
+  </div>
+
+  <div id="modal-trust" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-trust')">&times;</span>
+      <h3>TRUST Certified Drone Pilot</h3>
+      <p>Certified through the FAA's Recreational UAS Safety Test (TRUST). Cleared to legally operate drones for recreational use under FAA guidelines.</p>
+    </div>
+  </div>
+
 </section>
+
+
 
 
   <!-- Contact -->
