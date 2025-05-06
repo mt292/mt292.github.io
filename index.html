@@ -6,10 +6,12 @@
   <title>Martin Topp</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
+  <!-- xterm.js -->
   <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css" />
   <script src="https://unpkg.com/xterm/lib/xterm.js" defer></script>
 </head>
 <body>
+  <!-- Header -->
   <header class="header">
     <div class="logo">Martin Topp</div>
     <nav class="nav">
@@ -20,6 +22,7 @@
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-left">
       <img src="headshot.jpg" alt="Martin Topp" />
@@ -35,7 +38,6 @@
       </div>
     </div>
   </section>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const term = new Terminal({ cursorBlink: true });
@@ -47,15 +49,23 @@
       term.writeln(' - github');
       term.prompt = () => term.write('\r\n$ ');
       term.prompt();
+
       let command = '';
       term.onKey(e => {
         const char = e.key;
         if (char === '\r') {
           switch (command.trim()) {
-            case 'resume': window.open('resume-page.html','_blank'); break;
-            case 'linkedin': window.open('https://linkedin.com/in/martin-topp','_blank'); break;
-            case 'github': window.open('https://github.com/mtopp292','_blank'); break;
-            default: term.writeln('Unknown command: ' + command);
+            case 'resume':
+              window.open('resume-page.html','_blank');
+              break;
+            case 'linkedin':
+              window.open('https://linkedin.com/in/martin-topp','_blank');
+              break;
+            case 'github':
+              window.open('https://github.com/mtopp292','_blank');
+              break;
+            default:
+              term.writeln('Unknown command: ' + command);
           }
           command = '';
           term.prompt();
@@ -70,109 +80,174 @@
     });
   </script>
 
+  <!-- Services -->
   <section id="services" class="section bg-alt">
     <h2>Indiana Institute of Technology</h2>
-    <p class="subtitle">Honors B.S. in Cybersecurity • Honors B.A.S. in Criminal Justice</p>
+    <p class="subtitle">
+      Honors B.S. in Cybersecurity • Honors B.A.S. in Criminal Justice
+    </p>
     <div class="services cards">
       <div class="service-card">
-        <img src="assets/indiana-tech-shield.png" class="service-icon" alt="Indiana Tech Shield" />
+        <img src="assets/indiana-tech-shield.png" class="service-icon" alt="" />
         <h3>Criminal Justice</h3>
-        <p>Comprehensive study of legal systems, criminology theories & ethical enforcement practices.</p>
+        <p>Comprehensive study of legal systems, criminology theories &amp; ethical enforcement practices.</p>
         <a href="#" class="btn">Read more</a>
       </div>
       <div class="service-card">
-        <img src="assets/windows-logo.png" class="service-icon" alt="Windows Logo" />
+        <img src="assets/windows-logo.png" class="service-icon" alt="" />
         <h3>Windows Specialty Lead</h3>
-        <p>Lead Windows security training; manage AD, GPOs & hardening SOPs for Cyber Warriors.</p>
+        <p>Lead Windows security training; manage AD, GPOs &amp; hardening SOPs for Cyber Warriors.</p>
         <a href="#" class="btn">Read more</a>
       </div>
       <div class="service-card">
-        <img src="assets/red-team-logo.png" class="service-icon" alt="Red Team Logo" />
+        <img src="assets/red-team-logo.png" class="service-icon" alt="" />
         <h3>Offensive Security Specialist</h3>
-        <p>Design & execute Red Team exercises, build scripts & automate scoring.</p>
+        <p>Design &amp; execute Red Team exercises, build scripts &amp; automate scoring.</p>
         <a href="#" class="btn">Read more</a>
       </div>
     </div>
   </section>
 
+  <!-- About -->
   <section id="about" class="section">
     <h2>About Me</h2>
     <div class="about">
       <div class="about-left">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7307410577578999809?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen title="LinkedIn Post"></iframe>
+        <iframe 
+          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7307410577578999809?collapsed=1" 
+          height="565" width="504" frameborder="0" allowfullscreen title="Embedded post">
+        </iframe>
       </div>
       <div class="about-content bullets">
         <ul>
-          <li><strong>Honors B.S. Cybersecurity & B.A.S. Criminal Justice</strong> (GPA 3.9)</li>
-          <li><strong>Resident Assistant</strong> for 32 residents; hosted academic & career events</li>
-          <li><strong>Windows Specialty Lead</strong> & <strong>OffSec Specialist</strong> at Indiana Tech Cyber Warriors</li>
+          <li><strong>Honors B.S. Cybersecurity &amp; B.A.S. Criminal Justice</strong> (GPA 3.9)</li>
+          <li><strong>Resident Assistant</strong> for 32 residents; hosted academic &amp; career events</li>
+          <li><strong>Windows Specialty Lead</strong> &amp; <strong>OffSec Specialist</strong> at Indiana Tech Cyber Warriors</li>
           <li><strong>Competitions:</strong> CCDC (Top 6), NCAE (MVP), NCL, UBuff Lockdown</li>
           <li><strong>Skills:</strong> Python, Bash, AD, GPO, DNS, HTML/CSS, WordPress</li>
-          <li><strong>Aspiring:</strong> Federal law enforcement & cyber leadership</li>
+          <li><strong>Aspiring:</strong> Federal law enforcement &amp; cyber leadership</li>
         </ul>
         <a href="resume-page.html" class="btn">Download Resume</a>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="section bg-alt projects">
-    <h2>Projects</h2>
-    <p class="projects-subheader">Hover over a project to learn more</p>
-    <div class="projects-grid">
-      <div class="project-window" data-tooltip="Mar 2025 — Python-based scoring engine that monitors SSH, Web, DNS, and FTP. Built with terminal UI and CSV logs for uptime tracking.">
-        <div class="mac-header">
-          <span class="mac-btn red"></span><span class="mac-btn yellow"></span><span class="mac-btn green"></span>
-          <div class="project-label">Linux Terminal Scoring Engine</div>
-        </div>
-        <pre class="project-content">
+  <!-- Partners -->
+  <section class="section bg-alt partners">
+    <h2>Partners</h2>
+    <div class="logos">
+      <img src="assets/partners/1.png" alt="Partner 1" />
+      <img src="assets/partners/2.png" alt="Partner 2" />
+      <img src="assets/partners/3.png" alt="Partner 3" />
+      <img src="assets/partners/4.png" alt="Partner 4" />
+      <img src="assets/partners/5.png" alt="Partner 5" />
+      <img src="assets/partners/6.png" alt="Partner 6" />
+    </div>
+  </section>
+
+  <!-- Stats & Features -->
+  <section class="stats-features">
+    <div class="stats">
+      <div class="text">
+        <h2>We Spend<br/>30,000 Hours<br/>Per Year on Threats</h2>
+      </div>
+      <div class="counters">
+        <div class="counter"><h3>2K+</h3><p>Engagements</p></div>
+        <div class="counter"><h3>17M</h3><p>Events</p></div>
+        <div class="counter"><h3>18K+</h3><p>Scans</p></div>
+      </div>
+    </div>
+    <div class="features">
+      <h2>The Perfect Solution<br/>For All Protection</h2>
+      <div class="features-item"><img src="assets/icons/shield.svg" alt="" /><p>Cyber Solutions you can trust.</p></div>
+      <div class="features-item"><img src="assets/icons/web.svg" alt="" /><p>Web Security against breaches.</p></div>
+      <div class="features-item"><img src="assets/icons/network.svg" alt="" /><p>Network Security hardened.</p></div>
+      <div class="features-item"><img src="assets/icons/locker.svg" alt="" /><p>Locker Security for data.</p></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+ <section id="projects" class="section bg-alt projects">
+  <h2>Projects</h2>
+  <p class="projects-subheader">Hover over a project to learn more</p>
+  <div class="projects-grid">
+    <div class="project-window" data-tooltip="Linux Terminal Scoring Engine\nMar 2025\n\nDesigned a lightweight, Python-based engine to monitor SSH, Web, DNS, and FTP services, automating uptime tracking.\n\nDeveloped a cloud-optimized terminal interface and CSV-based logging system, improving service monitoring efficiency by 30% within a Virtual Private Cloud environment such as AWS or Azure.">
+      <div class="mac-header">
+        <span class="mac-btn red"></span>
+        <span class="mac-btn yellow"></span>
+        <span class="mac-btn green"></span>
+        <div class="project-label">Linux Terminal Scoring Engine</div>
+      </div>
+      <pre class="project-content">
 $ ./score-engine --start
 Scanning...
 SSH: UP
 WEB: ↓DOWN↓
 DNS: UP
-FTP: ↓DOWN↓
-        </pre>
+FTP: DOWN
+      </pre>
+    </div>
+
+    <div class="project-window" data-tooltip="Windows Lab Environment\nMar 2025\n\nDesigned a multi-domain Windows lab topology with Domain A/B, DMZ, SMTP server, firewall, file server, patch management & Red/Blue infrastructure for competitions.">
+      <div class="mac-header">
+        <span class="mac-btn red"></span>
+        <span class="mac-btn yellow"></span>
+        <span class="mac-btn green"></span>
+        <div class="project-label">Windows Lab Topology</div>
       </div>
-      <div class="project-window" data-tooltip="Dual-domain Windows Lab with DMZ, SMTP, AD, Patch Mgmt, and more for Red/Blue Teaming.">
-        <div class="mac-header">
-          <span class="mac-btn red"></span><span class="mac-btn yellow"></span><span class="mac-btn green"></span>
-          <div class="project-label">Windows Lab Topology</div>
-        </div>
-        <div class="project-content">
-          <img src="assets/windows-lab-topology.png" alt="Windows Lab Topology" />
-        </div>
-      </div>
-      <div class="project-window" data-tooltip="Custom website for OLG Grace School with CMS, SEO, accessibility and responsive UI.">
-        <div class="mac-header">
-          <span class="mac-btn red"></span><span class="mac-btn yellow"></span><span class="mac-btn green"></span>
-          <div class="project-label">OLG Grace School Web Dev</div>
-        </div>
-        <div class="project-content">
-          <img src="assets/olgraceschool.png" alt="OLG Grace School" />
-        </div>
-      </div>
-      <div class="project-window" data-tooltip="Dynamic WordPress site for Tech Cyber Warriors with blog, events, and custom cyber threat map.">
-        <div class="mac-header">
-          <span class="mac-btn red"></span><span class="mac-btn yellow"></span><span class="mac-btn green"></span>
-          <div class="project-label">Tech Cyber Warriors Web Dev</div>
-        </div>
-        <div class="project-content">
-          <img src="assets/techcyberwarriors.png" alt="Tech Cyber Warriors" />
-        </div>
+      <div class="project-content">
+        <img src="assets/windows-lab-topology.png" alt="Windows Lab Topology" />
       </div>
     </div>
+
+    <div class="project-window" data-tooltip="Website Development: OLG Grace School\nMar 2024\n\nBuilt a responsive website for Our Lady of Grace School with CMS integration, SEO tuning, and accessibility features.">
+      <div class="mac-header">
+        <span class="mac-btn red"></span>
+        <span class="mac-btn yellow"></span>
+        <span class="mac-btn green"></span>
+        <div class="project-label">OLG Grace School Web Dev</div>
+      </div>
+      <div class="project-content">
+        <img src="assets/olgraceschool.png" alt="OLG Grace" />
+      </div>
+    </div>
+
+    <div class="project-window" data-tooltip="Website Development: Tech Cyber Warriors\nMar 2025\n\nDesigned a full-stack WordPress site for Indiana Tech’s cybersecurity team with blog features, live threat map, and interactive labs.">
+      <div class="mac-header">
+        <span class="mac-btn red"></span>
+        <span class="mac-btn yellow"></span>
+        <span class="mac-btn green"></span>
+        <div class="project-label">Tech Cyber Warriors Web Dev</div>
+      </div>
+      <div class="project-content">
+        <img src="assets/techcyberwarriors.png" alt="Tech Cyber Warriors" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Team -->
+  <section class="team">
+    <h2>Expert Team Behind Security</h2>
+    <div class="team-grid">
+      <!-- team members -->
+    </div>
+    <a href="#" class="btn">Join Our Team</a>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="contact">
     <h2>Send Me a Message</h2>
     <form action="https://formspree.io/f/mdkggdjb" method="POST">
-      <label>Your name:<input type="text" name="name" required /></label>
-      <label>Your email:<input type="email" name="email" required /></label>
+      <label>Your name:<input type="text" name="name" required/></label>
+      <label>Your email:<input type="email" name="email" required/></label>
       <label>Your message:<textarea name="message" required></textarea></label>
       <button type="submit" class="btn">Send</button>
     </form>
   </section>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="col">
       <h5>Martin Topp</h5>
@@ -201,4 +276,3 @@ FTP: ↓DOWN↓
   </footer>
 </body>
 </html>
-
