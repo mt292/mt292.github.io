@@ -170,6 +170,57 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
   object-fit: contain;
 }
 
+.terminal-table {
+  font-family: 'Source Code Pro', monospace;
+  color: white;
+  background: black;
+  padding: 1rem;
+}
+
+.terminal-title {
+  text-align: center;
+  font-style: italic;
+  color: #ccc;
+  margin-bottom: 1rem;
+}
+
+.terminal-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.terminal-table th,
+.terminal-table td {
+  border: 1px solid #555;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.terminal-table th {
+  color: #fff;
+}
+
+.up {
+  color: #00ff88;
+  font-weight: bold;
+}
+
+.down {
+  color: #ff4d4d;
+  font-weight: bold;
+}
+
+.blinking {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+
 
 /* Tooltip */
 .project-window[data-tooltip] { position:relative; }
