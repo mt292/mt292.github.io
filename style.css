@@ -26,12 +26,49 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 
 /* HEADER */
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: var(--section-bg);
-  padding:1rem 2rem;
-  display:flex; justify-content:space-between; align-items:center;
+  padding: 1rem 2rem;
+  position: relative;
 }
-.logo { color:var(--btn-bg); font-size:1.5rem; font-weight:700; }
-.nav { display:flex; gap:1.5rem; }
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--btn-bg);
+  font-family: 'Orbitron', sans-serif;
+  z-index: 1;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  z-index: 2;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.2s;
+}
+
+.social-icons img:hover {
+  opacity: 0.8;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  z-index: 2;
+}
+
 .nav a { transition:color .2s; }
 .nav a:hover { color:var(--btn-bg); }
 .btn-contact {
