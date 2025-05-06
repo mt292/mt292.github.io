@@ -6,7 +6,7 @@
   <title>Martin Topp</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
-  <!-- xterm.js styles & library -->
+  <!-- xterm.js -->
   <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css" />
   <script src="https://unpkg.com/xterm/lib/xterm.js"></script>
 </head>
@@ -36,49 +36,42 @@
         </div>
         <div id="terminal"></div>
       </div>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-          const term = new Terminal({ cursorBlink: true });
-          term.open(document.getElementById('terminal'));
-          term.writeln("Welcome to Martin's terminal");
-          term.writeln('Type a command to begin:');
-          term.writeln(' - resume');
-          term.writeln(' - linkedin');
-          term.writeln(' - github');
-          term.prompt = () => term.write('\r\n$ ');
-          term.prompt();
-
-          let command = '';
-          term.onKey(e => {
-            const char = e.key;
-            if (char === '\r') {
-              switch (command.trim()) {
-                case 'resume':
-                  window.open('resume-page.html', '_blank');
-                  break;
-                case 'linkedin':
-                  window.open('https://linkedin.com/in/martin-topp', '_blank');
-                  break;
-                case 'github':
-                  window.open('https://github.com/mtopp292', '_blank');
-                  break;
-                default:
-                  term.writeln('Unknown command: ' + command);
-              }
-              command = '';
-              term.prompt();
-            } else if (char === '\u007f') {
-              command = command.slice(0, -1);
-              term.write('\b \b');
-            } else if (char.length === 1) {
-              command += char;
-              term.write(char);
-            }
-          });
-        });
-      </script>
     </div>
   </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const term = new Terminal({ cursorBlink: true });
+      term.open(document.getElementById('terminal'));
+      term.writeln("Welcome to Martin's terminal");
+      term.writeln('Type a command to begin:');
+      term.writeln(' - resume');
+      term.writeln(' - linkedin');
+      term.writeln(' - github');
+      term.prompt = () => term.write('\r\n$ ');
+      term.prompt();
+
+      let command = '';
+      term.onKey(e => {
+        const char = e.key;
+        if (char === '\r') {
+          switch (command.trim()) {
+            case 'resume':    window.open('resume-page.html','_blank'); break;
+            case 'linkedin':  window.open('https://linkedin.com/in/martin-topp','_blank'); break;
+            case 'github':    window.open('https://github.com/mtopp292','_blank'); break;
+            default:          term.writeln('Unknown command: ' + command);
+          }
+          command = '';
+          term.prompt();
+        } else if (char === '\u007f') {
+          command = command.slice(0, -1);
+          term.write('\b \b');
+        } else if (char.length === 1) {
+          command += char;
+          term.write(char);
+        }
+      });
+    });
+  </script>
 
   <!-- Services -->
   <section id="services" class="section bg-alt">
@@ -86,21 +79,21 @@
     <p class="subtitle">Honors B.S. in Cybersecurity • Honors B.A.S. in Criminal Justice</p>
     <div class="services cards">
       <div class="service-card">
-        <img src="assets/indiana-tech-shield.png" alt="" class="service-icon" />
+        <img src="assets/indiana-tech-shield.png" class="service-icon" alt="" />
         <h3>Criminal Justice</h3>
-        <p>Comprehensive study of legal systems, criminology theories, and ethical law enforcement practices preparing for federal and local roles.</p>
+        <p>Comprehensive study of legal systems, criminology theories and ethical law enforcement practices.</p>
         <a href="#" class="btn">Read more</a>
       </div>
       <div class="service-card">
-        <img src="assets/windows-logo.png" alt="" class="service-icon" />
+        <img src="assets/windows-logo.png" class="service-icon" alt="" />
         <h3>Windows Specialty Lead</h3>
-        <p>Lead Windows security training for Indiana Tech Cyber Warriors, managing Active Directory, GPOs, and system hardening SOPs.</p>
+        <p>Lead Windows security training; manage AD, GPOs, and system hardening SOPs for Cyber Warriors.</p>
         <a href="#" class="btn">Read more</a>
       </div>
       <div class="service-card">
-        <img src="assets/red-team-logo.png" alt="" class="service-icon" />
+        <img src="assets/red-team-logo.png" class="service-icon" alt="" />
         <h3>Offensive Security Specialist</h3>
-        <p>Design and execute Red Team exercises, develop exploitation scripts, and automate scoring to sharpen team incident response.</p>
+        <p>Design & execute Red Team exercises, build exploitation scripts, automate scoring for incident response.</p>
         <a href="#" class="btn">Read more</a>
       </div>
     </div>
@@ -116,11 +109,11 @@
       <div class="about-content bullets">
         <ul>
           <li><strong>Honors B.S. Cybersecurity & B.A.S. Criminal Justice</strong> (GPA 3.9)</li>
-          <li><strong>Resident Assistant</strong> for 32 hall residents; organized academic & career events</li>
-          <li><strong>Windows Specialty Lead</strong> & <strong>Offensive Security Specialist</strong> with Indiana Tech Cyber Warriors</li>
+          <li><strong>Resident Assistant</strong> for 32 residents; hosted academic & career events</li>
+          <li><strong>Windows Specialty Lead</strong> & <strong>OffSec Specialist</strong> at Indiana Tech Cyber Warriors</li>
           <li><strong>Competitions:</strong> CCDC (Top 6), NCAE (MVP), NCL, UBuff Lockdown</li>
-          <li><strong>Technical Skills:</strong> Python, Bash, Active Directory, GPO, DNS, HTML/CSS, WordPress</li>
-          <li><strong>Aspiring:</strong> Federal law enforcement & cybersecurity leadership</li>
+          <li><strong>Skills:</strong> Python, Bash, AD, GPO, DNS, HTML/CSS, WordPress</li>
+          <li><strong>Aspiring:</strong> Federal law enforcement & cyber leadership</li>
         </ul>
         <a href="resume-page.html" class="btn">Download Resume</a>
       </div>
@@ -144,26 +137,28 @@
   <section class="stats-features">
     <div class="stats">
       <div class="text">
-        <h2>We Spend<br />30,000 Hours<br />Per Year on Threats</h2>
+        <h2>We Spend<br/>30,000 Hours<br/>Per Year on Threats</h2>
       </div>
       <div class="counters">
-        <div class="counter">
-          <h3>2K+</h3><p>Engagements</p>
-        </div>
-        <div class="counter">
-          <h3>17M</h3><p>Events</p>
-        </div>
-        <div class="counter">
-          <h3>18K+</h3><p>Scans</p>
-        </div>
+        <div class="counter"><h3>2K+</h3><p>Engagements</p></div>
+        <div class="counter"><h3>17M</h3><p>Events</p></div>
+        <div class="counter"><h3>18K+</h3><p>Scans</p></div>
       </div>
     </div>
     <div class="features">
-      <h2>The Perfect Solution<br />For All Protection</h2>
-      <div class="features-item"><img src="assets/icons/shield.svg" alt="" /><p>Cyber Solutions you can trust.</p></div>
-      <div class="features-item"><img src="assets/icons/web.svg" alt="" /><p>Web Security against breaches.</p></div>
-      <div class="features-item"><img src="assets/icons/network.svg" alt="" /><p>Network Security hardened.</p></div>
-      <div class="features-item"><img src="assets/icons/locker.svg" alt="" /><p>Locker Security for data.</p></div>
+      <h2>The Perfect Solution<br/>For All Protection</h2>
+      <div class="features-item">
+        <img src="assets/icons/shield.svg" alt="" /><p>Cyber Solutions you can trust.</p>
+      </div>
+      <div class="features-item">
+        <img src="assets/icons/web.svg" alt="" /><p>Web Security against breaches.</p>
+      </div>
+      <div class="features-item">
+        <img src="assets/icons/network.svg" alt="" /><p>Network Security hardened.</p>
+      </div>
+      <div class="features-item">
+        <img src="assets/icons/locker.svg" alt="" /><p>Locker Security for data.</p>
+      </div>
     </div>
   </section>
 
@@ -180,7 +175,7 @@
           <li>24/7 Alerts</li>
           <li>Email Support</li>
         </ul>
-        <a href="#" class="btn">Purchase Now</a>
+        <a href="#" class="btn">Purchase</a>
       </div>
       <div class="plan">
         <h3>Business</h3>
@@ -191,7 +186,7 @@
           <li>24/7 Alerts</li>
           <li>Priority Support</li>
         </ul>
-        <a href="#" class="btn">Purchase Now</a>
+        <a href="#" class="btn">Purchase</a>
       </div>
       <div class="plan">
         <h3>Professional</h3>
@@ -202,7 +197,7 @@
           <li>Dedicated Manager</li>
           <li>Phone Support</li>
         </ul>
-        <a href="#" class="btn">Purchase Now</a>
+        <a href="#" class="btn">Purchase</a>
       </div>
     </div>
   </section>
@@ -211,7 +206,7 @@
   <section class="team">
     <h2>Expert Team Behind Security</h2>
     <div class="team-grid">
-      <!-- team members… -->
+      <!-- your team members here -->
     </div>
     <a href="#" class="btn">Join Our Team</a>
   </section>
@@ -220,8 +215,8 @@
   <section id="contact" class="contact">
     <h2>Send Me a Message</h2>
     <form action="https://formspree.io/f/mdkggdjb" method="POST">
-      <label>Your name:<input type="text" name="name" required /></label>
-      <label>Your email:<input type="email" name="email" required /></label>
+      <label>Your name:<input type="text" name="name" required/></label>
+      <label>Your email:<input type="email" name="email" required/></label>
       <label>Your message:<textarea name="message" required></textarea></label>
       <button type="submit" class="btn">Send</button>
     </form>
