@@ -134,6 +134,19 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
   transform: scale(1.05);
 }
 
+.competitions-section {
+  background-color: #0b132b; /* darker than other sections */
+  padding: 4rem 2rem;
+}
+
+.competitions-section h2 {
+  text-align: center;
+  color: var(--btn-bg);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+
 
 /* STATS & FEATURES */
 .stats-features { display:flex; flex-wrap:wrap; gap:2rem; padding:4rem 2rem; }
