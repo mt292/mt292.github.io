@@ -159,10 +159,11 @@
   <!-- Projects -->
 <section id="projects" class="section bg-alt projects">
   <h2>Projects</h2>
+  <p class="projects-subheader">Hover over a project to learn more</p>
   <div class="projects-grid">
 
     <!-- Project 1: Linux Scoring Engine -->
-    <div class="project-window" title="A scoring engine for Linux terminal challenges. Blinks red cursor indicating DOWN status.">
+    <div class="project-window" data-tooltip="A scoring engine for Linux terminal challenges. Blinks red cursor indicating DOWN status.">
       <div class="mac-header">
         <span class="mac-btn red"></span>
         <span class="mac-btn yellow"></span>
@@ -171,16 +172,16 @@
       </div>
       <pre class="project-content">
 $ ./score-engine --start
-Scanning... 
+Scanning...
 SSH: UP
-WEB: DOWN [31mDOWN[0m  <--
+WEB: DOWN  <-- (flashing)
 DNS: UP
 FTP: DOWN
-</pre>
+      </pre>
     </div>
 
     <!-- Project 2: Windows Lab Environment -->
-    <div class="project-window" title="Interactive Windows lab topology for cybersecurity training.">
+    <div class="project-window" data-tooltip="Interactive Windows lab topology for cybersecurity training.">
       <div class="mac-header">
         <span class="mac-btn red"></span>
         <span class="mac-btn yellow"></span>
@@ -192,30 +193,26 @@ FTP: DOWN
       </div>
     </div>
 
-    <!-- Project 3 -->
-    <div class="project-window" title="Description coming soon">
+    <!-- Project 3: Ol Grace School Website -->
+    <div class="project-window" data-tooltip="Live website: olgraceschool.org">
       <div class="mac-header">
         <span class="mac-btn red"></span>
         <span class="mac-btn yellow"></span>
         <span class="mac-btn green"></span>
-        <div class="project-label">Project 3</div>
+        <div class="project-label">Ol Grace School</div>
       </div>
-      <div class="project-content placeholder">
-        <p>Coming Soon</p>
-      </div>
+      <iframe class="project-content iframe-content" src="https://olgraceschool.org"></iframe>
     </div>
 
-    <!-- Project 4 -->
-    <div class="project-window" title="Description coming soon">
+    <!-- Project 4: Tech Cyber Warriors Website -->
+    <div class="project-window" data-tooltip="Live website: techcyberwarriors.org">
       <div class="mac-header">
         <span class="mac-btn red"></span>
         <span class="mac-btn yellow"></span>
         <span class="mac-btn green"></span>
-        <div class="project-label">Project 4</div>
+        <div class="project-label">Tech Cyber Warriors</div>
       </div>
-      <div class="project-content placeholder">
-        <p>Coming Soon</p>
-      </div>
+      <iframe class="project-content iframe-content" src="https://techcyberwarriors.org"></iframe>
     </div>
 
   </div>
