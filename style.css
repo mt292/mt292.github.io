@@ -171,20 +171,20 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  margin-top: 2rem;
 }
 
 .cert-badge img {
   width: 100px;
   height: auto;
-  filter: grayscale(1) opacity(0.75);
-  transition: all 0.2s ease;
+  transition: transform 0.3s ease;
+  filter: grayscale(1) brightness(0.85);
+}
+.cert-badge:hover img {
+  transform: scale(1.05);
+  filter: none;
 }
 
-.cert-badge:hover img {
-  filter: none;
-  opacity: 1;
-  transform: scale(1.05);
-}
 
 /* Modal Styling */
 .modal {
