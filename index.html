@@ -17,7 +17,7 @@
     <nav class="nav">
       <a href="#about">About</a>
       <a href="#services">Services</a>
-      <a href="#blog">Blog</a>
+      <a href="#projects">Projects</a>
       <a href="#contact" class="btn-contact">Contact</a>
     </nav>
   </header>
@@ -55,10 +55,10 @@
         const char = e.key;
         if (char === '\r') {
           switch (command.trim()) {
-            case 'resume':    window.open('resume-page.html','_blank'); break;
-            case 'linkedin':  window.open('https://linkedin.com/in/martin-topp','_blank'); break;
-            case 'github':    window.open('https://github.com/mtopp292','_blank'); break;
-            default:          term.writeln('Unknown command: ' + command);
+            case 'resume': window.open('resume-page.html','_blank'); break;
+            case 'linkedin': window.open('https://linkedin.com/in/martin-topp','_blank'); break;
+            case 'github': window.open('https://github.com/mtopp292','_blank'); break;
+            default: term.writeln('Unknown command: ' + command);
           }
           command = '';
           term.prompt();
@@ -81,19 +81,19 @@
       <div class="service-card">
         <img src="assets/indiana-tech-shield.png" class="service-icon" alt="" />
         <h3>Criminal Justice</h3>
-        <p>Comprehensive study of legal systems, criminology theories and ethical law enforcement practices.</p>
+        <p>Comprehensive study of legal systems, criminology theories & ethical law enforcement practices.</p>
         <a href="#" class="btn">Read more</a>
       </div>
       <div class="service-card">
         <img src="assets/windows-logo.png" class="service-icon" alt="" />
         <h3>Windows Specialty Lead</h3>
-        <p>Lead Windows security training; manage AD, GPOs, and system hardening SOPs for Cyber Warriors.</p>
+        <p>Lead Windows security training; manage AD, GPOs & system hardening SOPs for Cyber Warriors.</p>
         <a href="#" class="btn">Read more</a>
       </div>
       <div class="service-card">
         <img src="assets/red-team-logo.png" class="service-icon" alt="" />
         <h3>Offensive Security Specialist</h3>
-        <p>Design & execute Red Team exercises, build exploitation scripts, automate scoring for incident response.</p>
+        <p>Design & execute Red Team exercises, build exploitation scripts & automate scoring.</p>
         <a href="#" class="btn">Read more</a>
       </div>
     </div>
@@ -104,7 +104,8 @@
     <h2>About Me</h2>
     <div class="about">
       <div class="about-left">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7307410577578999809?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7307410577578999809?collapsed=1"
+                height="565" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
       </div>
       <div class="about-content bullets">
         <ul>
@@ -147,58 +148,75 @@
     </div>
     <div class="features">
       <h2>The Perfect Solution<br/>For All Protection</h2>
-      <div class="features-item">
-        <img src="assets/icons/shield.svg" alt="" /><p>Cyber Solutions you can trust.</p>
-      </div>
-      <div class="features-item">
-        <img src="assets/icons/web.svg" alt="" /><p>Web Security against breaches.</p>
-      </div>
-      <div class="features-item">
-        <img src="assets/icons/network.svg" alt="" /><p>Network Security hardened.</p>
-      </div>
-      <div class="features-item">
-        <img src="assets/icons/locker.svg" alt="" /><p>Locker Security for data.</p>
-      </div>
+      <div class="features-item"><img src="assets/icons/shield.svg" alt="" /><p>Cyber Solutions you can trust.</p></div>
+      <div class="features-item"><img src="assets/icons/web.svg" alt="" /><p>Web Security against breaches.</p></div>
+      <div class="features-item"><img src="assets/icons/network.svg" alt="" /><p>Network Security hardened.</p></div>
+      <div class="features-item"><img src="assets/icons/locker.svg" alt="" /><p>Locker Security for data.</p></div>
     </div>
   </section>
 
-  <!-- Pricing -->
-  <section class="section bg-alt pricing">
-    <h2>Pricing Plans</h2>
-    <div class="plans">
-      <div class="plan">
-        <h3>Beginner</h3>
-        <p class="price">$120<span>/mo</span></p>
-        <ul>
-          <li>10 Vulnerability Tests</li>
-          <li>15 Device Monitoring</li>
-          <li>24/7 Alerts</li>
-          <li>Email Support</li>
-        </ul>
-        <a href="#" class="btn">Purchase</a>
+  <!-- Projects -->
+  <section id="projects" class="section bg-alt projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-window" title="A scoring engine for Linux terminal challenges. Blinks red cursor indicating DOWN status.">
+        <div class="mac-header">
+          <span class="mac-btn red"></span>
+          <span class="mac-btn yellow"></span>
+          <span class="mac-btn green"></span>
+          <div class="project-label">Linux Scoring Engine</div>
+        </div>
+        <pre class="project-content">
+$ ./score-engine --start
+Scanning...
+SSH: UP
+WEB: DOWN  <-- (flashing)
+DNS: UP
+FTP: DOWN
+        </pre>
       </div>
-      <div class="plan">
-        <h3>Business</h3>
-        <p class="price">$180<span>/mo</span></p>
-        <ul>
-          <li>20 Vulnerability Tests</li>
-          <li>30 Device Monitoring</li>
-          <li>24/7 Alerts</li>
-          <li>Priority Support</li>
-        </ul>
-        <a href="#" class="btn">Purchase</a>
+
+      <!-- Project 2 -->
+      <div class="project-window" title="Interactive Windows lab topology for cybersecurity training.">
+        <div class="mac-header">
+          <span class="mac-btn red"></span>
+          <span class="mac-btn yellow"></span>
+          <span class="mac-btn green"></span>
+          <div class="project-label">Windows Lab Topology</div>
+        </div>
+        <div class="project-content">
+          <img src="assets/windows-lab-topology.png" alt="Windows Lab Topology" />
+        </div>
       </div>
-      <div class="plan">
-        <h3>Professional</h3>
-        <p class="price">$200<span>/mo</span></p>
-        <ul>
-          <li>Unlimited Tests</li>
-          <li>50 Device Monitoring</li>
-          <li>Dedicated Manager</li>
-          <li>Phone Support</li>
-        </ul>
-        <a href="#" class="btn">Purchase</a>
+
+      <!-- Project 3 -->
+      <div class="project-window" title="Description coming soon">
+        <div class="mac-header">
+          <span class="mac-btn red"></span>
+          <span class="mac-btn yellow"></span>
+          <span class="mac-btn green"></span>
+          <div class="project-label">Project 3</div>
+        </div>
+        <div class="project-content placeholder">
+          <p>Coming Soon</p>
+        </div>
       </div>
+
+      <!-- Project 4 -->
+      <div class="project-window" title="Description coming soon">
+        <div class="mac-header">
+          <span class="mac-btn red"></span>
+          <span class="mac-btn yellow"></span>
+          <span class="mac-btn green"></span>
+          <div class="project-label">Project 4</div>
+        </div>
+        <div class="project-content placeholder">
+          <p>Coming Soon</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -206,7 +224,7 @@
   <section class="team">
     <h2>Expert Team Behind Security</h2>
     <div class="team-grid">
-      <!-- your team members here -->
+      <!-- team members -->
     </div>
     <a href="#" class="btn">Join Our Team</a>
   </section>
@@ -226,9 +244,7 @@
   <footer class="footer">
     <div class="col">
       <h5>Martin Topp</h5>
-      <p>RA College Student</p>
-      <p>Windows Lead & Offensive Security Specialist</p>
-      <p>Aspiring Federal Law Enforcement & Cyber Security Professional</p>
+      <p>RA College Student | Windows Lead & Offensive Security Specialist | Aspiring Federal Law Enforcement & Cyber Security Professional</p>
     </div>
     <div class="col">
       <h5>About</h5>
