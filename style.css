@@ -171,8 +171,25 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  margin-top: 2rem;
+  padding: 2rem 0;
 }
+
+.cert-grid img {
+  width: 120px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  background-color: #0f1724; /* optional: helps logos with transparency */
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.cert-grid img:hover {
+  transform: scale(1.05);
+}
+
 
 .cert-badge img {
   width: 100px;
