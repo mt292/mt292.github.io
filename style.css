@@ -550,3 +550,31 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 body {
   overflow-x: hidden;
 }
+
+@media (max-width: 768px) {
+  /* HERO FIX */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+
+  .hero-left, .hero-right {
+    width: 100%;
+  }
+
+  .hero-left img {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto 1.5rem;
+    display: block;
+    border-radius: 8px;
+  }
+
+  .terminal-window {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  }
+}
