@@ -52,9 +52,9 @@
         const char = e.key;
         if (char === '\r') {
           switch (command.trim()) {
-            case 'resume': window.open('resume-page.html', '_blank'); break;
-            case 'linkedin': window.open('https://linkedin.com/in/martin-topp', '_blank'); break;
-            case 'github': window.open('https://github.com/mtopp292', '_blank'); break;
+            case 'resume': window.open('resume-page.html','_blank'); break;
+            case 'linkedin': window.open('https://linkedin.com/in/martin-topp','_blank'); break;
+            case 'github': window.open('https://github.com/mtopp292','_blank'); break;
             default: term.writeln('Unknown command: ' + command);
           }
           command = '';
@@ -75,19 +75,19 @@
     <p class="subtitle">Honors B.S. in Cybersecurity • Honors B.A.S. in Criminal Justice</p>
     <div class="services cards">
       <div class="service-card">
-        <img src="assets/indiana-tech-shield.png" class="service-icon" />
+        <img src="assets/indiana-tech-shield.png" class="service-icon" alt="Indiana Tech Shield" />
         <h3>Criminal Justice</h3>
         <p>Comprehensive study of legal systems, criminology theories & ethical enforcement practices.</p>
         <a href="#" class="btn">Read more</a>
       </div>
       <div class="service-card">
-        <img src="assets/windows-logo.png" class="service-icon" />
+        <img src="assets/windows-logo.png" class="service-icon" alt="Windows Logo" />
         <h3>Windows Specialty Lead</h3>
         <p>Lead Windows security training; manage AD, GPOs & hardening SOPs for Cyber Warriors.</p>
         <a href="#" class="btn">Read more</a>
       </div>
       <div class="service-card">
-        <img src="assets/red-team-logo.png" class="service-icon" />
+        <img src="assets/red-team-logo.png" class="service-icon" alt="Red Team Logo" />
         <h3>Offensive Security Specialist</h3>
         <p>Design & execute Red Team exercises, build scripts & automate scoring.</p>
         <a href="#" class="btn">Read more</a>
@@ -99,7 +99,7 @@
     <h2>About Me</h2>
     <div class="about">
       <div class="about-left">
-        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7307410577578999809?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen></iframe>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7307410577578999809?collapsed=1" height="565" width="504" frameborder="0" allowfullscreen title="LinkedIn Post"></iframe>
       </div>
       <div class="about-content bullets">
         <ul>
@@ -119,12 +119,10 @@
     <h2>Projects</h2>
     <p class="projects-subheader">Hover over a project to learn more</p>
     <div class="projects-grid">
-      <div class="project-window" data-tooltip="Linux Terminal Scoring Engine — Python-based uptime scanner for SSH, Web, DNS, and FTP. Cloud-optimized with CSV logging, used for competitions and lab setups.">
+      <div class="project-window" data-tooltip="Mar 2025 — Python-based scoring engine that monitors SSH, Web, DNS, and FTP. Built with terminal UI and CSV logs for uptime tracking.">
         <div class="mac-header">
-          <span class="mac-btn red"></span>
-          <span class="mac-btn yellow"></span>
-          <span class="mac-btn green"></span>
-          <div class="project-label">Linux Scoring Engine</div>
+          <span class="mac-btn red"></span><span class="mac-btn yellow"></span><span class="mac-btn green"></span>
+          <div class="project-label">Linux Terminal Scoring Engine</div>
         </div>
         <pre class="project-content">
 $ ./score-engine --start
@@ -132,43 +130,74 @@ Scanning...
 SSH: UP
 WEB: ↓DOWN↓
 DNS: UP
-FTP: DOWN
+FTP: ↓DOWN↓
         </pre>
       </div>
-      <div class="project-window" data-tooltip="Windows Lab Topology — Multi-domain network with a DMZ, mail server, patch server, internal workstations and firewalls used in competition environments.">
+      <div class="project-window" data-tooltip="Dual-domain Windows Lab with DMZ, SMTP, AD, Patch Mgmt, and more for Red/Blue Teaming.">
         <div class="mac-header">
-          <span class="mac-btn red"></span>
-          <span class="mac-btn yellow"></span>
-          <span class="mac-btn green"></span>
+          <span class="mac-btn red"></span><span class="mac-btn yellow"></span><span class="mac-btn green"></span>
           <div class="project-label">Windows Lab Topology</div>
         </div>
-        <div class="project-content img-fit">
+        <div class="project-content">
           <img src="assets/windows-lab-topology.png" alt="Windows Lab Topology" />
         </div>
       </div>
-      <div class="project-window" data-tooltip="OLG Grace School Website — Built for public access with mobile responsiveness, accessibility, and SEO. Includes academic sections, calendars, and staff management.">
+      <div class="project-window" data-tooltip="Custom website for OLG Grace School with CMS, SEO, accessibility and responsive UI.">
         <div class="mac-header">
-          <span class="mac-btn red"></span>
-          <span class="mac-btn yellow"></span>
-          <span class="mac-btn green"></span>
+          <span class="mac-btn red"></span><span class="mac-btn yellow"></span><span class="mac-btn green"></span>
           <div class="project-label">OLG Grace School Web Dev</div>
         </div>
-        <div class="project-content img-fit">
-          <img src="assets/olgraceschool.png" alt="OLG Website" />
+        <div class="project-content">
+          <img src="assets/olgraceschool.png" alt="OLG Grace School" />
         </div>
       </div>
-      <div class="project-window" data-tooltip="Tech Cyber Warriors Site — Dynamic lab content, team announcements, blogs, and threat intel integrations hosted internally for student defenders.">
+      <div class="project-window" data-tooltip="Dynamic WordPress site for Tech Cyber Warriors with blog, events, and custom cyber threat map.">
         <div class="mac-header">
-          <span class="mac-btn red"></span>
-          <span class="mac-btn yellow"></span>
-          <span class="mac-btn green"></span>
+          <span class="mac-btn red"></span><span class="mac-btn yellow"></span><span class="mac-btn green"></span>
           <div class="project-label">Tech Cyber Warriors Web Dev</div>
         </div>
-        <div class="project-content img-fit">
-          <img src="assets/techcyberwarriors.png" alt="Cyber Warriors Site" />
+        <div class="project-content">
+          <img src="assets/techcyberwarriors.png" alt="Tech Cyber Warriors" />
         </div>
       </div>
     </div>
   </section>
+
+  <section id="contact" class="contact">
+    <h2>Send Me a Message</h2>
+    <form action="https://formspree.io/f/mdkggdjb" method="POST">
+      <label>Your name:<input type="text" name="name" required /></label>
+      <label>Your email:<input type="email" name="email" required /></label>
+      <label>Your message:<textarea name="message" required></textarea></label>
+      <button type="submit" class="btn">Send</button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="col">
+      <h5>Martin Topp</h5>
+      <p>RA College Student | Windows Lead & Offensive Security Specialist | Aspiring Federal Law Enforcement & Cyber Security Professional</p>
+    </div>
+    <div class="col">
+      <h5>About</h5>
+      <ul>
+        <li><a href="#about">My Story</a></li>
+        <li><a href="#services">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h5>Contact Info</h5>
+      <ul>
+        <li>Email: <a href="mailto:mtopp887@gmail.com">mtopp887@gmail.com</a></li>
+        <li>Phone: (219) 789-3297</li>
+      </ul>
+    </div>
+    <div class="col newsletter">
+      <h5>Newsletter</h5>
+      <input type="email" placeholder="Email Address" />
+      <button class="btn">Subscribe</button>
+    </div>
+  </footer>
 </body>
 </html>
