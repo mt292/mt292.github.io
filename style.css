@@ -117,12 +117,12 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
   height: auto;
   width: auto;
   object-fit: contain;
-  filter: grayscale(1) opacity(.7);
+  filter: none;
+  opacity: 1;
   transition: filter 0.2s, transform 0.2s;
 }
 .logos img:hover {
-  filter: none;
-  opacity: 1;
+  filter: grayscale(1) opacity(.7);
   transform: scale(1.05);
 }
 
