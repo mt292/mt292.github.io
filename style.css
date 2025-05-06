@@ -42,7 +42,8 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 /* HERO */
 .hero {
   display:grid; grid-template-columns:1fr 1fr;
-  align-items:center; padding:4rem 2rem; gap:2rem; max-width:1200px; margin:0 auto;
+  align-items:center; padding:4rem 2rem; gap:2rem;
+  max-width:1200px; margin:0 auto;
 }
 .hero-left img {
   width:100%; border-radius:8px;
@@ -64,7 +65,8 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 .mac-btn.green { background:#00ca4e; }
 #terminal {
   background:#000; padding:1rem;
-  height:300px; font-family:'Source Code Pro',monospace; color:var(--fg);
+  height:300px; font-family:'Source Code Pro',monospace;
+  color:var(--fg);
 }
 .prompt { color:var(--btn-bg); }
 
@@ -125,82 +127,55 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 }
 .features-item img { width:28px; margin-right:.75rem; }
 
-/* Projects Section */
+/* PROJECTS */
 #projects { background: var(--section-bg); }
-#projects h2 { text-align: center; color: var(--btn-bg); font-size: 2rem; margin-bottom: .5rem; }
-.projects-subheader { text-align: center; color: var(--muted); margin-bottom: 2rem; }
+#projects h2 { text-align:center; color:var(--btn-bg); font-size:2rem; margin-bottom:.5rem; }
+.projects-subheader { text-align:center; color:var(--muted); margin-bottom:2rem; }
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto 4rem;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:2rem;
+  max-width:1200px;
+  margin:0 auto 4rem;
 }
-@media (max-width: 768px) {
-  .projects-grid { grid-template-columns: 1fr; }
+@media (max-width:768px) {
+  .projects-grid { grid-template-columns:1fr; }
 }
 .project-window {
-  background: var(--dark-bg);
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.75);
-  position: relative;
-  transition: transform .2s;
+  background:var(--dark-bg);
+  border-radius:8px; overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,0.75);
+  position:relative; transition:transform .2s;
 }
-.project-window:hover { transform: translateY(-4px); }
+.project-window:hover { transform:translateY(-4px); }
 .project-window .mac-header {
-  display: flex; align-items: center; padding: 8px; background: #2a3145; position: relative;
+  display:flex; align-items:center; padding:8px; background:#2a3145; position:relative;
 }
 .project-label {
-  position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);
-  color: var(--fg); font-size: .9rem; pointer-events: none;
+  position:absolute; top:50%; left:50%;
+  transform:translate(-50%,-50%); color:var(--fg);
+  font-size:.9rem; pointer-events:none;
 }
-.mac-btn { width:12px; height:12px; border-radius:50%; margin-right:6px; }
-.mac-btn.red { background:#ff605c; }
-.mac-btn.yellow { background:#ffbd44; }
-.mac-btn.green { background:#00ca4e; }
 .project-content {
-  padding: 1.5rem; background: #000; color: var(--fg);
-  font-family: 'Source Code Pro', monospace; min-height: 300px;
+  padding:1.5rem; background:#000;
+  color:var(--fg); font-family:'Source Code Pro',monospace;
+  min-height:300px;
 }
-  .project-content.placeholder {
-    display: flex; align-items: center; justify-content: center;
-    color: var(--muted); font-size: 1rem;
-  }
 
-  /* Tooltip */
-  .project-window[data-tooltip] {
-    position: relative;
-  }
-  .project-window[data-tooltip]::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: calc(100% + 8px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.85);
-    color: #fff;
-    padding: 6px 10px;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .2s;
-    font-size: .85rem;
-    z-index: 10;
-  }
-  .project-window[data-tooltip]:hover::after {
-    opacity: 1;
-  }
-
-  /* iframe content styling */
-  .iframe-content {
-    width: 100%;
-    height: 300px;
-    border: none;
-  }
-
-
+/* Tooltip */
+.project-window[data-tooltip] { position:relative; }
+.project-window[data-tooltip]::after {
+  content:attr(data-tooltip);
+  position:absolute;
+  bottom:calc(100% + 8px);
+  left:50%; transform:translateX(-50%);
+  background:rgba(0,0,0,0.85); color:#fff;
+  padding:6px 10px; border-radius:4px;
+  white-space:nowrap; opacity:0;
+  pointer-events:none; transition:opacity .2s;
+  font-size:.85rem; z-index:10;
+}
+.project-window[data-tooltip]:hover::after { opacity:1; }
 
 /* CONTACT */
 .contact { background:var(--section-bg); padding:4rem 2rem; text-align:center; }
