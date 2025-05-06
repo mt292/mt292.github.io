@@ -125,37 +125,49 @@ h2,h3,.logo,.btn-contact,.btn,.prompt {
 }
 .features-item img { width:28px; margin-right:.75rem; }
 
-/* PROJECTS */
+/* Projects Section */
 #projects { background: var(--section-bg); }
-#projects h2 { text-align:center; color:var(--btn-bg); font-size:2rem; margin-bottom:2rem; }
+#projects h2 { text-align: center; color: var(--btn-bg); font-size: 2rem; margin-bottom: .5rem; }
+.projects-subheader { text-align: center; color: var(--muted); margin-bottom: 2rem; }
 .projects-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:2rem; max-width:1200px; margin:0 auto 4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+}
+@media (max-width: 768px) {
+  .projects-grid { grid-template-columns: 1fr; }
 }
 .project-window {
   background: var(--dark-bg);
-  border-radius:8px; overflow:hidden;
-  box-shadow:0 6px 20px rgba(0,0,0,0.75);
-  position:relative; transition:transform .2s;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.75);
+  position: relative;
+  transition: transform .2s;
 }
 .project-window:hover { transform: translateY(-4px); }
 .project-window .mac-header {
-  display:flex; align-items:center; padding:8px; background:#2a3145; position:relative;
+  display: flex; align-items: center; padding: 8px; background: #2a3145; position: relative;
 }
 .project-label {
-  position:absolute; top:50%; left:50%;
-  transform:translate(-50%,-50%); color:var(--fg);
-  font-size:.9rem; pointer-events:none;
+  position: absolute; top:50%; left:50%; transform: translate(-50%, -50%);
+  color: var(--fg); font-size: .9rem; pointer-events: none;
 }
+.mac-btn { width:12px; height:12px; border-radius:50%; margin-right:6px; }
+.mac-btn.red { background:#ff605c; }
+.mac-btn.yellow { background:#ffbd44; }
+.mac-btn.green { background:#00ca4e; }
 .project-content {
-  padding:1rem; background:#000; color:var(--fg);
-  font-family:'Source Code Pro',monospace; min-height:200px;
+  padding: 1.5rem; background: #000; color: var(--fg);
+  font-family: 'Source Code Pro', monospace; min-height: 300px;
 }
 .project-content.placeholder {
-  display:flex; align-items:center; justify-content:center;
-  color:var(--muted); font-size:1rem;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--muted); font-size: 1rem;
 }
+
 
 /* CONTACT */
 .contact { background:var(--section-bg); padding:4rem 2rem; text-align:center; }
