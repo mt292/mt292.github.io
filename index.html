@@ -172,23 +172,55 @@
     <p class="projects-subheader">Hover over a project to learn more</p>
     <div class="projects-grid">
 
-      <!-- Project 1 -->
-      <div class="project-window" data-tooltip="A scoring engine for Linux terminal challenges. Blinks red cursor for DOWN status.">
-        <div class="mac-header">
-          <span class="mac-btn red"></span>
-          <span class="mac-btn yellow"></span>
-          <span class="mac-btn green"></span>
-          <div class="project-label">Linux Scoring Engine</div>
-        </div>
-        <pre class="project-content">
-$ ./score-engine --start
-Scanning...
-SSH: UP
-WEB: DOWN  <-- (flashing)
-DNS: UP
-FTP: DOWN
-        </pre>
-      </div>
+<!-- Project 1 -->
+<div class="project-window" data-tooltip="Mar 2025 — Python-based scoring engine monitoring SSH, WEB, DNS, FTP. Terminal UI with flashing DOWN status and CSV logging.">
+  <div class="mac-header">
+    <span class="mac-btn red"></span>
+    <span class="mac-btn yellow"></span>
+    <span class="mac-btn green"></span>
+    <div class="project-label">Linux Scoring Engine</div>
+  </div>
+  <div class="project-content terminal-table">
+    <div class="terminal-title"><em>Service Status – Next Check in 60s</em></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>IP</th>
+          <th>Status</th>
+          <th>Uptime</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>SSH</td>
+          <td>test.rebex.net</td>
+          <td class="up">UP</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>WEB</td>
+          <td>93.184.216.34</td>
+          <td class="down blinking">DOWN</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td>DNS</td>
+          <td>8.8.8.8</td>
+          <td class="up">UP</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>FTP</td>
+          <td>test.rebex.net</td>
+          <td class="down">DOWN</td>
+          <td>1</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
 
       <!-- Project 2 -->
       <div class="project-window" data-tooltip="Interactive Windows lab topology for cybersecurity training.">
