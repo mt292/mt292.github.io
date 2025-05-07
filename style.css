@@ -573,14 +573,8 @@ body {
 
   .terminal-window {
     width: 100%;
-    max-width: 100%;
-    overflow-x: auto;
-    font-size: 0.85rem;
-  }
-
-  #terminal {
-    word-wrap: break-word;
-    white-space: pre-wrap;
-    font-size: 0.85rem;
+    max-width: 360px;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
   }
 }
