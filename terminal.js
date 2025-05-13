@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
           openLink('https://linkedin.com/in/martin-topp');
           break;
         case 'github':
-          openLink('https://github.com/mtopp292');
+          openLink('https://github.com/mt292');
           break;
         default:
           term.writeln('Unknown command: ' + command);
