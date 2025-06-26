@@ -2,110 +2,411 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Martin Topp | Cybersecurity Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Martin Topp</title>
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <script defer src="script.js"></script>
+  <!-- xterm.js -->
+  <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://unpkg.com/xterm/lib/xterm.js" defer></script>
+  <script src="cert-modals.js"></script>
 </head>
 <body>
-  <!-- Header / Hero -->
-  <header id="hero">
-    <nav class="navbar">
-      <div class="logo">MT</div>
-      <ul class="nav-links">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <!-- Header -->
+  <header class="header">
+  <div class="social-icons">
+    <a href="https://github.com/mt292" target="_blank" title="GitHub">
+      <img src="assets/icons/github.png" alt="GitHub">
+    </a>
+    <a href="https://linkedin.com/in/martin-topp" target="_blank" title="LinkedIn">
+      <img src="assets/icons/linkedin.png" alt="LinkedIn">
+    </a>
+    <a href="mailto:mtopp887@gmail.com" title="Email">
+      <img src="assets/icons/email.png" alt="Email">
+    </a>
+  </div>
 
-    <div class="hero-content">
-      <div class="terminal-wrapper">
-        <img src="assets/img/headshot.jpg" alt="Martin Topp" class="terminal-img" />
-        <div class="terminal-text">
-          <p>martin@cyberwarriors:~$ whoami</p>
-          <p>Martin Topp - RA, Windows Lead, Cybersecurity Student</p>
-          <p>Fighting threats and frying dough, all in a day's work.</p>
+  <a href="/" class="logo">Martin Topp</a>
+
+  <nav class="nav">
+    <a href="#about">About</a>
+    <a href="#services">Specialty</a>
+    <a href="#projects">Projects</a>
+    <a href="/blog" class="btn-contact">Blog</a>
+  </nav>
+</header>
+
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <img src="headshot.jpg" alt="Martin Topp" />
+    </div>
+    <div class="hero-right">
+      <div class="terminal-window">
+        <div class="mac-header">
+          <span class="mac-btn red"></span>
+          <span class="mac-btn yellow"></span>
+          <span class="mac-btn green"></span>
         </div>
-      </div>
-      <div class="hero-buttons">
-        <a href="#portfolio" class="btn">Projects</a>
-        <a href="#contact" class="btn btn-outline">Contact</a>
+        <div id="terminal"></div>
       </div>
     </div>
-  </header>
+  </section>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const term = new Terminal({ cursorBlink: true });
+      term.open(document.getElementById('terminal'));
+      term.writeln("Welcome to Martin's terminal");
+      term.writeln('Type a command to begin:');
+      term.writeln(' - resume');
+      term.writeln(' - linkedin');
+      term.writeln(' - github');
+      term.prompt = () => term.write('\r\n$ ');
+      term.prompt();
 
-  <!-- About Section -->
-  <section id="about">
+      let command = '';
+      term.onKey(e => {
+        const char = e.key;
+        if (char === '\r') {
+          switch (command.trim()) {
+            case 'resume':
+              window.open('resume-page.html','_blank');
+              break;
+            case 'linkedin':
+              window.open('https://linkedin.com/in/martin-topp','_blank');
+              break;
+            case 'github':
+              window.open('https://github.com/mtopp292','_blank');
+              break;
+            default:
+              term.writeln('Unknown command: ' + command);
+          }
+          command = '';
+          term.prompt();
+        } else if (char === '\u007f') {
+          command = command.slice(0, -1);
+          term.write('\b \b');
+        } else if (char.length === 1) {
+          command += char;
+          term.write(char);
+        }
+      });
+    });
+  </script>
+
+  <!-- Services -->
+  <section id="services" class="section bg-alt">
+    <img src="assets/indiana-tech-logo.png" alt="Indiana Tech Logo" class="indiana-tech-logo" />
+    <p class="subtitle">
+      Honors B.S. in Cybersecurity • Honors B.A.S. in Criminal Justice
+    </p>
+    <div class="services cards">
+      <div class="service-card">
+        <img src="assets/indiana-tech-shield.png" class="service-icon" alt="" />
+        <h3>Cybersecurity</h3>
+        <p>Network defense, red teaming, Windows and Linux hardening, plus threat detection automation. &amp; hardening SOPs for Cyber Warriors.</p>
+        <a href="#" class="btn">Read more</a>
+      </div>
+      <div class="service-card">
+        <img src="assets/indiana-tech-shield.png" class="service-icon" alt="" />
+        <h3>Criminal Justice</h3>
+        <p>Comprehensive study of legal systems, criminology theories &amp; ethical enforcement practices.</p>
+        <a href="#" class="btn">Read more</a>
+      </div>
+      <div class="service-card">
+        <img src="assets/windows-logo.png" class="service-icon" alt="" />
+        <h3>Windows Specialty Lead</h3>
+        <p>Lead Windows security training; manage AD, GPOs &amp; hardening SOPs for Cyber Warriors.</p>
+        <a href="#" class="btn">Read more</a>
+      </div>
+      <div class="service-card">
+        <img src="assets/red-team-logo.png" class="service-icon" alt="" />
+        <h3>Offensive Security Specialist</h3>
+        <p>Design &amp; execute Red Team exercises, build scripts &amp; automate scoring.</p>
+        <a href="#" class="btn">Read more</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comp -->
+<section class="section competitions-section">
+  <h2>Competitions</h2>
+  <div class="logos">
+    <a href="https://nationalccdc.org" target="_blank">
+      <img src="assets/competitions/ccdc.png" alt="CCDC" />
+    </a>
+    <a href="https://cp.tc" target="_blank">
+      <img src="assets/competitions/cptc.png" alt="CPTC" />
+    </a>
+    <a href="https://www.buffalostate.edu/news/buff-state-hosts-annual-ubuff-cybersecurity-competition" target="_blank">
+      <img src="assets/competitions/ubuff.png" alt="UBUFF" />
+    </a>
+    <a href="https://www.nsa.gov/Academics/Centers-of-Academic-Excellence/" target="_blank">
+      <img src="assets/competitions/ncae.png" alt="NCAE" />
+    </a>
+    <a href="https://nationalcyberleague.org" target="_blank">
+      <img src="assets/competitions/ncl.png" alt="NCL" />
+    </a>
+  </div>
+</section>
+  
+  <!-- About -->
+  <section id="about" class="section">
     <h2>About Me</h2>
-    <p>I’m Martin Topp, an RA and Windows Lead on the Indiana Tech Cyber Warriors team. I specialize in offensive security, Active Directory defense, and real-world cyber operations. My goal? FBI Cyber Division.</p>
-    <p>I bring sharp instincts, leadership under pressure, and hands-on red/blue team experience to every challenge I face.</p>
-  </section>
-
-  <!-- Portfolio Section -->
-  <section id="portfolio">
-    <h2>My Work</h2>
-    <div class="tab-buttons">
-      <button class="tab-btn active" data-tab="projects">Projects</button>
-      <button class="tab-btn" data-tab="certificates">Certificates</button>
-      <button class="tab-btn" data-tab="techstack">Tech Stack</button>
-    </div>
-    <div class="tab-content active" id="projects">
-      <div class="card-grid">
-        <!-- Repeat as needed -->
-        <div class="card">
-          <img src="assets/projects/techcyberwarriors.png" alt="TCW Site" />
-          <h3>TechCyberWarriors.org</h3>
-          <p>Custom-branded team website for competitions, rebuilt on Debian/WordPress.</p>
-          <a href="https://techcyberwarriors.org" target="_blank">Visit Site</a>
-        </div>
-        <div class="card">
-          <img src="assets/projects/windows-lab-topology.png" alt="Lab Topology" />
-          <h3>Windows Lab Topology</h3>
-          <p>Documented and deployed full AD lab including scoring, pfSense, NetBox.</p>
-        </div>
+    <div class="about">
+      <div class="about-left">
+        <iframe 
+          src="https://www.linkedin.com/embed/feed/update/urn:li:share:7307410577578999809?collapsed=1" 
+          height="565" width="504" frameborder="0" allowfullscreen title="Embedded post">
+        </iframe>
       </div>
-    </div>
-    <div class="tab-content" id="certificates">
-      <div class="card-grid">
-        <div class="card">
-          <img src="assets/certs/ncae-2025.png" alt="NCAE 2025" />
-          <h3>NCAE Cyber 2025</h3>
-          <p>National Center of Academic Excellence – Cybersecurity designated member.</p>
-        </div>
-        <div class="card">
-          <img src="assets/certs/servsafe.png" alt="ServSafe" />
-          <h3>ServSafe Certified</h3>
-          <p>Food safety certified—because running ops and running kitchens aren’t so different.</p>
-        </div>
-      </div>
-    </div>
-    <div class="tab-content" id="techstack">
-      <div class="tech-icons">
-        <img src="assets/icons/github.png" alt="GitHub" />
-        <img src="assets/icons/email.png" alt="Email" />
-        <img src="assets/icons/linkedin.png" alt="LinkedIn" />
-        <!-- Add more logos as needed -->
+      <div class="about-content bullets">
+        <ul>
+          <li><strong>Honors B.S. Cybersecurity &amp; B.A.S. Criminal Justice</strong> (GPA 3.9)</li>
+          <li><strong>Resident Assistant</strong> for 32 residents; hosted academic &amp; career events</li>
+          <li><strong>Windows Specialty Lead</strong> &amp; <strong>OffSec Specialist</strong> at Indiana Tech Cyber Warriors</li>
+          <li><strong>Competitions:</strong> CCDC (Top 6), NCAE (MVP), NCL, UBuff Lockdown</li>
+          <li><strong>Skills:</strong> Python, Bash, AD, GPO, DNS, HTML/CSS, WordPress</li>
+          <li><strong>Aspiring:</strong> Federal law enforcement &amp; cyber leadership</li>
+        </ul>
+        <a href="resume-page.html" class="btn">Download Resume</a>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <form action="https://formspree.io/f/your-id" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+  <!-- Projects -->
+  <section id="projects" class="section bg-alt projects">
+    <h2>Projects</h2>
+    <p class="projects-subheader">Hover over a project to learn more</p>
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+<div class="project-window">
+  <div class="mac-header">
+    <span class="mac-btn red"></span>
+    <span class="mac-btn yellow"></span>
+    <span class="mac-btn green"></span>
+    <div class="project-label">Linux Scoring Engine</div>
+  </div>
+  <div class="project-content terminal-table">
+    <div class="terminal-title"><em>Service Status – Next Check in 60s</em></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>IP</th>
+          <th>Status</th>
+          <th>Uptime</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>SSH</td><td>test.rebex.net</td><td class="up">UP</td><td>292</td></tr>
+        <tr><td>WEB</td><td>93.184.216.34</td><td class="down blinking">DOWN</td><td>0</td></tr>
+        <tr><td>DNS</td><td>8.8.8.8</td><td class="up">UP</td><td>162</td></tr>
+        <tr><td>FTP</td><td>test.mtsaga.net</td><td class="down blinking">DOWN</td><td>19</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="project-overlay">
+    Python-based scoring engine monitoring SSH, WEB, DNS, FTP. Designed to work within a Virtual Private Cloud environment such as AWS or Azure.<br>Terminal UI with flashing DOWN status and CSV logging.
+  </div>
+</div>
+
+<!-- Project 2 -->
+<div class="project-window">
+  <div class="mac-header">
+    <span class="mac-btn red"></span>
+    <span class="mac-btn yellow"></span>
+    <span class="mac-btn green"></span>
+    <div class="project-label">Windows Lab Topology</div>
+  </div>
+  <div class="project-content">
+    <img src="assets/windows-lab-topology.png" alt="Windows Lab Topology" />
+  </div>
+  <div class="project-overlay">
+    Manage 6+ Windows servers, deploying Active Directory, NTP, and RDS.<br>Design 50+ Group Policy Objects for security compliance.<br>Configure remote access protocols, ensuring secure administrative control.
+  </div>
+</div>
+
+<!-- Project 3 -->
+<div class="project-window">
+  <div class="mac-header">
+    <span class="mac-btn red"></span>
+    <span class="mac-btn yellow"></span>
+    <span class="mac-btn green"></span>
+    <div class="project-label">OLG Grace School Website Development</div>
+  </div>
+  <div class="project-content">
+    <img src="assets/olgraceschool.png" alt="Ol Grace School" />
+  </div>
+  <div class="project-overlay">
+    Built and deployed olgraceschool.org for a private K-8 school with full mobile optimization and admin backend.<br>300+ Weekly Visitors
+  </div>
+</div>
+
+<!-- Project 4 -->
+<div class="project-window">
+  <div class="mac-header">
+    <span class="mac-btn red"></span>
+    <span class="mac-btn yellow"></span>
+    <span class="mac-btn green"></span>
+    <div class="project-label">Tech Cyber Warriors Website Development</div>
+  </div>
+  <div class="project-content">
+    <img src="assets/techcyberwarriors.png" alt="Tech Cyber Warriors" />
+  </div>
+  <div class="project-overlay">
+    Rebuilt the official site for Indiana Tech Cyber Warriors—WordPress migration, SSL hardening, and visual revamp.<br>1200+ Weekly Visitors
+  </div>
+</div>
+
+
+  </section>
+
+<!-- Certifications -->
+<section id="certifications" class="section bg-alt certs">
+  <h2>Certifications & Badges</h2>
+  <p class="projects-subheader">Click a badge to learn more</p>
+
+  <div class="cert-grid">
+    <img src="assets/certs/trust.png" alt="TRUST Drone" onclick="openModal('modal-trust')" />
+    <img src="assets/certs/ncae-2025.png" alt="NCAE Competitor" onclick="openModal('modal-ncae1')" />
+    <img src="assets/certs/ncae-2025.png" alt="Most Improved Teammate" onclick="openModal('modal-ncae2')" />
+    <img src="assets/certs/photoshop.png" alt="Photoshop CS 2" onclick="openModal('modal-ps')" />
+    <img src="assets/certs/nscs.png" alt="NSCS" onclick="openModal('modal-nscs')" />
+    <img src="assets/certs/servsafe.png" alt="ServSafe" onclick="openModal('modal-servsafe')" />
+  </div>
+
+  <!-- MODALS -->
+
+  <div id="modal-trust" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-trust')">&times;</span>
+      <h3>TRUST Certified Drone Pilot</h3>
+      <p>FAA-approved training for recreational drone operators.</p>
+      <a href="https://www.faa.gov/uas/recreational_flyers/knowledge_test_updates" target="_blank" class="btn">Learn More</a>
+    </div>
+  </div>
+
+  <div id="modal-ncae1" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-ncae1')">&times;</span>
+      <h3>NCAE Cyber Games 2025 Competitor</h3>
+      <p>Issued: Mar 2025</p>
+      <p>Credential ID: 67ca1d02193b202b45e8554f</p>
+    </div>
+  </div>
+
+  <div id="modal-ncae2" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-ncae2')">&times;</span>
+      <h3>NCAE Cyber Games – Most Improved Teammate</h3>
+      <p>Issued: Mar 2025</p>
+      <p>Credential ID: 67ca1dfcc266e0303850ed38</p>
+    </div>
+  </div>
+
+  <div id="modal-ncae" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-ncae')">&times;</span>
+      <h3>NCAE Cyber Games Competitor (2025)</h3>
+      <p>Awarded for successful participation in the NCAE Cyber Games, showcasing hands-on defensive and offensive cyber skills.</p>
+      <a href="https://badgr.com/public/assertions/67ca1d02193b202b45e8554f" target="_blank" class="btn">View Credential</a>
+    </div>
+  </div>
+
+  <div id="modal-team" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-team')">&times;</span>
+      <h3>Most Improved Teammate (2025)</h3>
+      <p>Recognized for leadership and technical improvement in team-based cyber competitions.</p>
+      <a href="https://badgr.com/public/assertions/67ca1dfcc266e0303850ed38" target="_blank" class="btn">View Credential</a>
+    </div>
+  </div>
+
+  <div id="modal-photoshop" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-photoshop')">&times;</span>
+      <h3>Adobe Photoshop CS 2 (2024)</h3>
+      <p>Certification by EDUCBA validating proficiency in Adobe Photoshop. Includes photo manipulation, design, and layout skills.</p>
+    </div>
+  </div>
+
+  <div id="modal-nscs" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-nscs')">&times;</span>
+      <h3>NSCS Member</h3>
+      <p>Inducted into The National Society of Collegiate Scholars (NSCS) for academic excellence and leadership.</p>
+    </div>
+  </div>
+
+  <div id="modal-servsafe" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-servsafe')">&times;</span>
+      <h3>ServSafe Food Handler (2022)</h3>
+      <p>Certified by the National Restaurant Association in food safety, kitchen hygiene, and culinary back-of-house operations.</p>
+    </div>
+  </div>
+
+  <div id="modal-trust" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('modal-trust')">&times;</span>
+      <h3>TRUST Certified Drone Pilot</h3>
+      <p>Certified through the FAA's Recreational UAS Safety Test (TRUST). Cleared to legally operate drones for recreational use under FAA guidelines.</p>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <h2>Send Me a Message</h2>
+    <form action="https://formspree.io/f/mdkggdjb" method="POST">
+      <label>Your name:<input type="text" name="name" required/></label>
+      <label>Your email:<input type="email" name="email" required/></label>
+      <label>Your message:<textarea name="message" required></textarea></label>
       <button type="submit" class="btn">Send</button>
     </form>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Martin Topp. All rights reserved.</p>
+  <footer class="footer">
+    <div class="col">
+      <h5>Martin Topp</h5>
+      <p>RA College Student | Windows Lead & Offensive Security Specialist | Aspiring Federal Law Enforcement & Cyber Security Professional</p>
+    </div>
+    <div class="col">
+      <h5>About</h5>
+      <ul>
+        <li><a href="#about">My Story</a></li>
+        <li><a href="#services">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h5>Contact Info</h5>
+      <ul>
+        <li>Email: <a href="mailto:mtopp887@gmail.com">mtopp887@gmail.com</a></li>
+        <li>Phone: (219) 789-3297</li>
+      </ul>
+    </div>
+    <div class="col newsletter">
+      <h5>Newsletter</h5>
+      <input type="email" placeholder="Email Address" />
+      <button class="btn">Subscribe</button>
+    </div>
   </footer>
+
+  <script src="scroll-to-topp.js"></script>
+  <button id="scrollToTopBtn" title="Back to Topp">
+  <i class="fas fa-arrow-up"></i>
+  </button>
+
+
 </body>
 </html>
