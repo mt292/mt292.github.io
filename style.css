@@ -578,3 +578,20 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.6);
   }
 }
+
+/* LOADER */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #000;           /* black background */
+  display: grid;
+  place-items: center;
+  z-index: 99999;             /* sits above everything */
+}
+
+#sig {
+  width: 50vw;
+  max-width: 720px;
+  height: auto;
+}
+
