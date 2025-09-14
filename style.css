@@ -579,19 +579,24 @@ body {
   }
 }
 
-/* LOADER */
+/* Animation for loader */
+/* Loader */
 #loader {
   position: fixed;
   inset: 0;
-  background: #000;           /* black background */
+  background: #000;
   display: grid;
   place-items: center;
-  z-index: 99999;             /* sits above everything */
+  z-index: 99999;
 }
-
-#sig {
+#sig-slot svg {
   width: 50vw;
   max-width: 720px;
   height: auto;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  #loader { display: none !important; }
+}
+
 
