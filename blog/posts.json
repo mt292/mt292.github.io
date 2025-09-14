@@ -1,17 +1,17 @@
-
 [
   {
   "title": "UBuff Lockdown – AD Defense",
   "date": "2025-09-02",
-  "slug": "tech-datacenter-redesign",
+  "slug": "ubuff-lockdown-lessons",
   "description": "My first comp as captain. Red Team tried everything, but AD stayed up. Here's what I learned.",
   "thumbnail": "/assets/blog/ubuff.png"
 }
   {
   "title": "Datacenter Redesign at Indiana Tech",
   "date": "2025-04-12",
-  "slug": "ubuff-lockdown-lessons",
+  "slug": "tech-datacenter-redesign",
   "description": "10 hours, half a petabyte of storage, and a full Proxmox environment later.",
-  "thumbnail": "assets/datacenter.png"
+  "thumbnail": "/assets/datacenter.png"
 }
+
 ]
