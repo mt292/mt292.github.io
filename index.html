@@ -1,3 +1,6 @@
+<!--(c) 2025 Martin Topp <--->
+<!--dont steal my code, please-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,47 +64,7 @@
       </div>
     </div>
   </section>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const term = new Terminal({ cursorBlink: true });
-      term.open(document.getElementById('terminal'));
-      term.writeln("Welcome to Martin's terminal");
-      term.writeln('Type a command to begin:');
-      term.writeln(' - resume');
-      term.writeln(' - linkedin');
-      term.writeln(' - github');
-      term.prompt = () => term.write('\r\n$ ');
-      term.prompt();
 
-      let command = '';
-      term.onKey(e => {
-        const char = e.key;
-        if (char === '\r') {
-          switch (command.trim()) {
-            case 'resume':
-              window.open('resume-page.html','_blank');
-              break;
-            case 'linkedin':
-              window.open('https://linkedin.com/in/martin-topp','_blank');
-              break;
-            case 'github':
-              window.open('https://github.com/mtopp292','_blank');
-              break;
-            default:
-              term.writeln('Unknown command: ' + command);
-          }
-          command = '';
-          term.prompt();
-        } else if (char === '\u007f') {
-          command = command.slice(0, -1);
-          term.write('\b \b');
-        } else if (char.length === 1) {
-          command += char;
-          term.write(char);
-        }
-      });
-    });
-  </script>
 
   <!-- Services -->
   <section id="services" class="section bg-alt">
@@ -114,25 +77,28 @@
         <img src="assets/indiana-tech-shield.png" class="service-icon" alt="" />
         <h3>Cybersecurity</h3>
         <p>Network defense, red teaming, Windows and Linux hardening, plus threat detection automation. &amp; hardening SOPs for Cyber Warriors.</p>
-        <a href="#" class="btn">Read more</a>
+        <a href="https://linkedin.com/in/martin-topp" class="btn">Read more</a>
       </div>
       <div class="service-card">
         <img src="assets/indiana-tech-shield.png" class="service-icon" alt="" />
         <h3>Criminal Justice</h3>
         <p>Comprehensive study of legal systems, criminology theories &amp; ethical enforcement practices.</p>
-        <a href="#" class="btn">Read more</a>
+        <br><br>
+        <a href="https://linkedin.com/in/martin-topp" class="btn">Read more</a>
       </div>
       <div class="service-card">
         <img src="assets/windows-logo.png" class="service-icon" alt="" />
         <h3>Windows Specialty Lead</h3>
         <p>Lead Windows security training; manage AD, GPOs &amp; hardening SOPs for Cyber Warriors.</p>
-        <a href="#" class="btn">Read more</a>
+        <br>
+        <a href="https://linkedin.com/in/martin-topp" class="btn">Read more</a>
       </div>
       <div class="service-card">
         <img src="assets/red-team-logo.png" class="service-icon" alt="" />
         <h3>Offensive Security Specialist</h3>
         <p>Design &amp; execute Red Team exercises, build scripts &amp; automate scoring.</p>
-        <a href="#" class="btn">Read more</a>
+        <br>
+        <a href="https://linkedin.com/in/martin-topp" class="btn">Read more</a>
       </div>
     </div>
   </section>
@@ -227,17 +193,49 @@
     <span class="mac-btn red"></span>
     <span class="mac-btn yellow"></span>
     <span class="mac-btn green"></span>
-    <div class="project-label">Windows Lab Topology</div>
+    <div class="project-label">Local Training of Artifical Inteligince Models</div>
   </div>
   <div class="project-content">
-    <img src="assets/windows-lab-topology.png" alt="Windows Lab Topology" />
+    <img src="assets/TCWai.png" alt="TCW AI Interface" />
   </div>
   <div class="project-overlay">
-    Manage 6+ Windows servers, deploying Active Directory, NTP, and RDS.<br>Design 50+ Group Policy Objects for security compliance.<br>Configure remote access protocols, ensuring secure administrative control.
+   Local AI system trained on Indiana Tech’s public site and academic catalog, so students can ask questions like what degrees are offered, how degree plans look, or who the Cyber Warriors are. The project scrapes, cleans, and indexes university content into a searchable knowledge base that powers real-time Q&A.<br>Trained on Cyber Warriors AAR's and internal documentaion for Competition prep.
   </div>
 </div>
 
 <!-- Project 3 -->
+<div class="project-window">
+  <div class="mac-header">
+    <span class="mac-btn red"></span>
+    <span class="mac-btn yellow"></span>
+    <span class="mac-btn green"></span>
+    <div class="project-label">Cyber Warriors CTF Tryout</div>
+  </div>
+  <div class="project-content">
+    <img src="assets/ctfd.png" alt="Cyber Warriors CTFd Instance" />
+  </div>
+  <div class="project-overlay">
+    Redesigned the CFTd Tryout Portal for the Cyber Warriors. Assisted with desgin and creation of half of the CTFs that cover Digital Foresniscs, Web Exploitation, OSINT, Crypto, and Reverse Engineering/Pwn.<br>100+ Tryout Users
+  </div>
+</div>
+
+<!-- Project 4 -->
+<div class="project-window">
+  <div class="mac-header">
+    <span class="mac-btn red"></span>
+    <span class="mac-btn yellow"></span>
+    <span class="mac-btn green"></span>
+    <div class="project-label">Datacenter Redesign/Upkeep</div>
+  </div>
+  <div class="project-content">
+    <img src="assets/datacenter.png" alt="Datacenter Redesign Photo" />
+  </div>
+  <div class="project-overlay">
+    Rebuilt Indiana Tech’s student data center with clean racks, working network, and a Proxmox stack with AD/LDAP for the Cybersecurity Club. Massive compute and storage now pointed at real, course-integrated student VMs.<br>99.98% Live Uptime
+  </div>
+</div>
+
+<!-- Project 5 -->
 <div class="project-window">
   <div class="mac-header">
     <span class="mac-btn red"></span>
@@ -253,7 +251,7 @@
   </div>
 </div>
 
-<!-- Project 4 -->
+<!-- Project 6 -->
 <div class="project-window">
   <div class="mac-header">
     <span class="mac-btn red"></span>
@@ -268,6 +266,23 @@
     Rebuilt the official site for Indiana Tech Cyber Warriors—WordPress migration, SSL hardening, and visual revamp.<br>1200+ Weekly Visitors
   </div>
 </div>
+
+<!-- Project 7 -->
+<div class="project-window">
+  <div class="mac-header">
+    <span class="mac-btn red"></span>
+    <span class="mac-btn yellow"></span>
+    <span class="mac-btn green"></span>
+    <div class="project-label">Windows Lab Topology</div>
+  </div>
+  <div class="project-content">
+    <img src="assets/windows-lab-topology.png" alt="Windows Lab Topology" />
+  </div>
+  <div class="project-overlay">
+    Manage 6+ Windows servers, deploying Active Directory, NTP, and RDS.<br>Design 50+ Group Policy Objects for security compliance.<br>Configure remote access protocols, ensuring secure administrative control.
+  </div>
+</div>
+
 
 
   </section>
@@ -414,6 +429,8 @@
   <i class="fas fa-arrow-up"></i>
   </button>
 
+<script src="terminal.js" defer></script>
+
 
 <script>
 (function(){
@@ -462,7 +479,7 @@
       if(!defs){ defs=document.createElementNS('http://www.w3.org/2000/svg','defs'); svg.insertBefore(defs, svg.firstChild); }
       const vb=(svg.getAttribute('viewBox')||'0 0 100 100').split(/\s+/).map(parseFloat);
 
-      const gap=350, speed=1.0, minDur=380, maxDur=800;
+      const gap=350, speed=2.0, minDur=380, maxDur=500;
       let delay=0;
       const anims=[];
 

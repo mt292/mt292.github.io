@@ -1,3 +1,6 @@
+// (c) 2025 Martin Topp <
+// dont steal my code, please
+
 document.addEventListener('DOMContentLoaded', () => {
   const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
