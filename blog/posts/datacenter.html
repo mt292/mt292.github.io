@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Datacenter Redesign</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+    .post-wrapper {
+      max-width: 900px;
+      margin: 4rem auto;
+      background: linear-gradient(145deg, #1c2948, #10192f);
+      padding: 2.5rem;
+      border-radius: 18px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+      color: var(--fg);
+      animation: fadeIn 0.6s ease-in-out;
+      position: relative;
+    }
+
+    .post-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .post-image {
+      width: 100%;
+      border-radius: 14px;
+      margin-bottom: 2rem;
+      object-fit: cover;
+      max-height: 400px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .post-title {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: var(--btn-bg);
+      margin-bottom: 0.3rem;
+    }
+
+    .post-date {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .post-body p {
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+      font-size: 1.1rem;
+    }
+
+    .back-button {
+      position: absolute;
+      top: -2rem;
+      left: 0;
+      text-decoration: none;
+      background: var(--btn-bg);
+      color: var(--dark-bg);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.85rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: #008ecc;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .post-wrapper {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+      }
+
+      .post-title {
+        font-size: 2rem;
+      }
+
+      .post-body p {
+        font-size: 1rem;
+      }
+
+      .back-button {
+        top: -1.5rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="social-icons">
+      <a href="https://github.com/mt292" target="_blank" title="GitHub">
+        <img src="/assets/icons/github.png" alt="GitHub">
+      </a>
+      <a href="https://linkedin.com/in/martin-topp" target="_blank" title="LinkedIn">
+        <img src="/assets/icons/linkedin.png" alt="LinkedIn">
+      </a>
+      <a href="mailto:mtopp887@gmail.com" title="Email">
+        <img src="/assets/icons/email.png" alt="Email">
+      </a>
+    </div>
+    <a href="/" class="logo">Martin Topp</a>
+    <nav class="nav">
+      <a href="/">Home</a>
+      <a href="/#about">About</a>
+      <a href="/#services">Specialty</a>
+      <a href="/#projects">Projects</a>
+      <a href="/blog" class="btn-contact">Blog</a>
+    </nav>
+  </header>
+
+  <main class="post-wrapper">
+    <a href="/blog" class="back-button">&larr; Back to Blog</a>
+    <div class="post-header">
+      <img src="/assets/datacenter.png" alt="Datacenter Thumbnail" class="post-image" />
+      <h1 class="post-title">Indiana Tech Student Datacenter</h1>
+      <span class="post-date">September 2, 2025</span>
+    </div>
+    <div class="post-body">
+      <p>What was supposed to be a quick one-hour maintenance in Indiana Institute of Technology’s student data center turned into a full 10-hour grind. The space hadn’t been touched in years—dusty hardware, loose cabling, rack doors that wouldn’t even shut. The only thing alive in there were two Indiana Tech Cyber Warriors Proxmox nodes.</p>
+  
+      <p>Alongside <a href="https://www.linkedin.com/in/avery-hughes/" target="_blank">Avery Hughes</a>, fellow Cyber Warriors leadership, we shut everything down, ripped it apart, and rebuilt the place. The mission was simple: consolidate the Indiana Tech Cyber Warriors infrastructure into a clean, cable-managed rack and stand up a full Proxmox environment with AD and LDAP integration for the new Indiana Tech Cybersecurity Club.</p>
+  
+     <p>Highlights of the day? We fixed a production server used in live courses, wired Cisco and MikroTik networking into Indiana Tech’s core network, spun up a dedicated Proxmox node just for inject runs so comps don’t kill our main stack, and cleaned the space into something actually professional. To top it off, we mounted an unused monitor to the rack doors and set it up to stream <a href="https://www.checkpoint.com/cyber-hub/threat-prevention/cyber-threat-map/" target="_blank">Check Point Software’s Cyber Threat Map</a> for anyone passing by.</p>
+  
+     <p>There’s real horsepower here—nearly half a petabyte of storage sitting idle. With faculty like Zhaojun (David) Li and Changhao Chenli backing us, we’re already planning to expand with another Proxmox node so students can run enterprise-grade VMs hands-on, right here on campus.</p>
+  
+     <p>Big credit to <a href="https://www.linkedin.com/in/tabaker01/" target="_blank">Tavares Baker</a> for grinding through the old servers and making them usable for courses again. What started as a messy storage room is now the backbone of the Indiana Tech Cyber Warriors’ competitions and the launchpad for Indiana Tech’s Cybersecurity Club.</p>
+</div>
+
+  </main>
+</body>
+</html>
