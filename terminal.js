@@ -14,6 +14,7 @@
     about:    "#about",
     linkedin: "https://linkedin.com/in/martin-topp",
     resume:   "/resume-page.html",
+    rmrf: "/delete.html",
   };
 
   const term = new Terminal({ cursorBlink: true });
@@ -144,6 +145,10 @@
         case "resume":
           location.href = ROUTES.resume;
           return sys("Opening resume…").then(prompt);
+
+        case "rm -rf":
+          location.href = ROUTES.rmrf;
+          return sys("bro...").then(prompt);
       }
     } else {
       const { most, score } = closest(raw);
