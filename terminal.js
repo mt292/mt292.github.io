@@ -208,6 +208,12 @@
     scrollBottom();
     return Promise.resolve();
   }
+  document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById("terminal-input").focus();
+  });
+
+
+  
 
   // ---------- Utils ----------
   function openExternal(url) {
