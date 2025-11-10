@@ -6,93 +6,285 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
+  <title>404 - Quack! Page Not Found</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Courier New', Courier, monospace;
-      background: linear-gradient(160deg, #040d36 0%, #0a1a3d 100%);
-      color: #e5e5e5;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #4A90E2 0%, #2E5C8A 100%);
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      text-align: left;
-    }
-
-    .terminal-wrapper {
-      background: #1e1e1e;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 700px;
-      box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+      position: relative;
       overflow: hidden;
     }
 
-    .terminal-header {
-      display: flex;
-      padding: 0.5rem 1rem;
-      background-color: #2b2b2b;
-      align-items: center;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
+    .bubble {
+      position: absolute;
+      bottom: -100px;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(200, 230, 255, 0.3));
       border-radius: 50%;
-      margin-right: 0.5rem;
+      animation: rise 6s infinite ease-in;
     }
 
-    .dot.red { background-color: #ff5f56; }
-    .dot.yellow { background-color: #ffbd2e; }
-    .dot.green { background-color: #27c93f; }
-
-    .terminal-content {
-      padding: 1.5rem;
-      font-size: 1rem;
-      background-color: #000;
-      color: #ffffff;
+    @keyframes rise {
+      0% { bottom: -100px; opacity: 0; }
+      10% { opacity: 0.6; }
+      90% { opacity: 0.6; }
+      100% { bottom: 100vh; opacity: 0; }
     }
 
-    .blink {
-      animation: blink 1s step-start infinite;
+    .container {
+      text-align: center;
+      z-index: 10;
+      padding: 2rem;
     }
 
-    @keyframes blink {
-      50% { opacity: 0; }
+    .error-code {
+      font-size: clamp(5rem, 20vw, 12rem);
+      font-weight: 900;
+      color: #FFD700;
+      text-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.8),
+        0 0 40px rgba(255, 215, 0, 0.6),
+        0 5px 15px rgba(0, 0, 0, 0.5);
+      margin-bottom: 2rem;
+      animation: glow 2s ease-in-out infinite alternate;
     }
 
-    a {
-      color: #00ffd1;
+    @keyframes glow {
+      from { 
+        text-shadow: 
+          0 0 20px rgba(255, 215, 0, 0.8),
+          0 0 40px rgba(255, 215, 0, 0.6),
+          0 5px 15px rgba(0, 0, 0, 0.5);
+      }
+      to { 
+        text-shadow: 
+          0 0 30px rgba(255, 215, 0, 1),
+          0 0 60px rgba(255, 215, 0, 0.8),
+          0 5px 20px rgba(0, 0, 0, 0.6);
+      }
+    }
+
+    .duck-wrapper {
+      margin: 3rem auto;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .duck {
+      width: 300px;
+      height: 300px;
+      object-fit: contain;
+      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.4));
+      animation: bobble 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes bobble {
+      0%, 100% { transform: scale(1) rotate(-3deg); }
+      50% { transform: scale(1.05) rotate(3deg); }
+    }
+
+    .message {
+      font-size: clamp(1.5rem, 5vw, 3rem);
+      color: white;
+      font-weight: 700;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      margin: 2rem 0 1rem;
+    }
+
+    .submessage {
+      font-size: clamp(1rem, 3vw, 1.5rem);
+      color: #E0F7FF;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+      margin-bottom: 3rem;
+    }
+
+    .nav-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .nav-btn {
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+      color: #1a3a52;
+      border: none;
+      border-radius: 50px;
       text-decoration: none;
+      font-weight: 700;
+      box-shadow: 0 8px 25px rgba(255, 165, 0, 0.4);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
     }
-    a:hover {
-      text-decoration: underline;
+
+    .nav-btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(255, 165, 0, 0.6);
+      background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
+    }
+
+    .plants {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      z-index: 1;
+    }
+
+    .plant {
+      position: absolute;
+      bottom: 0;
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 80px solid rgba(46, 139, 87, 0.5);
+      transform-origin: bottom center;
+      animation: sway 3s ease-in-out infinite;
+    }
+
+    .plant:nth-child(1) { left: 5%; animation-delay: 0s; }
+    .plant:nth-child(2) { left: 20%; animation-delay: 0.5s; border-bottom-width: 100px; }
+    .plant:nth-child(3) { left: 35%; animation-delay: 1s; }
+    .plant:nth-child(4) { left: 50%; animation-delay: 1.5s; border-bottom-width: 90px; }
+    .plant:nth-child(5) { left: 65%; animation-delay: 2s; }
+    .plant:nth-child(6) { left: 80%; animation-delay: 2.5s; border-bottom-width: 95px; }
+    .plant:nth-child(7) { left: 95%; animation-delay: 3s; }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(3deg); }
+      75% { transform: rotate(-3deg); }
+    }
+
+    @keyframes ripple {
+      0% {
+        width: 50px;
+        height: 50px;
+        opacity: 1;
+      }
+      100% {
+        width: 800px;
+        height: 800px;
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .duck { 
+        width: 200px;
+        height: 200px;
+      }
+      .nav-btn { padding: 0.8rem 1.5rem; font-size: 1rem; }
     }
   </style>
 </head>
 <body>
-  <div class="terminal-wrapper">
-    <div class="terminal-header">
-      <div class="dot red"></div>
-      <div class="dot yellow"></div>
-      <div class="dot green"></div>
+  <div class="plants">
+    <div class="plant"></div>
+    <div class="plant"></div>
+    <div class="plant"></div>
+    <div class="plant"></div>
+    <div class="plant"></div>
+    <div class="plant"></div>
+    <div class="plant"></div>
+  </div>
+
+  <div class="container">
+    <div class="error-code">404</div>
+    
+    <div class="duck-wrapper">
+      <img src="/assets/duck-404.jpg" alt="Duck" class="duck">
     </div>
-    <div class="terminal-content">
-      <p>martin@mtsaga:~$ <span style="color: #ff5f56">cd /not-found</span></p>
-      <p>bash: cd: /not-found: No such file or directory</p>
-      <p>¯\_(ツ)_/¯</p>
-      <p></p>
-      <p>Try one of these instead:</p>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/resume-page.html">Resume</a></li>
-        <li><a href="https://linkedin.com/in/martin-topp" target="_blank">LinkedIn</a></li>
-        <li><a href="https://github.com/mt292" target="_blank">GitHub</a></li>
-      </ul>
-      <p>$ <span class="blink">█</span></p>
+
+    <div class="message">Quack! This page swam away...</div>
+    <div class="submessage">The duck couldn't find what you're looking for in these waters!</div>
+
+    <div class="nav-buttons">
+      <a href="#" class="nav-btn" id="swimBtn">
+        <span>Swim Home</span>
+      </a>
     </div>
   </div>
+
+  <script>
+    function createBubble() {
+      const bubble = document.createElement('div');
+      bubble.className = 'bubble';
+      
+      const size = Math.random() * 50 + 20;
+      bubble.style.width = size + 'px';
+      bubble.style.height = size + 'px';
+      bubble.style.left = Math.random() * 100 + '%';
+      bubble.style.animationDuration = (Math.random() * 4 + 4) + 's';
+      bubble.style.animationDelay = Math.random() * 2 + 's';
+      
+      document.body.appendChild(bubble);
+      
+      setTimeout(() => bubble.remove(), 8000);
+    }
+
+    for (let i = 0; i < 5; i++) {
+      setTimeout(createBubble, i * 400);
+    }
+
+    setInterval(createBubble, 1200);
+
+    // Swim home animation
+    document.getElementById('swimBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const duck = document.querySelector('.duck-wrapper');
+      const container = document.querySelector('.container');
+      
+      // Add swimming animation
+      duck.style.transition = 'all 1.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      duck.style.transform = 'translateX(-150vw) rotate(-20deg) scale(0.5)';
+      
+      // Fade out everything else
+      container.style.transition = 'opacity 1s ease-out';
+      container.style.opacity = '0';
+      
+      // Create water ripple effect
+      const ripple = document.createElement('div');
+      ripple.style.position = 'fixed';
+      ripple.style.top = '50%';
+      ripple.style.left = '50%';
+      ripple.style.width = '50px';
+      ripple.style.height = '50px';
+      ripple.style.borderRadius = '50%';
+      ripple.style.border = '3px solid rgba(255, 255, 255, 0.6)';
+      ripple.style.transform = 'translate(-50%, -50%)';
+      ripple.style.animation = 'ripple 1.5s ease-out';
+      ripple.style.pointerEvents = 'none';
+      document.body.appendChild(ripple);
+      
+      // Navigate after animation
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 1500);
+    });
+  </script>
 </body>
 </html>
