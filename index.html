@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://unpkg.com/xterm/css/xterm.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="https://unpkg.com/xterm/lib/xterm.js" defer></script>
-  <script src="cert-modals.js"></script>
+  <script src="assets/scripts/cert-modals.js"></script>
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Martin Topp — Cybersecurity, OffSec, RA">
@@ -51,7 +51,6 @@
     <a href="#about">About</a>
     <a href="#services">Specialty</a>
     <a href="#projects">Projects</a>
-    <a href="/blog" class="btn-contact">Blog</a>
   </nav>
 </header>
 
@@ -59,7 +58,7 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-left">
-      <img src="headshot.jpg" alt="Martin Topp" />
+      <img src="assets/images/headshot.jpg" alt="Martin Topp" />
     </div>
     <div class="hero-right">
       <div class="terminal-window">
@@ -67,6 +66,7 @@
           <span class="mac-btn red"></span>
           <span class="mac-btn yellow"></span>
           <span class="mac-btn green"></span>
+          <a href="/terminal" class="terminal-expand-btn" title="Open Full Terminal">Full Terminal</a>
         </div>
         <div id="terminal"></div>
       </div>
@@ -88,13 +88,6 @@
         <a href="https://linkedin.com/in/martin-topp" class="btn">Read more</a>
       </div>
       <div class="service-card">
-        <img src="assets/indiana-tech-shield.png" class="service-icon" alt="" />
-        <h3>Criminal Justice</h3>
-        <p>Comprehensive study of legal systems, criminology theories &amp; ethical enforcement practices.</p>
-        <br><br>
-        <a href="https://linkedin.com/in/martin-topp" class="btn">Read more</a>
-      </div>
-      <div class="service-card">
         <img src="assets/windows-logo.png" class="service-icon" alt="" />
         <h3>Windows Specialty Lead</h3>
         <p>Lead Windows security training; manage AD, GPOs &amp; hardening SOPs for Cyber Warriors.</p>
@@ -106,6 +99,13 @@
         <h3>Offensive Security Specialist</h3>
         <p>Design &amp; execute Red Team exercises, build scripts &amp; automate scoring.</p>
         <br>
+        <a href="https://linkedin.com/in/martin-topp" class="btn">Read more</a>
+      </div>
+      <div class="service-card">
+        <img src="assets/indiana-tech-shield.png" class="service-icon" alt="" />
+        <h3>Criminal Justice</h3>
+        <p>Comprehensive study of legal systems, criminology theories &amp; ethical enforcement practices.</p>
+        <br><br>
         <a href="https://linkedin.com/in/martin-topp" class="btn">Read more</a>
       </div>
     </div>
@@ -150,9 +150,9 @@
           <li><strong>Windows Specialty Lead</strong> &amp; <strong>OffSec Specialist</strong> at Indiana Tech Cyber Warriors</li>
           <li><strong>Competitions:</strong> CCDC (Top 6), NCAE (MVP), NCL, UBuff Lockdown</li>
           <li><strong>Skills:</strong> Python, Bash, AD, GPO, DNS, HTML/CSS, WordPress</li>
-          <li><strong>Aspiring:</strong> Federal law enforcement &amp; cyber leadership</li>
+          <li><strong>Aspiring:</strong> Cybersecurity professional &amp; cyber leadership</li>
         </ul>
-        <a href="resume-page.html" class="btn">Download Resume</a>
+        <a href="/resume" class="btn">Download Resume</a>
       </div>
     </div>
   </section>
@@ -408,7 +408,7 @@
   <footer class="footer">
     <div class="col">
       <h5>Martin Topp</h5>
-      <p>RA College Student | Windows Lead & Offensive Security Specialist | Aspiring Federal Law Enforcement & Cyber Security Professional</p>
+      <p>RA College Student | Windows Lead & Offensive Security Specialist | Aspiring Cybersecurity Professional</p>
     </div>
     <div class="col">
       <h5>About</h5>
@@ -432,17 +432,17 @@
     </div>
   </footer>
 
-  <script src="scroll-to-topp.js"></script>
+  <script src="assets/scripts/scroll-to-topp.js"></script>
   <button id="scrollToTopBtn" title="Back to Topp">
   <i class="fas fa-arrow-up"></i>
   </button>
 
-<script src="terminal.js" defer></script>
+<script src="assets/scripts/terminal.js" defer></script>
 
 
 <script>
 (function(){
-  const SIG_SRC = 'signature.svg';
+  const SIG_SRC = 'assets/images/signature.svg';
   const FORCE_REVERSE = true; // <<— flips direction globally
 
   const loader = document.getElementById('loader');

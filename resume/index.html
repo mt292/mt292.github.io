@@ -1,0 +1,444 @@
+<!--(c) 2025 Martin Topp-->
+<!--dont steal my code, please-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Martin Topp – Resume</title>
+  <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .resume-container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 2rem;
+    }
+
+    .resume-hero {
+      background: var(--section-bg);
+      padding: 3rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    }
+
+    .resume-hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: var(--btn-bg);
+      margin-bottom: 0.5rem;
+    }
+
+    .resume-hero .title {
+      font-size: 1.2rem;
+      color: var(--fg);
+      margin-bottom: 1rem;
+    }
+
+    .resume-hero .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      color: var(--muted);
+    }
+
+    .resume-hero .contact-info a {
+      color: var(--btn-bg);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .resume-hero .contact-info a:hover {
+      opacity: 0.8;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.75rem 2rem;
+      background: var(--btn-bg);
+      color: var(--dark-bg);
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      transition: opacity 0.2s;
+      box-shadow: 0 4px 12px rgba(0,170,255,0.3);
+    }
+
+    .download-btn:hover {
+      opacity: 0.8;
+    }
+
+    .resume-section {
+      background: var(--section-bg);
+      padding: 2rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .resume-section h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--btn-bg);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--btn-bg);
+      padding-bottom: 0.5rem;
+    }
+
+    .resume-item {
+      margin-bottom: 1.5rem;
+    }
+
+    .resume-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .resume-item h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--fg);
+      font-size: 1.2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .resume-item .meta {
+      color: var(--btn-bg);
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .resume-item .location {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    .resume-item ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.75rem;
+    }
+
+    .resume-item ul li {
+      color: var(--fg);
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .resume-item ul li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--btn-bg);
+      font-weight: bold;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-category h3 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--btn-bg);
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-category ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .skill-category ul li {
+      color: var(--fg);
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .skill-category ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--btn-bg);
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .certifications-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .cert-badge {
+      background: var(--card-bg);
+      color: var(--fg);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      border: 2px solid var(--btn-bg);
+      transition: transform 0.2s;
+    }
+
+    .cert-badge:hover {
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .resume-container {
+        padding: 1rem;
+      }
+
+      .resume-hero {
+        padding: 2rem 1rem;
+      }
+
+      .resume-hero h1 {
+        font-size: 2rem;
+      }
+
+      .resume-hero .contact-info {
+        gap: 1rem;
+        font-size: 0.9rem;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="social-icons">
+      <a href="https://github.com/mt292" target="_blank" title="GitHub">
+        <img src="/assets/icons/github.png" alt="GitHub">
+      </a>
+      <a href="https://linkedin.com/in/martin-topp" target="_blank" title="LinkedIn">
+        <img src="/assets/icons/linkedin.png" alt="LinkedIn">
+      </a>
+      <a href="mailto:mtopp887@gmail.com" title="Email">
+        <img src="/assets/icons/email.png" alt="Email">
+      </a>
+    </div>
+
+    <a href="/" class="logo">Martin Topp</a>
+
+    <nav class="nav">
+      <a href="/#about">About</a>
+      <a href="/#services">Specialty</a>
+      <a href="/#projects">Projects</a>
+    </nav>
+  </header>
+
+  <div class="resume-container">
+    <!-- Hero Section -->
+    <div class="resume-hero">
+      <h1>Martin Topp</h1>
+      <p class="title">Cybersecurity Student | Windows Lead & Offensive Security Specialist</p>
+      <div class="contact-info">
+        <span><i class="fas fa-envelope"></i> <a href="mailto:mtopp887@gmail.com">mtopp887@gmail.com</a></span>
+        <span><i class="fas fa-phone"></i> (219) 789-3297</span>
+        <span><i class="fas fa-map-marker-alt"></i> Fort Wayne, IN</span>
+        <span><i class="fas fa-globe"></i> <a href="https://mtsaga.net" target="_blank">mtsaga.net</a></span>
+      </div>
+      <a href="/assets/resume.pdf" class="download-btn" download>
+        <i class="fas fa-download"></i> Download PDF Resume
+      </a>
+    </div>
+
+    <!-- Education -->
+    <div class="resume-section">
+      <h2><i class="fas fa-graduation-cap"></i> Education</h2>
+      <div class="resume-item">
+        <h3>Indiana Institute of Technology</h3>
+        <div class="meta">Honors B.S. in Cybersecurity • Honors B.A.S. in Criminal Justice</div>
+        <div class="location">Fort Wayne, IN | Expected May 2027</div>
+        <ul>
+          <li>GPA: 3.9 | Dean's List All Semesters</li>
+          <li>President of Student Government Association</li>
+          <li>Member of Honors Program & National Society of Collegiate Scholars</li>
+          <li>Competitions: CCDC (Top 6 Nationals), NCAE Cyber Games (MVP), CPTC, UBuff Lockdown, NCL</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="resume-section">
+      <h2><i class="fas fa-briefcase"></i> Experience</h2>
+      
+      <div class="resume-item">
+        <h3>Windows Specialty Lead & Offensive Security Specialist</h3>
+        <div class="meta">Indiana Tech Cyber Warriors</div>
+        <div class="location">Fort Wayne, IN | August 2023 – Present</div>
+        <ul>
+          <li>Lead Windows security training sessions covering Active Directory, Group Policy, and hardening strategies</li>
+          <li>Design and execute Red Team exercises to simulate real-world attack scenarios</li>
+          <li>Develop and maintain Standard Operating Procedures (SOPs) for incident response and system hardening</li>
+          <li>Mentor team members in Windows security best practices and offensive security techniques</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Resident Assistant</h3>
+        <div class="meta">Indiana Institute of Technology</div>
+        <div class="location">Fort Wayne, IN | August 2024 – Present</div>
+        <ul>
+          <li>Manage community of 32 residents, fostering inclusive and supportive living environment</li>
+          <li>Plan and execute academic, social, and professional development programs</li>
+          <li>Respond to emergencies and enforce university policies while maintaining positive relationships</li>
+          <li>Collaborate with residence life staff to enhance student experience and campus safety</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>IT Service Agent</h3>
+        <div class="meta">Indiana Institute of Technology</div>
+        <div class="location">Fort Wayne, IN | September 2023 – May 2024</div>
+        <ul>
+          <li>Resolved 100+ technical support tickets monthly for faculty, staff, and students</li>
+          <li>Provided hardware and software troubleshooting for Windows and Mac systems</li>
+          <li>Maintained IT documentation and knowledge base articles</li>
+          <li>Assisted with network configuration and printer maintenance across campus</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Shift Lead</h3>
+        <div class="meta">Tomato Bar</div>
+        <div class="location">Cedar Lake, IN | May 2022 – August 2023</div>
+        <ul>
+          <li>Managed team of 8 employees during high-volume shifts (500+ orders)</li>
+          <li>Trained new employees on food safety, customer service, and operational procedures</li>
+          <li>Maintained food safety standards and inventory management</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="resume-section">
+      <h2><i class="fas fa-code"></i> Projects</h2>
+      
+      <div class="resume-item">
+        <h3>Linux Scoring Engine</h3>
+        <ul>
+          <li>Python-based service monitoring system for SSH, WEB, DNS, and FTP services</li>
+          <li>Terminal UI with real-time status updates and automated CSV logging</li>
+          <li>Designed for deployment in Virtual Private Cloud environments (AWS/Azure)</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Local AI Training System</h3>
+        <ul>
+          <li>Trained local AI model on Indiana Tech documentation for student Q&A system</li>
+          <li>Integrated Cyber Warriors competition after-action reports for team training</li>
+          <li>Implements web scraping, content indexing, and real-time query processing</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>CTFd Tryout Portal</h3>
+        <ul>
+          <li>Redesigned and deployed CTFd platform for Cyber Warriors recruitment</li>
+          <li>Created challenges covering Digital Forensics, Web Exploitation, OSINT, Crypto, and Pwn</li>
+          <li>Managed platform for 100+ tryout participants</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Datacenter Infrastructure</h3>
+        <ul>
+          <li>Rebuilt Indiana Tech's student datacenter with 99.98% uptime</li>
+          <li>Deployed Proxmox virtualization stack with AD/LDAP integration</li>
+          <li>Organized server racks, networking infrastructure, and storage systems</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Windows Lab Topology</h3>
+        <ul>
+          <li>Manage 6+ Windows servers with Active Directory, NTP, and RDS services</li>
+          <li>Designed and implemented 50+ Group Policy Objects for security compliance</li>
+          <li>Configured remote access protocols and secure administrative controls</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="resume-section">
+      <h2><i class="fas fa-cogs"></i> Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Offensive Security</h3>
+          <ul>
+            <li>Red Teaming</li>
+            <li>Penetration Testing</li>
+            <li>Vulnerability Assessment</li>
+            <li>Network Exploitation</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Windows Security</h3>
+          <ul>
+            <li>Active Directory</li>
+            <li>Group Policy Management</li>
+            <li>PowerShell Automation</li>
+            <li>Windows Server Admin</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Linux Administration</h3>
+          <ul>
+            <li>System Hardening</li>
+            <li>Bash Scripting</li>
+            <li>Service Management</li>
+            <li>Network Configuration</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Programming & Tools</h3>
+          <ul>
+            <li>Python</li>
+            <li>HTML/CSS/JavaScript</li>
+            <li>Git Version Control</li>
+            <li>WordPress Development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="resume-section">
+      <h2><i class="fas fa-certificate"></i> Certifications & Achievements</h2>
+      <div class="certifications-grid">
+        <div class="cert-badge">NCAE Cyber Games MVP (2025)</div>
+        <div class="cert-badge">CCDC Top 6 Nationals</div>
+        <div class="cert-badge">TRUST Certified Drone Pilot</div>
+        <div class="cert-badge">Adobe Photoshop CS2</div>
+        <div class="cert-badge">ServSafe Food Handler</div>
+        <div class="cert-badge">NSCS Member</div>
+        <div class="cert-badge">Dean's List All Semesters</div>
+        <div class="cert-badge">Student Government President</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/assets/scripts/scroll-to-topp.js"></script>
+  <button id="scrollToTopBtn" title="Back to Topp">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+</body>
+</html>

@@ -1,0 +1,61 @@
+FILE STRUCTURE CLEANUP - November 9, 2025
+=========================================
+
+REORGANIZATION COMPLETED:
+------------------------
+
+ROOT DIRECTORY (Clean):
+- index.html
+- resume-page.html
+- legal.html
+- 404.html
+- style.css
+- README.md
+- CNAME
+- blog/ (directory)
+- assets/ (directory)
+
+ASSETS/SCRIPTS/ (New):
+- terminal.js (moved from root)
+- scroll-to-topp.js (moved from root)
+- cert-modals.js (moved from root)
+
+ASSETS/IMAGES/ (New):
+- headshot.jpg (moved from root, duplicate in assets/ removed)
+- signature.svg (moved from root)
+
+EXISTING ASSETS STRUCTURE (Maintained):
+- assets/icons/
+- assets/certs/
+- assets/competitions/
+- assets/blog/
+- assets/*.png (project images)
+- assets/favicon.ico
+- assets/Topp Technical Resume 4-28-25.pdf
+
+UPDATED REFERENCES:
+------------------
+index.html:
+✓ cert-modals.js → assets/scripts/cert-modals.js
+✓ headshot.jpg → assets/images/headshot.jpg
+✓ scroll-to-topp.js → assets/scripts/scroll-to-topp.js
+✓ terminal.js → assets/scripts/terminal.js
+✓ signature.svg → assets/images/signature.svg
+
+VERIFICATION:
+------------
+✓ All files load successfully (HTTP 200)
+✓ No broken links
+✓ Terminal works correctly
+✓ All scripts load properly
+✓ Images display correctly
+✓ Signature animation works
+
+BENEFITS:
+---------
++ Cleaner root directory
++ Organized scripts in one location
++ Organized images in one location
++ Easier to maintain
++ Professional structure
++ No duplicate files
