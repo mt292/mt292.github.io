@@ -82,6 +82,12 @@
         viewport.scrollTop = viewport.scrollHeight;
       }
     }, 0);
+    // Force immediate scroll too
+    term.scrollToBottom();
+    const viewport = document.querySelector('.xterm-viewport');
+    if (viewport) {
+      viewport.scrollTop = viewport.scrollHeight;
+    }
   }
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -228,21 +234,17 @@
       if (key.length === 1 && !domEvent.ctrlKey && !domEvent.metaKey) {
         buffer += key;
         term.write(key);
-        scrollBottom();
       }
     });
 
-    // Keep terminal focused and scrolled to bottom
+    // Keep terminal focused and scrolled to bottom with aggressive scrolling
     setInterval(() => {
-      scrollBottom();
-    }, 100);
-    
-    // Also scroll after any terminal write
-    const originalWrite = term.write.bind(term);
-    term.write = function(...args) {
-      originalWrite(...args);
-      scrollBottom();
-    };
+      const viewport = document.querySelector('.xterm-viewport');
+      if (viewport) {
+        viewport.scrollTop = viewport.scrollHeight;
+      }
+      term.scrollToBottom();
+    }, 50);
   });
 
   // ---------- Command handlers ----------
