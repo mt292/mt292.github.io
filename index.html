@@ -503,7 +503,7 @@
       if(!defs){ defs=document.createElementNS('http://www.w3.org/2000/svg','defs'); svg.insertBefore(defs, svg.firstChild); }
       const vb=(svg.getAttribute('viewBox')||'0 0 100 100').split(/\s+/).map(parseFloat);
 
-      const gap=350, speed=2.0, minDur=380, maxDur=500;
+      const gap=50, speed=0.6, minDur=120, maxDur=180;
       let delay=0;
       const anims=[];
 
@@ -563,7 +563,12 @@
         delay += dur + gap;
       });
 
-      Promise.all(anims.map(a=>a.finished.catch(()=>{}))).then(()=>{ clearTimeout(killTimer); fadeOut(); });
+      Promise.all(anims.map(a=>a.finished.catch(()=>{}))).then(()=>{ 
+        setTimeout(()=>{
+          clearTimeout(killTimer); 
+          fadeOut();
+        }, 400);
+      });
     })
     .catch(()=>finishNow());
 
