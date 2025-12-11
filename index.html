@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="https://unpkg.com/xterm/lib/xterm.js" defer></script>
   <script src="assets/scripts/cert-modals.js"></script>
+  <script src="assets/scripts/signature-animator.js"></script>
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Martin Topp — Cybersecurity, OffSec, RA">
@@ -459,10 +460,8 @@
 <script>
 (function(){
   const SIG_SRC = 'assets/images/signature.svg';
-  const FORCE_REVERSE = true; // <<— flips direction globally
-
   const loader = document.getElementById('loader');
-  const slot   = document.getElementById('sig-slot');
+  const slot = document.getElementById('sig-slot');
   const killTimer = setTimeout(finishNow, 15000);
 
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) { finishNow(); return; }
@@ -474,149 +473,36 @@
       const svg = slot.querySelector('svg');
       if (!svg) throw new Error('No <svg>');
 
-      // Ensure white fill + stroke class
-      const style = document.createElement('style');
-      style.textContent = `
-        .sig-fill{fill:#fff;stroke:none}
-        .sig-stroke{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;will-change:stroke-dashoffset}
-      `;
-      svg.insertBefore(style, svg.firstChild);
-
-      // Elements to animate (ignore <defs>)
-      let elems = Array.from(svg.querySelectorAll('path,ellipse,polyline,line,polygon,circle'))
-                       .filter(el => !el.closest('defs'));
-      if (!elems.length) throw new Error('No drawable elements');
-
-      // Strict order: data-order first, else left->right fallback
-      elems.sort((a,b)=>{
-        const ao=Number(a.getAttribute('data-order')), bo=Number(b.getAttribute('data-order'));
-        const aHas=Number.isFinite(ao), bHas=Number.isFinite(bo);
-        if (aHas && bHas) return ao-bo;
-        if (aHas) return -1;
-        if (bHas) return 1;
-        const A=bboxApprox(a), B=bboxApprox(b);
-        return (A.cx-B.cx)||(A.cy-B.cy);
-      });
-
-      // defs and mask bg
-      let defs = svg.querySelector('defs');
-      if(!defs){ defs=document.createElementNS('http://www.w3.org/2000/svg','defs'); svg.insertBefore(defs, svg.firstChild); }
-      const vb=(svg.getAttribute('viewBox')||'0 0 100 100').split(/\s+/).map(parseFloat);
-
-      const gap=350, speed=2.0, minDur=380, maxDur=500;
-      let delay=0;
-      const anims=[];
-
-      elems.forEach((orig,i)=>{
-        // visible fill
-        const fillClone=orig.cloneNode(true);
-        fillClone.removeAttribute('stroke');
-        fillClone.classList.add('sig-fill');
-
-        // mask
-        const maskId=`sig-mask-${i}`;
-        const mask=document.createElementNS('http://www.w3.org/2000/svg','mask');
-        mask.setAttribute('id',maskId);
-
-        const maskBG=document.createElementNS('http://www.w3.org/2000/svg','rect');
-        maskBG.setAttribute('x',vb[0]); maskBG.setAttribute('y',vb[1]);
-        maskBG.setAttribute('width',vb[2]); maskBG.setAttribute('height',vb[3]);
-        maskBG.setAttribute('fill','#000');
-
-        const strokeClone=orig.cloneNode(true);
-        strokeClone.removeAttribute('fill');
-        strokeClone.classList.add('sig-stroke');
-
-        // thickness big enough to "paint" fills
-        const bb=bboxApprox(orig);
-        const thick=Math.max(8, bb.h*0.22);
-        strokeClone.setAttribute('stroke-width', String(thick));
-
-        // dash: dash + gap = L; start at offset=L so it's hidden first
-        const L=Math.max(60, lengthOf(strokeClone));
-        strokeClone.style.strokeDasharray=`${L} ${L}`;
-        strokeClone.style.strokeDashoffset=L;
-        strokeClone.getBoundingClientRect(); // pin initial state
-
-        // direction:
-        // - default: FORCE_REVERSE flips to draw visually left->right for paths exported right->left
-        // - per-element override: data-rev="0" => normal, data-rev="1" => reversed
-        const attr=orig.getAttribute('data-rev');
-        let rev = FORCE_REVERSE;
-        if (attr === '0') rev = false;
-        if (attr === '1') rev = true;
-
-        mask.appendChild(maskBG);
-        mask.appendChild(strokeClone);
-        defs.appendChild(mask);
-
-        fillClone.setAttribute('mask', `url(#${maskId})`);
-        orig.replaceWith(fillClone);
-
-        const dur = clamp(L*speed, minDur, maxDur);
-        const keyframes = rev
-          ? [{strokeDashoffset:L}, {strokeDashoffset:2*L}]   // reversed
-          : [{strokeDashoffset:L}, {strokeDashoffset:0   }];  // normal
-
-        const anim = strokeClone.animate(keyframes, { duration:dur, delay, easing:'ease', fill:'forwards' });
-        anims.push(anim);
-        delay += dur + gap;
-      });
-
-      Promise.all(anims.map(a=>a.finished.catch(()=>{}))).then(()=>{ clearTimeout(killTimer); fadeOut(); });
+      // Initialize the SignatureAnimator
+      if (window.SignatureAnimator) {
+        const animator = new window.SignatureAnimator(svg, {
+          speed: 1,
+          startDelay: 0,
+          easing: 'ease-in-out',
+          color: '#ffffff'
+        });
+        
+        // Fade out loader 0.5s after animation completes
+        setTimeout(() => {
+          clearTimeout(killTimer);
+          fadeOut();
+        }, 1580);
+      } else {
+        // Fallback if animator not loaded
+        finishNow();
+      }
     })
     .catch(()=>finishNow());
 
-  // utils
-  function clamp(x,a,b){ return Math.min(b, Math.max(a,x)); }
-  function lengthOf(el){
-    const tag=el.tagName.toLowerCase();
-    try{ if(typeof el.getTotalLength==='function'){ const L=el.getTotalLength(); if(isFinite(L)&&L>0) return L; } }catch(e){}
-    if(tag==='ellipse'||tag==='circle'){
-      const rx=parseFloat(el.getAttribute('rx')||el.getAttribute('r')||'0')||0;
-      const ry=parseFloat(el.getAttribute('ry')||el.getAttribute('r')||'0')||0;
-      const h=((rx-ry)**2)/Math.max((rx+ry)**2,1e-6);
-      const circ=Math.PI*(rx+ry)*(1+(3*h)/(10+Math.sqrt(4-3*h)));
-      return Math.max(60,circ);
-    }
-    return 240;
+  function fadeOut(){ 
+    loader.style.transition='opacity 800ms ease'; 
+    loader.style.opacity='0'; 
+    loader.addEventListener('transitionend',()=>loader.remove()); 
   }
-  function bboxApprox(el){
-    const tag=el.tagName.toLowerCase();
-    const numRE=/[-+]?(?:\d+\.\d+|\.\d+|\d+)(?:[eE][-+]?\d+)?/g;
-    if(tag==='path'){
-      const d=el.getAttribute('d')||'';
-      const nums=(d.match(numRE)||[]).map(parseFloat);
-      const xs=nums.filter((_,i)=>i%2===0);
-      const ys=nums.filter((_,i)=>i%2===1);
-      const minx=xs.length?Math.min(...xs):0, maxx=xs.length?Math.max(...xs):0;
-      const miny=ys.length?Math.min(...ys):0, maxy=ys.length?Math.max(...ys):0;
-      return {cx:(minx+maxx)/2, cy:(miny+maxy)/2, h:(maxy-miny)||0};
-    }
-    if(tag==='ellipse'||tag==='circle'){
-      const cx=parseFloat(el.getAttribute('cx')||'0')||0;
-      const cy=parseFloat(el.getAttribute('cy')||'0')||0;
-      const rx=parseFloat(el.getAttribute('rx')||el.getAttribute('r')||'0')||0;
-      const ry=parseFloat(el.getAttribute('ry')||el.getAttribute('r')||'0')||0;
-      return {cx,cy,h:ry*2||rx*2};
-    }
-    if(tag==='polyline'||tag==='polygon'){
-      const pts=el.getAttribute('points')||'';
-      const nums=(pts.match(numRE)||[]).map(parseFloat);
-      const xs=nums.filter((_,i)=>i%2===0), ys=nums.filter((_,i)=>i%2===1);
-      const minx=xs.length?Math.min(...xs):0, maxx=xs.length?Math.max(...xs):0;
-      const miny=ys.length?Math.min(...ys):0, maxy=ys.length?Math.max(...ys):0;
-      return {cx:(minx+maxx)/2, cy:(miny+maxy)/2, h:(maxy-miny)||0};
-    }
-    if(tag==='line'){
-      const x1=parseFloat(el.getAttribute('x1')||'0')||0, x2=parseFloat(el.getAttribute('x2')||'0')||0;
-      const y1=parseFloat(el.getAttribute('y1')||'0')||0, y2=parseFloat(el.getAttribute('y2')||'0')||0;
-      return {cx:(x1+x2)/2, cy:(y1+y2)/2, h:Math.abs(y2-y1)};
-    }
-    return {cx:0, cy:0, h:0};
+  function finishNow(){ 
+    clearTimeout(killTimer); 
+    loader.style.display='none'; 
   }
-  function fadeOut(){ loader.style.transition='opacity 260ms ease'; loader.style.opacity='0'; loader.addEventListener('transitionend',()=>loader.remove()); }
-  function finishNow(){ clearTimeout(killTimer); loader.style.display='none'; }
 })();
 </script>
 
