@@ -7,6 +7,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Martin Topp – Resume</title>
+  
+  <!-- Open Graph / Discord Embed -->
+  <meta property="og:title" content="Martin Topp – Resume" />
+  <meta property="og:description" content="Cybersecurity Student | Security Analyst at Indiana Cyber Network | Windows Lead & Offensive Security Specialist | CCDC Top 6 Nationals | NCAE MVP" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mtsaga.net/resume/" />
+  <meta property="og:image" content="https://mtsaga.net/assets/images/og-resume.png" />
+  <meta name="theme-color" content="#00aaff" />
+  <meta name="description" content="Resume of Martin Topp - Cybersecurity Student, Security Analyst, and Offensive Security Specialist" />
+  
   <link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -263,55 +273,127 @@
     <div class="resume-section">
       <h2><i class="fas fa-graduation-cap"></i> Education</h2>
       <div class="resume-item">
-        <h3>Indiana Institute of Technology</h3>
-        <div class="meta">Honors B.S. in Cybersecurity • Honors B.A.S. in Criminal Justice</div>
-        <div class="location">Fort Wayne, IN | Expected May 2027</div>
+        <h3>Indiana Institute of Technology, Fort Wayne, IN</h3>
+        <div class="meta">Honors Bachelor of Science in Cybersecurity • Honors Bachelor of Arts and Sciences in Criminal Justice</div>
+        <div class="location">Expected May 2027</div>
         <ul>
-          <li>GPA: 3.9 | Dean's List All Semesters</li>
-          <li>President of Student Government Association</li>
-          <li>Member of Honors Program & National Society of Collegiate Scholars</li>
-          <li>Competitions: CCDC (Top 6 Nationals), NCAE Cyber Games (MVP), CPTC, UBuff Lockdown, NCL</li>
+          <li>Dean's List – All Semesters</li>
+          <li>Cybersecurity Competitions: Top 6 Nation Wide Team CCDC (State & Regional Champions), CPTC, NCAE (MVP), NCL, Lockdown</li>
         </ul>
       </div>
     </div>
 
-    <!-- Experience -->
+    <!-- Technical Experience & Projects -->
     <div class="resume-section">
-      <h2><i class="fas fa-briefcase"></i> Experience</h2>
+      <h2><i class="fas fa-laptop-code"></i> Technical Experience & Projects</h2>
       
       <div class="resume-item">
-        <h3>Windows Specialty Lead & Offensive Security Specialist</h3>
+        <h3>ClassCloud | <a href="https://classcloud.itcw.org" target="_blank">classcloud.itcw.org</a></h3>
+        <div class="meta">Nov 2025 – Present</div>
+        <ul>
+          <li>Developed and deployed a VM provisioning and management platform across AWS and Proxmox, serving 500+ students.</li>
+          <li>Built secure browser-based access with enterprise SSO and Microsoft OAuth, eliminating local setup or VPN dependency.</li>
+          <li>Implemented scalable course-level automation, bulk provisioning, real-time monitoring, and hardened security controls.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Local AI Training and Deployment of AI Models</h3>
+        <div class="meta">September 2025</div>
+        <ul>
+          <li>Built a local AI system trained on Indiana Tech's public site, catalog, and Cyber Warriors docs, enabling real-time student Q&A on degrees, coursework, and team knowledge.</li>
+          <li>Developed scraping, indexing, and querying pipeline; deployed searchable knowledge base for competition prep.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Cybersecurity Competitions</h3>
+        <div class="meta">Oct 2024 – Present</div>
+        <ul>
+          <li>Secure 6+ enterprise systems in CCDC, NCAE, UBuff Lockdown, and NCL, implementing firewall rules, and DNS security.</li>
+          <li>Strengthen 10+ Windows/Linux servers, reducing unauthorized access by 80%.</li>
+          <li>Lead incident response exercises, improving team reaction time by 40%.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Windows Lab Environment</h3>
+        <div class="meta">Jan 2025 – Present</div>
+        <ul>
+          <li>Manage 6+ Windows servers, deploying Active Directory, NTP, and RDS.</li>
+          <li>Design 30+ Group Policy Objects for security compliance, including LDAP and Active Directory hardening.</li>
+          <li>Configure remote access protocols, ensuring secure administrative control.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Work Experience -->
+    <div class="resume-section">
+      <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+      
+      <div class="resume-item">
+        <h3>Security Analyst, Fort Wayne, IN</h3>
+        <div class="meta">Indiana Cyber Network</div>
+        <div class="location">Jan 2026 – Present</div>
+        <ul>
+          <li>Conduct hands-on security assessments and adversary-focused analysis within regulated client environments.</li>
+          <li>Identify, analyze, and validate security weaknesses through event investigation and attack-path analysis, escalating risks.</li>
+          <li>Operate within Governance, Risk, and Compliance requirements while handling sensitive data and security testing.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Program Developer & Digital Literacy Educator, Fort Wayne, IN</h3>
+        <div class="meta">Ball Venture Grant – Digital Empowerment for Seniors</div>
+        <div class="location">Oct 2025 – Present</div>
+        <ul>
+          <li>Developed and delivered tailored training sessions for seniors on technology basics and cybersecurity awareness.</li>
+          <li>Built an AI-powered platform to personalize learning, track progress, and provide ongoing digital support.</li>
+          <li>Increased participant digital confidence and engagement by teaching safe online practices and social connectivity tools.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Datacenter Engineer, Fort Wayne, IN</h3>
+        <div class="meta">Talwar College of Computer Science, Indiana Institute of Technology</div>
+        <div class="location">Aug 2025 – Present</div>
+        <ul>
+          <li>Operate and maintain enterprise datacenter infrastructure supporting academic and cybersecurity lab environments.</li>
+          <li>Deploy and configure server hardware, networking equipment, and storage solutions to support segmented lab and production networks.</li>
+          <li>Configure and support virtualization platforms for scalable VM workloads across instructional and research environments.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Resident Assistant, Fort Wayne, IN</h3>
+        <div class="meta">Indiana Institute of Technology</div>
+        <div class="location">Mar 2025 – Present</div>
+        <ul>
+          <li>Facilitate and maintain inclusive living environment for 32 residents.</li>
+          <li>Organize monthly events focused on academic support, career growth, and campus engagement.</li>
+          <li>Enforce university policies and procedure by 25% in assigned residence hall.</li>
+        </ul>
+      </div>
+
+      <div class="resume-item">
+        <h3>Windows Specialty Lead & Offensive Security Specialist, Fort Wayne, IN</h3>
         <div class="meta">Indiana Tech Cyber Warriors</div>
-        <div class="location">Fort Wayne, IN | August 2023 – Present</div>
+        <div class="location">Oct 2024 – Present</div>
         <ul>
-          <li>Lead Windows security training sessions covering Active Directory, Group Policy, and hardening strategies</li>
-          <li>Design and execute Red Team exercises to simulate real-world attack scenarios</li>
-          <li>Develop and maintain Standard Operating Procedures (SOPs) for incident response and system hardening</li>
-          <li>Mentor team members in Windows security best practices and offensive security techniques</li>
+          <li>Lead weekly Windows security training, improving team proficiency in Active Directory, GPOs, and system hardening.</li>
+          <li>Maintain and update specialty onboarding guides and SOPs, ensuring standardized training for incident responses.</li>
+          <li>Conduct monthly cybersecurity drills and Red/Blue team exercises, reducing incident response time by 40%.</li>
         </ul>
       </div>
 
       <div class="resume-item">
-        <h3>Resident Assistant</h3>
+        <h3>IT Service Agent, Fort Wayne, IN</h3>
         <div class="meta">Indiana Institute of Technology</div>
-        <div class="location">Fort Wayne, IN | August 2024 – Present</div>
+        <div class="location">Sep 2024 – Jan 2026</div>
         <ul>
-          <li>Manage community of 32 residents, fostering inclusive and supportive living environment</li>
-          <li>Plan and execute academic, social, and professional development programs</li>
-          <li>Respond to emergencies and enforce university policies while maintaining positive relationships</li>
-          <li>Collaborate with residence life staff to enhance student experience and campus safety</li>
-        </ul>
-      </div>
-
-      <div class="resume-item">
-        <h3>IT Service Agent</h3>
-        <div class="meta">Indiana Institute of Technology</div>
-        <div class="location">Fort Wayne, IN | September 2023 – May 2024</div>
-        <ul>
-          <li>Resolved 100+ technical support tickets monthly for faculty, staff, and students</li>
-          <li>Provided hardware and software troubleshooting for Windows and Mac systems</li>
-          <li>Maintained IT documentation and knowledge base articles</li>
-          <li>Assisted with network configuration and printer maintenance across campus</li>
+          <li>Resolve 100+ IT tickets monthly, troubleshooting network, software, MFA, SSO, Microsoft Office, and hardware issues.</li>
+          <li>Assist in deploying and maintaining campus wide IT infrastructure for 1,500+ students and faculty.</li>
+          <li>Reduce system downtime by 30% through monitoring and rapid response.</li>
         </ul>
       </div>
 
@@ -327,94 +409,68 @@
       </div>
     </div>
 
-    <!-- Projects -->
-    <div class="resume-section">
-      <h2><i class="fas fa-code"></i> Projects</h2>
-      
-      <div class="resume-item">
-        <h3>Linux Scoring Engine</h3>
-        <ul>
-          <li>Python-based service monitoring system for SSH, WEB, DNS, and FTP services</li>
-          <li>Terminal UI with real-time status updates and automated CSV logging</li>
-          <li>Designed for deployment in Virtual Private Cloud environments (AWS/Azure)</li>
-        </ul>
-      </div>
-
-      <div class="resume-item">
-        <h3>Local AI Training System</h3>
-        <ul>
-          <li>Trained local AI model on Indiana Tech documentation for student Q&A system</li>
-          <li>Integrated Cyber Warriors competition after-action reports for team training</li>
-          <li>Implements web scraping, content indexing, and real-time query processing</li>
-        </ul>
-      </div>
-
-      <div class="resume-item">
-        <h3>CTFd Tryout Portal</h3>
-        <ul>
-          <li>Redesigned and deployed CTFd platform for Cyber Warriors recruitment</li>
-          <li>Created challenges covering Digital Forensics, Web Exploitation, OSINT, Crypto, and Pwn</li>
-          <li>Managed platform for 100+ tryout participants</li>
-        </ul>
-      </div>
-
-      <div class="resume-item">
-        <h3>Datacenter Infrastructure</h3>
-        <ul>
-          <li>Rebuilt Indiana Tech's student datacenter with 99.98% uptime</li>
-          <li>Deployed Proxmox virtualization stack with AD/LDAP integration</li>
-          <li>Organized server racks, networking infrastructure, and storage systems</li>
-        </ul>
-      </div>
-
-      <div class="resume-item">
-        <h3>Windows Lab Topology</h3>
-        <ul>
-          <li>Manage 6+ Windows servers with Active Directory, NTP, and RDS services</li>
-          <li>Designed and implemented 50+ Group Policy Objects for security compliance</li>
-          <li>Configured remote access protocols and secure administrative controls</li>
-        </ul>
-      </div>
-    </div>
-
     <!-- Skills -->
     <div class="resume-section">
-      <h2><i class="fas fa-cogs"></i> Technical Skills</h2>
+      <h2><i class="fas fa-cogs"></i> Skills, Leadership, and Honors</h2>
       <div class="skills-grid">
         <div class="skill-category">
-          <h3>Offensive Security</h3>
+          <h3>Frameworks & Methods</h3>
           <ul>
-            <li>Red Teaming</li>
-            <li>Penetration Testing</li>
-            <li>Vulnerability Assessment</li>
-            <li>Network Exploitation</li>
+            <li>Red Team Operations</li>
+            <li>Adversary Emulation</li>
+            <li>Incident Response</li>
+            <li>Attack Path Analysis</li>
+            <li>System Hardening</li>
           </ul>
         </div>
         <div class="skill-category">
-          <h3>Windows Security</h3>
+          <h3>Enterprise Security</h3>
           <ul>
             <li>Active Directory</li>
-            <li>Group Policy Management</li>
-            <li>PowerShell Automation</li>
-            <li>Windows Server Admin</li>
+            <li>Group Policy (GPO)</li>
+            <li>DNS, RDS</li>
+            <li>LDAP Hardening</li>
+            <li>Privileged Access Controls</li>
           </ul>
         </div>
         <div class="skill-category">
-          <h3>Linux Administration</h3>
+          <h3>Programming & Scripting</h3>
           <ul>
-            <li>System Hardening</li>
-            <li>Bash Scripting</li>
-            <li>Service Management</li>
-            <li>Network Configuration</li>
-          </ul>
-        </div>
-        <div class="skill-category">
-          <h3>Programming & Tools</h3>
-          <ul>
+            <li>HTML/CSS</li>
+            <li>WordPress</li>
             <li>Python</li>
-            <li>HTML/CSS/JavaScript</li>
-            <li>Git Version Control</li>
-            <li>WordPress Development</li>
+            <li>Bash</li>
+            <li>Java</li>
+            <li>Automation for Security Operations</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Infrastructure & Platforms</h3>
+          <ul>
+            <li>Windows Server</li>
+            <li>Linux</li>
+            <li>Virtualized Environments</li>
+            <li>Enterprise Networking</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Emerging Tech</h3>
+          <ul>
+            <li>AI-Assisted Security Analysis</li>
+            <li>OpenAI Prompt Engineering</li>
+            <li>Automation & Knowledge Systems</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h3>Honors & Leadership</h3>
+          <ul>
+            <li>Indiana Tech Honors Program</li>
+            <li>Dean's List (All Semesters)</li>
+            <li>NHS</li>
+            <li>Student Government President</li>
+            <li>Indiana Tech Cyber Warriors</li>
+            <li>Association for Computing Machinery (ACM)</li>
+            <li>ColorStack</li>
           </ul>
         </div>
       </div>
