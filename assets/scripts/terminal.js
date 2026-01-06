@@ -78,7 +78,7 @@
       contents: {
         "about.txt": { type: "file", content: "Martin Topp | Cybersecurity Student | Windows Lead & OffSec Specialist\nIndiana Tech Cyber Warriors | GPA 3.9 | Aspiring Cybersecurity Professional" },
         "resume.txt": { type: "file", content: "Check out my full resume at: /resume\nSkills: Python, Bash, PowerShell, AD, GPO, DNS, Linux, Windows\nCertifications: TRUST Drone, NCAE Competitor, ServSafe" },
-        "contact.txt": { type: "file", content: "Email: mtopp887@gmail.com\nPhone: (219) 789-3297\nLinkedIn: linkedin.com/in/martin-topp\nGitHub: github.com/mt292" },
+        "contact.txt": { type: "file", content: "Email: mtopp887@gmail.com\nLinkedIn: linkedin.com/in/martin-topp\nGitHub: github.com/mt292" },
         "skills.txt": { type: "file", content: "Offensive Security | Red Teaming | Penetration Testing\nWindows Security | Active Directory | Group Policy\nPython | Bash | PowerShell | HTML/CSS\nCCDC Top 6 | NCAE MVP | NCL Competitor" },
         "projects": {
           type: "dir",
@@ -1747,7 +1747,7 @@
     await sys("   • NCAE Most Improved Teammate");
     await sys("   • NCL Competitor");
     await sys("");
-    await sys("\x1b[36mContact:\x1b[0m mtopp887@gmail.com | (219) 789-3297");
+    await sys("\x1b[36mContact:\x1b[0m mtopp887@gmail.com");
     await sys("\x1b[36mLinks:\x1b[0m    linkedin.com/in/martin-topp | github.com/mt292");
   }
 
@@ -1787,7 +1787,7 @@
     await sys("\x1b[36m   fZP            SMMb\x1b[0m                \x1b[33mSkills\x1b[0m: Python, Bash, PowerShell");
     await sys("\x1b[36m   HZM            MMMM\x1b[0m                \x1b[33mAchievements\x1b[0m: CCDC Top 6, NCAE MVP");
     await sys("\x1b[36m   FqM            MMMM\x1b[0m                \x1b[33mEmail\x1b[0m: mtopp887@gmail.com");
-    await sys("\x1b[36m __| \".        |\\dS\"qML\x1b[0m               \x1b[33mPhone\x1b[0m: (219) 789-3297");
+    await sys("\x1b[36m __| \".        |\\dS\"qML\x1b[0m");
     await sys("\x1b[36m |    \`.       | \`' \\Zq\x1b[0m              ");
     await sys("\x1b[36m_)      \\.___.,|     .'\x1b[0m               \x1b[31m███\x1b[32m███\x1b[33m███\x1b[34m███\x1b[35m███\x1b[36m███\x1b[0m");
     await sys("\x1b[36m\\____   )MMMMMP|   .'\x1b[0m");
