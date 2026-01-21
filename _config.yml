@@ -1,0 +1,84 @@
+# Site settings
+title: Martin Topp
+tagline: Security Analyst | Cybersecurity Blog
+description: >-
+  Security insights, technical writeups, and cybersecurity research
+  by Martin Topp - Security Analyst and Offensive Security Specialist
+url: "https://mtsaga.net"
+baseurl: ""
+
+# Author settings
+author:
+  name: Martin Topp
+  email: mt@mtsaga.net
+  links:
+    - https://github.com/mt292
+    - https://linkedin.com/in/martin-topp
+
+# Social media
+social:
+  name: Martin Topp
+  email: mt@mtsaga.net
+  links:
+    - https://github.com/mt292
+    - https://linkedin.com/in/martin-topp
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /blog/:year/:month/:day/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+      math: true
+      mermaid: false
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Pagination
+paginate: 10
+paginate_path: /blog/page/:num/
+
+# Exclude from processing
+exclude:
+  - README.md
+  - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Timezone
+timezone: America/New_York
+
+# Archive
+archive:
+  enabled: true
+  layout: archive
+  permalink: /blog/archive/
+
+# Categories and tags
+category_archive:
+  type: liquid
+  path: /blog/categories/
+tag_archive:
+  type: liquid
+  path: /blog/tags/

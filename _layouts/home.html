@@ -1,0 +1,87 @@
+---
+layout: default
+---
+
+<div class="blog-container">
+  <div class="blog-header">
+    <h1>{{ site.title }} Blog</h1>
+    <p>{{ site.description }}</p>
+  </div>
+
+  <div class="blog-posts-grid">
+    {% for post in paginator.posts %}
+    <article class="blog-card">
+      {% if post.image %}
+      <img src="/assets/blog/{{ post.image }}" alt="{{ post.title }}" class="blog-card-image">
+      {% else %}
+      <div class="blog-card-image"></div>
+      {% endif %}
+      
+      <div class="blog-card-content">
+        <div class="blog-card-meta">
+          <span class="blog-card-date">
+            <i class="far fa-calendar"></i>
+            {{ post.date | date: "%B %d, %Y" }}
+          </span>
+          {% if post.categories %}
+          <span class="blog-card-category">{{ post.categories | first | upcase }}</span>
+          {% endif %}
+        </div>
+        
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        
+        <p class="blog-card-excerpt">
+          {{ post.excerpt | strip_html | truncatewords: 30 }}
+        </p>
+        
+        {% if post.tags %}
+        <div class="blog-card-tags">
+          {% for tag in post.tags limit:3 %}
+          <span class="blog-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        
+        <a href="{{ post.url }}" class="read-more">
+          Read More <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+
+  <!-- Pagination -->
+  {% if paginator.total_pages > 1 %}
+  <div class="pagination">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path }}" class="prev">
+      <i class="fas fa-chevron-left"></i> Previous
+    </a>
+    {% else %}
+    <span class="disabled prev">
+      <i class="fas fa-chevron-left"></i> Previous
+    </span>
+    {% endif %}
+
+    {% for page in (1..paginator.total_pages) %}
+      {% if page == paginator.page %}
+        <span class="current">{{ page }}</span>
+      {% elsif page == 1 %}
+        <a href="/blog">{{ page }}</a>
+      {% else %}
+        <a href="{{ site.paginate_path | replace: ':num', page }}">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}" class="next">
+      Next <i class="fas fa-chevron-right"></i>
+    </a>
+    {% else %}
+    <span class="disabled next">
+      Next <i class="fas fa-chevron-right"></i>
+    </span>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
