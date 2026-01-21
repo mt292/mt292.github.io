@@ -139,5 +139,3 @@ Thank you for visiting my blog! I'm committed to providing high-quality, technic
 Stay curious, stay secure, and I'll see you in the next post!
 
 ---
-
-*This blog is powered by Jekyll with a custom theme that matches my personal website. All content represents my own views and research.*

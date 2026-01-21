@@ -1,0 +1,118 @@
+<!-- Blog Sidebar -->
+<aside class="blog-sidebar">
+  
+  <!-- Recent Posts -->
+  <div class="sidebar-widget">
+    <h3><i class="fas fa-clock"></i> Recent Posts</h3>
+    <ul class="recent-posts-list">
+      {% for post in site.posts limit:5 %}
+      <li>
+        <a href="{{ post.url }}">
+          <span class="recent-post-title">{{ post.title }}</span>
+          <span class="recent-post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Categories -->
+  <div class="sidebar-widget">
+    <h3><i class="fas fa-folder"></i> Categories</h3>
+    <ul>
+      {% assign categories = site.categories | sort %}
+      {% for category in categories %}
+      <li>
+        <a href="#" onclick="filterByCategory('{{ category[0] }}'); return false;">
+          {{ category[0] }}
+          <span class="post-count">{{ category[1] | size }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- Tags -->
+  <div class="sidebar-widget">
+    <h3><i class="fas fa-tags"></i> Popular Tags</h3>
+    <div class="tag-cloud">
+      {% assign tags = site.tags | sort %}
+      {% for tag in tags %}
+      <a href="#" onclick="filterByTag('{{ tag[0] }}'); return false;" class="tag-cloud-item">
+        {{ tag[0] }} ({{ tag[1] | size }})
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Archive -->
+  <div class="sidebar-widget">
+    <h3><i class="fas fa-archive"></i> Archive</h3>
+    <ul>
+      {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+      {% for year in posts_by_year %}
+      <li>
+        <a href="#" onclick="filterByYear('{{ year.name }}'); return false;">
+          {{ year.name }}
+          <span class="post-count">{{ year.items | size }}</span>
+        </a>
+        <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+          {% assign posts_by_month = year.items | group_by_exp: "post", "post.date | date: '%B'" %}
+          {% for month in posts_by_month %}
+          <li>
+            <a href="#" onclick="filterByMonth('{{ year.name }}', '{{ month.name }}'); return false;">
+              {{ month.name }}
+              <span class="post-count">{{ month.items | size }}</span>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- About -->
+  <div class="sidebar-widget">
+    <h3><i class="fas fa-user"></i> About</h3>
+    <p style="color: var(--fg); font-size: 0.9rem; line-height: 1.6;">
+      Security Analyst at Indiana Cyber Network. Incoming Security Consultant Intern at Google Mandiant. 
+      Writing about offensive security, infrastructure, and cybersecurity competitions.
+    </p>
+    <div style="margin-top: 1rem;">
+      <a href="https://github.com/mt292" target="_blank" style="margin-right: 0.5rem; color: var(--accent);">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="https://linkedin.com/in/martin-topp" target="_blank" style="margin-right: 0.5rem; color: var(--accent);">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="mailto:mt@mtsaga.net" style="color: var(--accent);">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+  </div>
+
+</aside>
+
+<script>
+// Simple client-side filtering (can be enhanced)
+function filterByCategory(category) {
+  console.log('Filter by category:', category);
+  window.location.href = '/blog?category=' + encodeURIComponent(category);
+}
+
+function filterByTag(tag) {
+  console.log('Filter by tag:', tag);
+  window.location.href = '/blog?tag=' + encodeURIComponent(tag);
+}
+
+function filterByYear(year) {
+  console.log('Filter by year:', year);
+  window.location.href = '/blog?year=' + year;
+}
+
+function filterByMonth(year, month) {
+  console.log('Filter by month:', year, month);
+  window.location.href = '/blog?year=' + year + '&month=' + encodeURIComponent(month);
+}
+</script>

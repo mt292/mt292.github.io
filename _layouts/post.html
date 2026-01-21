@@ -2,91 +2,95 @@
 layout: default
 ---
 
-<div class="blog-container">
-  <a href="/blog" class="back-to-blog">
-    <i class="fas fa-arrow-left"></i> Back to Blog
-  </a>
+<div class="blog-layout-with-sidebar">
+  <div class="blog-main-content">
+    <a href="/blog" class="back-to-blog">
+      <i class="fas fa-arrow-left"></i> Back to Blog
+    </a>
 
-  <article class="blog-post">
-    <header class="blog-post-header">
-      <h1 class="blog-post-title">{{ page.title }}</h1>
-      
-      <div class="blog-post-meta">
-        <div class="blog-post-meta-item">
-          <i class="far fa-calendar"></i>
-          <time datetime="{{ page.date | date_to_xmlschema }}">
-            {{ page.date | date: "%B %d, %Y" }}
-          </time>
-        </div>
+    <article class="blog-post">
+      <header class="blog-post-header">
+        <h1 class="blog-post-title">{{ page.title }}</h1>
         
-        {% if page.categories %}
-        <div class="blog-post-meta-item">
-          <i class="fas fa-folder"></i>
-          <span>{{ page.categories | join: ', ' }}</span>
-        </div>
-        {% endif %}
-        
-        {% assign words = content | number_of_words %}
-        {% assign reading_time = words | divided_by: 200 %}
-        {% if reading_time < 1 %}
-          {% assign reading_time = 1 %}
-        {% endif %}
-        <div class="blog-post-meta-item">
-          <i class="far fa-clock"></i>
-          <span>{{ reading_time }} min read</span>
-        </div>
-      </div>
-
-      {% if page.tags %}
-      <div class="blog-card-tags" style="margin-top: 1rem; justify-content: center;">
-        {% for tag in page.tags %}
-        <span class="blog-tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      {% endif %}
-    </header>
-
-    {% if page.toc %}
-    <div class="toc-container">
-      <h2>Table of Contents</h2>
-      {% include toc.html html=content %}
-    </div>
-    {% endif %}
-
-    <div class="blog-post-content">
-      {{ content }}
-    </div>
-
-    {% if page.related_posts %}
-    <div class="related-posts" style="margin-top: 3rem;">
-      <h2 style="font-family: 'Orbitron', sans-serif; color: var(--accent); margin-bottom: 1.5rem;">Related Posts</h2>
-      <div class="blog-posts-grid">
-        {% for post in site.related_posts limit:3 %}
-        <article class="blog-card">
-          {% if post.image %}
-          <img src="/assets/blog/{{ post.image }}" alt="{{ post.title }}" class="blog-card-image">
-          {% else %}
-          <div class="blog-card-image"></div>
+        <div class="blog-post-meta">
+          <div class="blog-post-meta-item">
+            <i class="far fa-calendar"></i>
+            <time datetime="{{ page.date | date_to_xmlschema }}">
+              {{ page.date | date: "%B %d, %Y" }}
+            </time>
+          </div>
+          
+          {% if page.categories %}
+          <div class="blog-post-meta-item">
+            <i class="fas fa-folder"></i>
+            <span>{{ page.categories | join: ', ' }}</span>
+          </div>
           {% endif %}
           
-          <div class="blog-card-content">
-            <div class="blog-card-meta">
-              <span class="blog-card-date">
-                <i class="far fa-calendar"></i>
-                {{ post.date | date: "%B %d, %Y" }}
-              </span>
-            </div>
-            
-            <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-            
-            <a href="{{ post.url }}" class="read-more">
-              Read More <i class="fas fa-arrow-right"></i>
-            </a>
+          {% assign words = content | number_of_words %}
+          {% assign reading_time = words | divided_by: 200 %}
+          {% if reading_time < 1 %}
+            {% assign reading_time = 1 %}
+          {% endif %}
+          <div class="blog-post-meta-item">
+            <i class="far fa-clock"></i>
+            <span>{{ reading_time }} min read</span>
           </div>
-        </article>
-        {% endfor %}
+        </div>
+
+        {% if page.tags %}
+        <div class="blog-card-tags" style="margin-top: 1rem; justify-content: center;">
+          {% for tag in page.tags %}
+          <span class="blog-tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </header>
+
+      {% if page.toc %}
+      <div class="toc-container">
+        <h2>Table of Contents</h2>
+        {% include toc.html html=content %}
       </div>
-    </div>
-    {% endif %}
-  </article>
+      {% endif %}
+
+      <div class="blog-post-content">
+        {{ content }}
+      </div>
+
+      {% if page.related_posts %}
+      <div class="related-posts" style="margin-top: 3rem;">
+        <h2 style="font-family: 'Orbitron', sans-serif; color: var(--accent); margin-bottom: 1.5rem;">Related Posts</h2>
+        <div class="blog-posts-grid">
+          {% for post in site.related_posts limit:3 %}
+          <article class="blog-card">
+            {% if post.image %}
+            <img src="/assets/blog/{{ post.image }}" alt="{{ post.title }}" class="blog-card-image">
+            {% else %}
+            <div class="blog-card-image"></div>
+            {% endif %}
+            
+            <div class="blog-card-content">
+              <div class="blog-card-meta">
+                <span class="blog-card-date">
+                  <i class="far fa-calendar"></i>
+                  {{ post.date | date: "%B %d, %Y" }}
+                </span>
+              </div>
+              
+              <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+              
+              <a href="{{ post.url }}" class="read-more">
+                Read More <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </article>
+  </div>
+
+  {% include blog-sidebar.html %}
 </div>

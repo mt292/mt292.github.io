@@ -401,6 +401,49 @@
   font-weight: 600;
 }
 
+/* Recent Posts Widget */
+.recent-posts-list li a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.recent-post-title {
+  color: var(--fg);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.recent-post-date {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+/* Tag Cloud */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-cloud-item {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  background: rgba(0, 170, 255, 0.1);
+  color: var(--fg);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 170, 255, 0.2);
+}
+
+.tag-cloud-item:hover {
+  background: var(--accent);
+  color: var(--dark-bg);
+  border-color: var(--accent);
+}
+
 /* Pagination */
 .pagination {
   display: flex;

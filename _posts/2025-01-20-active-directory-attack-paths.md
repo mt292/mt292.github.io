@@ -5,6 +5,7 @@ date: 2025-01-20 14:30:00 -0500
 categories: [Active Directory, Penetration Testing]
 tags: [active-directory, red-team, pentesting, windows, kerberos]
 description: "An in-depth look at common Active Directory attack paths and how to identify and exploit them during security assessments."
+image: enterpise-env-topo.png
 toc: true
 math: false
 ---
@@ -25,6 +26,9 @@ Active Directory consists of several key components:
 - **Organizational Units (OUs)**: Containers for organizing users, computers, and groups
 - **Group Policy Objects (GPOs)**: Centralized configuration management
 - **Trusts**: Relationships between domains and forests
+
+![Enterprise Active Directory Environment](/assets/enterpise-env-topo.png)
+*Typical enterprise Active Directory environment topology*
 
 ### Security Model
 
