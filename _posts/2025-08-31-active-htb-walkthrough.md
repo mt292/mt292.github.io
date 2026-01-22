@@ -5,7 +5,7 @@ date: 2025-08-31 16:00:00 -0500
 categories: [Penetration Testing, Active Directory]
 tags: [HackTheBox, Active Directory, GPP, Group Policy Preferences, Kerberoasting, SMB, PSExec]
 description: "Comprehensive walkthrough of the Active machine on HackTheBox, demonstrating Group Policy Preferences password decryption, SMB enumeration, Kerberoasting attacks, and obtaining Domain Admin access via PSExec."
-image: assets/blog/active.png
+image: active.png
 toc: true
 math: false
 ---
