@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Active Directory Attack Paths: A Comprehensive Guide"
-date: 2025-01-20 14:30:00 -0500
+date: 2025-10-15 14:30:00 -0500
 categories: [Active Directory, Penetration Testing]
 tags: [active-directory, red-team, pentesting, windows, kerberos]
 description: "An in-depth look at common Active Directory attack paths and how to identify and exploit them during security assessments."

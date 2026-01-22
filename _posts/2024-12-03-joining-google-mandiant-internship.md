@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Joining Google as a Security Consultant Intern"
-date: 2024-12-03 12:00:00 -0500
+date: 2025-12-03 12:00:00 -0500
 categories: [Career, Announcement]
 tags: [google, internship, security-consulting, mandiant, career]
 description: "Excited to announce I'll be joining Google Mandiant as a Security Consultant Intern in Chicago this summer!"

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Enterprise SSO Infrastructure: Deploying Authentik for Indiana Tech Cyber Warriors"
-date: 2025-01-18 10:00:00 -0500
+date: 2026-01-21 10:00:00 -0500
 categories: [Infrastructure, Security]
 tags: [sso, authentik, ldap, mfa, identity-management, enterprise-security]
 description: "How we deployed enterprise-grade Single Sign-On with Authentik to secure Indiana Tech Cyber Warriors' infrastructure, eliminating raw LDAP authentication and implementing MFA across all internal applications."

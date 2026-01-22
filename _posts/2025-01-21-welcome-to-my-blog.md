@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Welcome to My Cybersecurity Blog"
-date: 2025-01-21 12:00:00 -0500
+date: 2025-09-01 12:00:00 -0500
 categories: [General, Announcement]
 tags: [welcome, cybersecurity, security-research]
 description: "Welcome to my cybersecurity blog where I'll be sharing security insights, technical writeups, and research findings."

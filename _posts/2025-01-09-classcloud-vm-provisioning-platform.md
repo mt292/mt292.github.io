@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ClassCloud: Virtual Machine Provisioning Platform for Computer Science Education"
-date: 2025-01-09 09:00:00 -0500
+date: 2026-01-09 09:00:00 -0500
 categories: [Projects, EdTech]
 tags: [cloud-computing, virtualization, proxmox, full-stack, education, saas, sso]
 description: "Building and launching ClassCloud - a production VM provisioning platform serving 100+ students at Indiana Tech with automated deployment, browser-based access, and enterprise SSO integration."

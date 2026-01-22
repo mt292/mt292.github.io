@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Data Center Transformation: Overhauling Indiana Tech's Student Infrastructure"
-date: 2024-12-29 14:00:00 -0500
+date: 2025-11-15 14:00:00 -0500
 categories: [Infrastructure, Projects]
 tags: [data-center, proxmox, networking, cable-management, infrastructure, hands-on]
 description: "How a 'quick one-hour' server maintenance task turned into a 10-hour complete overhaul of Indiana Tech's student data center, transforming a messy storage room into a professional-grade infrastructure foundation."

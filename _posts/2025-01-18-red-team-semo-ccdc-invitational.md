@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Red Team Operations at SEMO CCDC Invitational: Attacking Active Directory & Web Services"
-date: 2025-01-18 14:30:00 -0500
+date: 2026-01-19 14:30:00 -0500
 categories: [Red Team, CCDC]
 tags: [red-team, ccdc, active-directory, penetration-testing, offensive-security, competition]
 description: "Lessons learned from serving on the Red Team at Southeast Missouri State University's CCDC Invitational, focusing on Windows Active Directory attacks, web exploitation, and network compromise."
