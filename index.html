@@ -1,3 +1,5 @@
+---
+---
 <!--(c) 2025 Martin Topp <--->
 <!--dont steal my code, please-->
 
@@ -191,16 +193,19 @@
           height="565" width="504" frameborder="0" allowfullscreen title="Embedded post">
         </iframe>
       </div>
-      <div class="about-content bullets">
-        <ul>
-          <li><strong>Honors B.S. Cybersecurity &amp; B.A.S. Criminal Justice</strong> (GPA 3.9)</li>
-          <li><strong>Resident Assistant</strong> for 32 residents; hosted academic &amp; career events</li>
-          <li><strong>Windows Specialty Lead</strong> &amp; <strong>OffSec Specialist</strong> at Indiana Tech Cyber Warriors</li>
-          <li><strong>Competitions:</strong> CCDC (Top 6), NCAE (MVP), NCL, UBuff Lockdown</li>
-          <li><strong>Skills:</strong> Python, Bash, AD, GPO, DNS, HTML/CSS, WordPress</li>
-          <li><strong>Aspiring:</strong> Cybersecurity professional &amp; cyber leadership</li>
-        </ul>
-        <a href="/resume" class="btn">Download Resume</a>
+      <div class="about-content">
+        <h3 style="color: #00aaff; margin-bottom: 1rem;">Recent Blog Posts</h3>
+        <div class="recent-posts-list">
+          {% for post in site.posts limit:5 %}
+          <div class="recent-post-item">
+            <a href="{{ post.url }}">
+              <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+              <span class="post-title">{{ post.title }}</span>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <a href="/resume" class="btn" style="margin-top: 1.5rem;">Download Resume</a>
       </div>
     </div>
   </section>
