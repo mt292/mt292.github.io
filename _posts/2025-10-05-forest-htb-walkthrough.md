@@ -5,7 +5,7 @@ date: 2025-05-18 14:00:00 -0500
 categories: [Penetration Testing, Active Directory]
 tags: [HackTheBox, Active Directory, AS-REP Roasting, DCSync, Privilege Escalation, Kerberos, PowerView]
 description: "Complete walkthrough of the Forest machine on HackTheBox, demonstrating AS-REP roasting, Exchange Windows Permissions abuse, and DCSync attacks to compromise a Windows domain controller."
-image: /assets/blog/forest.png
+image: assets/blog/forest.png
 toc: true
 math: false
 ---
