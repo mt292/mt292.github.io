@@ -1,0 +1,20 @@
+# robots.txt for mtsaga.net
+# Security-focused cybersecurity blog and portfolio
+
+User-agent: *
+Allow: /
+
+# Disallow admin and config directories (if any exist)
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /_site/
+
+# Allow all blog content
+Allow: /blog/
+Allow: /assets/
+
+# Sitemap location
+Sitemap: https://mtsaga.net/sitemap.xml
+
+# Crawl delay (be respectful)
+Crawl-delay: 1
