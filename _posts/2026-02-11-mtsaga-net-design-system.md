@@ -865,7 +865,7 @@ This is a living document that evolves as the site grows. Design decisions are d
 
 **Design is not just what it looks like and feels like. Design is how it works.**
 
-For questions or suggestions about this design system, reach out at [martin@mtsaga.net](mailto:martin@mtsaga.net).
+For questions or suggestions about this design system, reach out at [mt@mtsaga.net](mailto:mt@mtsaga.net).
 
 ---
 
